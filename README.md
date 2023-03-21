@@ -33,6 +33,7 @@
 - [git init](#git-init)
 - [git clone](#git-clone)
 - [git add](#git-add)
+- [git commit](#git-commit)
 
 
 ## Overview
@@ -784,3 +785,27 @@ git add -A
 
 After running **\`git add\`**, the specified files will be added to the staging area, where they will be ready to be committed. You can use the **\`git status\`** command to see which files are currently in the staging area.
 
+
+### git commit
+
+**ChatGPT**
+
+The syntax of the git commit command is as follows:
+```console
+git commit [-a] [-m <commit message>] [--allow-empty-message] [--author=<author>] [--date=<date>] [--cleanup=<mode>] [--template=<file>] [--signoff] [--gpg-sign[=<key-id>]] [--] [<file>…​]
+```
+
+Where:
+
+- **\`git commit\`** is the command to create a new commit.
+- **-a** option tells Git to automatically stage any modified files before committing.
+- **-m** option specifies the commit message.
+- **--allow-empty-message** option allows the commit message to be empty.
+- **--author** option specifies the author of the commit.
+- **--date** option specifies the date of the commit.
+- **--cleanup** option specifies how Git should clean up the commit message.
+- **--template** option specifies a file containing the commit message template.
+- **--signoff** option adds a Signed-off-by line to the commit message.
+- **--gpg-sign** option adds a GPG signature to the commit.
+- **--** separates the options from the files to be committed.
+- **\<file\>…​** specifies the files to be committed.
