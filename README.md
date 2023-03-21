@@ -15,6 +15,7 @@
 3. [learn.microsoft.com](https://learn.microsoft.com/en-us/devops/develop/git/what-is-git)
 4. [bing.com](https://bing.com/search?q=What+is+Git%3f)
 
+
 ### **How can I get started using Git?**
 
 **Bing**
@@ -34,3 +35,19 @@
 3. [docs.gitlab.com](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html)
 4. [phoenixnap.com](https://phoenixnap.com/kb/how-to-use-git)
 5. [git-scm.com](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+
+### **What is the difference between Git and GitHub?**
+
+**Bing**
+
+> Git is a version control system that helps developers keep track of changes in their code (1). GitHub, on the other hand, is a cloud-based hosting service that lets you manage Git repositories (2). Essentially, GitHub facilitates the work of teams who use Git (1).
+
+Git is a tool that you can use to manage your source code history (3). It is a distributed version control system that tracks changes in any set of computer files (1). GitHub is a hosting service for Git repositories (3). So they are not the same thing: Git is the tool, GitHub is the service for projects that use Git (3).
+
+1. [testgorilla.com](https://www.testgorilla.com/blog/whats-the-difference-between-git-and-github/)
+2. [devmountain.com](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
+3. [stackoverflow.com](https://stackoverflow.com/questions/13321556/difference-between-git-and-github)
+4. [geeksforgeeks.org](https://www.geeksforgeeks.org/difference-between-git-and-github/)
+5. [git-tower.com](https://www.git-tower.com/learn/git/faq/git-vs-github/)
+
