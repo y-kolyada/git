@@ -37,6 +37,26 @@
 5. [git-scm.com](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
 
+### **How do I get started with GitHub?**
+
+**Bing**
+> To get started with GitHub, you can follow these steps:
+> 
+> Create a GitHub account by visiting the GitHub website.
+>
+> Install Git on your computer.
+>
+> Create a new repository on GitHub.
+>
+> Clone the repository to your local machine.
+>
+> Add files to the repository.
+>
+> Commit the changes.
+>
+> Push the changes to GitHub.
+
+
 ### **What is the difference between Git and GitHub?**
 
 **Bing**
