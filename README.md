@@ -113,3 +113,14 @@
 2. [upgrad.com](https://www.upgrad.com/blog/github-vs-gitlab-difference-between-github-and-gitlab/)
 3. [kinsta.com](https://kinsta.com/blog/gitlab-vs-github/)
 4. [zdnet.com](https://www.zdnet.com/article/github-vs-gitlab-the-key-differences/)
+
+
+### **Can I set up my own Git service? And what free software can I use for this purpose?**
+
+**Bing**
+> Yes, you can set up your own Git service. GitLab’s Community Edition is free and open source, and is easy to set up on your own server (1). You can also use other free software such as Gitea, GitBucket, and Gitolite (2).
+
+1. [howtogeek.com](https://www.howtogeek.com/devops/how-to-set-up-a-private-git-server/)
+2. [inmotionhosting.com](https://www.inmotionhosting.com/support/website/git/git-server/)
+3. [docs.github.com](https://docs.github.com/en/get-started/quickstart/set-up-git)
+
