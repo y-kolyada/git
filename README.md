@@ -263,3 +263,17 @@ Tree objects are stored in Git’s repository, also known as the object database
 2. [initialcommit.com](https://initialcommit.com/blog/what-is-a-tree-in-git)
 3. [git-scm.com](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
 
+
+### **What is a branch in Git and what is the main branch?**
+
+**Bing**
+> A branch in Git is simply a lightweight movable pointer to one of the commits (1). It is a new/separate version of the main repository (2). A Git project can have more than one branch3. Every time you commit, the branch pointer moves forward automatically (1). The default branch name in Git is master (1). The master branch is now considered a deprecated name for the main branch in Git1. The default branch name in Git is now main (3).
+
+1. [git-scm.com](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+2. [w3schools.com](https://www.w3schools.com/git/git_branch.asp)
+3. [theserverside.com](https://www.theserverside.com/feature/Why-GitHub-renamed-its-master-branch-to-main)
+4. [cyberithub.com](https://www.cyberithub.com/how-to-prevent-accidental-commit-to-master-and-dev-branch-in-git/)
+5. [javatpoint.com](https://www.javatpoint.com/git-branch)
+6. [atlassian.com](https://www.atlassian.com/git/tutorials/using-branches)
+
+
