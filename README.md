@@ -5,7 +5,7 @@
 [OVERVIEW](#overview)
 - [What is Git?](#what-is-git)
 - [How do I get started using Git?](#how-do-i-get-started-using-git)
-- [How do I get started with GitHub?](#how-do-i-get-started-with-github)
+- [How do I get started using GitHub?](#how-do-i-get-started-using-github)
 - [What is the difference between Git and GitHub?](#what-is-the-difference-between-git-and-github)
 - [What are the benefits of using GitHub?](#what-are-the-benefits-of-using-github)
 - [What are the benefits of using GitLab?](#what-are-the-benefits-of-using-gitlab)
@@ -36,6 +36,7 @@
 - [git commit](#git-commit)
 - [git push](#git-push)
 - [git pull](#git-pull)
+- [git branch](#git-branch)
 
 
 ## Overview
@@ -111,7 +112,7 @@ git log
 There are many more advanced features and commands that you can learn as you become more familiar with Git. You can also explore Git hosting platforms like GitHub or GitLab, where you can collaborate with other developers and contribute to open source projects.
 
 
-### How do I get started with GitHub?
+### How do I get started using GitHub?
 
 **Bing**
 > To get started with GitHub, you can follow these steps:
@@ -863,5 +864,35 @@ Some examples of the **\`git pull\`** command are:
 git pull              # fetch and merge changes from the remote repository into the current branch
 git pull --rebase     # fetch and rebase changes from the remote repository into the current branch
 git pull origin main  # fetch and merge changes from the main branch of the remote origin repository into the current branch
+```
+
+### git branch
+
+**ChatGPT**
+
+The syntax of the git branch command is as follows:
+```console
+git branch [-r] [-a] [-v] [--sort=<key>] [--points-at <object>] [<branchname>]
+```
+
+Where:
+
+- **\`git branch\`** is the command to list, create or delete branches.
+- **\<branchname\>** specifies the name of the branch you want to create or delete. If no branch name is specified, the command lists all existing branches.
+- **-r** option lists or manipulates remote-tracking branches.
+- **-a** option lists or manipulates all branches (local and remote-tracking).
+- **-v** option shows the commit message and the last commit hash of each branch.
+- **--sort=\<key\>** option sorts the branches by the specified key, which can be one of: "refname", "authordate", "committerdate", "committer", "author", or "committerdate:relative".
+- **--points-at \<object\>** option shows only the branches that point to the specified object.
+
+Some examples of the git branch command are:
+```console
+git branch                  # list all branches
+git branch new-branch       # create a new branch named new-branch
+git branch -d old-branch    # delete the branch named old-branch
+git branch -r               # list all remote-tracking branches
+git branch -a               # list all local and remote-tracking branches
+git branch -v               # show the commit message and the last commit hash of each branch
+git branch --points-at HEAD # show only the branches that point to the current commit
 ```
 
