@@ -277,3 +277,14 @@ Tree objects are stored in Git’s repository, also known as the object database
 6. [atlassian.com](https://www.atlassian.com/git/tutorials/using-branches)
 
 
+### **What is a merge in Git?**
+
+**Bing**
+> A merge in Git is a way to combine two or more branches (1). It is used to maintain distinct lines of development, at some stage, you want to merge the changes in one branch (1). The git merge command facilitates you to take the data created by git branch and integrate them into a single branch (1).
+
+1. [javatpoint.com](https://www.javatpoint.com/git-merge-and-merge-conflict)
+2. [geeksforgeeks.org](https://www.geeksforgeeks.org/git-merge/)
+3. [atlassian.com](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+4. [howtogeek.com](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+5. [git-scm.com](https://git-scm.com/docs/git-merge)
+
