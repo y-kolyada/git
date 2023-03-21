@@ -203,3 +203,14 @@
 3. [git-scm.com](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
 4. [knowledgeburrow.com](https://knowledgeburrow.com/what-is-local-and-remote-repository-in-git/)
 
+
+### **What is a remote repository in Git in detail?**
+
+**Bing**
+> In Git, a remote repository is a shared repository that all team members use to exchange their changes. It is stored on a code hosting service like an internal server, GitHub, Subversion, and more (1)(2). A remote URL is Git’s fancy way of saying “the place where your code is stored.” That URL could be your repository on GitHub, or another user’s fork, or even on a completely different server (3).
+
+1. [javatpoint.com](https://www.javatpoint.com/git-remote)
+2. [git-tower.com](https://www.git-tower.com/learn/git/glossary/remote/)
+3. [docs.github.com](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)
+4. [stackoverflow.com](https://stackoverflow.com/questions/20889346/what-does-git-remote-mean)
+
