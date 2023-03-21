@@ -252,3 +252,14 @@
 4. [learn.microsoft.com](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
 
 
+### **What is a tree object and where tree objects are stored in Git?**
+
+**Bing**
+> A tree object, in Git, is an internal data structure that records a directory tree or sub-tree. It contains one entry per file or sub-directory (or, for submodules, a gitlink entry for that submodule). Each entry lists the file’s executable-mode bit, as a sort of yes or no flag that’s encoded weirdly, 1 plus the file’s name and blob hash ID (1). A tree object is a full Git object that is stored in the repository (2).
+
+Tree objects are stored in Git’s repository, also known as the object database (or object store). This resides in your project root at the path .git/objects/ (2). Every object that is stored in the object database gets stored by its SHA-1 hash (2).
+
+1. [stackoverflow.com](https://stackoverflow.com/questions/54139971/what-does-a-tree-mean-in-git)
+2. [initialcommit.com](https://initialcommit.com/blog/what-is-a-tree-in-git)
+3. [git-scm.com](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
+
