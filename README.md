@@ -1,8 +1,38 @@
 # Git FAQ
 
+## Table of Contents
+
+[OVERVIEW](#overview)
+- [What is Git?](#what-is-git)
+- [How do I get started using Git?](#how-do-i-get-started-using-git)
+- [How do I get started with GitHub?](#how-do-i-get-started-with-github)
+- [What is the difference between Git and GitHub?](#what-is-the-difference-between-git-and-github)
+- [What are the benefits of using GitHub?](#what-are-the-benefits-of-using-github)
+- [What are the benefits of using GitLab?](#what-are-the-benefits-of-using-gitlab)
+- [What are the main differences between GitHub and GitLab?](#what-are-the-main-differences-between-github-and-gitlab)
+- [Can I set up my own Git service? And what free software can I use for this purpose?](#can-i-set-up-my-own-git-service-and-what-free-software-can-i-use-for-this-purpose)
+
+[THE ARCHITECTURE OF GIT](#the-architecture-of-git)
+- [What are the basic architectural components of Git?](#what-are-the-basic-architectural-components-of-git)
+- [What is a repository in Git in detail?](#what-is-a-repository-in-git-in-detail)
+- [What is a local repository in Git in detail?](#what-is-a-local-repository-in-git-in-detail)
+- [What is a remote repository in Git in detail?](#what-is-a-remote-repository-in-git-in-detail)
+- [What is a directory in Git in detail?](#what-is-a-directory-in-git-in-detail)
+- [What is an index in Git in detail?](#what-is-an-index-in-git-in-detail)
+- [What is a staging area in Git in detail?](#what-is-a-staging-area-in-git-in-detail)
+- [What is a commit in Git?](#what-is-a-commit-in-git)
+- [How are commits stored in Git?](#how-are-commits-stored-in-git)
+- [What is a blob object and where blob objects are stored in Git?](#what-is-a-blob-object-and-where-blob-objects-are-stored-in-git)
+- [What is a tree object and where tree objects are stored in Git?](#what-is-a-tree-object-and-where-tree-objects-are-stored-in-git)
+- [What is a branch in Git and what is the main branch?](#what-is-a-branch-in-git-and-what-is-the-main-branch)
+- [What is a tag in Git in detail?](#what-is-a-tag-in-git-in-detail)
+- [What is a merge in Git?](#what-is-a-merge-in-git)
+- [What is a rebase in Git?](#what-is-a-rebase-in-git)
+
+
 ## Overview
 
-### **What is Git?**
+### What is Git?
 
 **Bing**
 
@@ -16,7 +46,7 @@
 4. [bing.com](https://bing.com/search?q=What+is+Git%3f)
 
 
-### **How can I get started using Git?**
+### **How do I get started using Git?**
 
 **Bing**
 
@@ -73,7 +103,7 @@ git log
 There are many more advanced features and commands that you can learn as you become more familiar with Git. You can also explore Git hosting platforms like GitHub or GitLab, where you can collaborate with other developers and contribute to open source projects.
 
 
-### **How do I get started with GitHub?**
+### How do I get started with GitHub?
 
 **Bing**
 > To get started with GitHub, you can follow these steps:
@@ -284,8 +314,7 @@ Yes, you can set up your own Git service on your own server or cloud platform. T
 
 These are just a few examples of the many free and open source Git server options available. The best choice for you will depend on your specific needs and preferences.
 
-## 
-The architecture of Git
+## The architecture of Git
 
 ### **What are the basic architectural components of Git?**
 
