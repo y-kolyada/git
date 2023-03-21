@@ -29,6 +29,8 @@
 - [What is a merge in Git?](#what-is-a-merge-in-git)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
 
+[MAIN COMMANDS IN GIT](#main-commands-in-git)
+
 
 ## Overview
 
@@ -684,3 +686,33 @@ Here's an example of how a rebase works: Suppose you have a branch called "featu
 
 It's important to note that rebasing can be a potentially destructive operation, since it rewrites the history of the branch. If you push a rebased branch to a remote repository, it can cause problems for other developers who have based their work on the original version of the branch. Therefore, it's generally recommended to only rebase local branches.
 
+
+## Main commands in Git
+
+Here are some of the main commands in Git:
+
+1. **\`git init\`**: Initializes a new Git repository in the current directory.
+
+2. **\`git clone\`**: Creates a copy of a remote Git repository on your local machine.
+
+3. **\`git add\`**: Adds changes to the staging area in preparation for a commit.
+
+4. **\`git commit\`**: Creates a new commit with the changes in the staging area.
+
+5. **\`git push\`**: Uploads local changes to a remote repository.
+
+6. **\`git pull\`**: Downloads changes from a remote repository and merges them with your local repository.
+
+7. **\`git branch\`**: Lists, creates, or deletes branches in the repository.
+
+8. **\`git checkout\`**: Switches to a different branch or restores a specific commit.
+
+9. **\`git merge\`**: Merges changes from one branch into another.
+
+10. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
+
+11. **\`git log\`**: Displays a log of all the commits in the repository.
+
+12. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+
+These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
