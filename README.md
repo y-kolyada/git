@@ -32,6 +32,7 @@
 [MAIN COMMANDS IN GIT](#main-commands-in-git)
 - [git init](#git-init)
 - [git clone](#git-clone)
+- [git add](#git-add)
 
 
 ## Overview
@@ -724,7 +725,8 @@ These are just a few of the most commonly used Git commands. Git has many other 
 
 **ChatGPT**
 
-The syntax of the git init command is:
+The syntax of the **\`git\`** init command is:
+
 ```console
 git init [directory]
 ```
@@ -741,11 +743,11 @@ This would create a new directory named "myproject" and initialize it as a Git r
 After running **\`git init\`**, the directory will contain a hidden **.git** directory that stores all the Git-related files and metadata for the repository. You can now use other Git commands to manage your repository, such as **\`git add\`**, **\`git commit\`**, and **\`git remote\`**.
 
 
-## git clone
+### git clone
 
 **ChatGPT**
 
-The syntax of the git clone command is:
+The syntax of the **\`git clone\`** command is:
 ```console
 git clone <repository URL> [directory]
 ```
