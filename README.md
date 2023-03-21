@@ -74,3 +74,24 @@
 1. [apiumhub.com](https://apiumhub.com/tech-blog-barcelona/using-github/)
 2. [dzone.com](https://dzone.com/articles/benefits-of-using-github)
 3. [codeclouds.com](https://www.codeclouds.com/blog/advantages-disadvantages-using-github/)
+
+
+### **What are the benefits of using GitLab?**
+
+**Bing**
+> GitLab is a web-based Git repository manager that provides source code management, continuous integration, and continuous deployment (1). Here are some benefits of using GitLab:
+> 
+> Collaboration. GitLab allows all the team members to collaborate in every phase of the project (1).
+>
+> Free and easy to manage. GitLab is available for free and easy to manage and configure (2).
+> 
+> Code reviews and pull requests. GitLab’s code reviews and pull requests make it more compact and user-friendly (2).
+> Automation of the complete DevOps. GitLab provides the functionality to make automation of the complete DevOps which makes a plan to design, create, build, verify, test, deploy, and monitoring on scalability, reputation, availability, and replication (2).
+> 
+> Single application. GitLab is a single application that shortens cycle times, increases productivity, and thus creates value for customers (3).
+
+1. [simplilearn.com](https://www.simplilearn.com/tutorials/git-tutorial/what-is-gitlab)
+2. [educba.com](https://www.educba.com/what-is-gitlab/)
+3. [about.gitlab.com](https://about.gitlab.com/handbook/product/single-application/)
+4. [trustradius.com](https://www.trustradius.com/products/gitlab/reviews?qs=pros-and-cons)
+
