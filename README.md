@@ -35,6 +35,7 @@
 - [git add](#git-add)
 - [git commit](#git-commit)
 - [git push](#git-push)
+- [git pull](#git-pull)
 
 
 ## Overview
@@ -824,7 +825,7 @@ git push [<options>] [<repository>] [<refspec>…​]
 Where:
 
 - **\`git push\`** is the command to push local commits to a remote repository.
-*\<options\>* are any options you want to pass to the push command. Some common options include:
+**\<options\>** are any options you want to pass to the push command. Some common options include:
 - **-u** or **--set-upstream**: sets the upstream branch for the current branch
 - **-f** or **--force**: forces the push even if it results in a non-fast-forward merge
 - **-n** or **--dry-run**: shows what would be pushed without actually pushing
@@ -837,5 +838,30 @@ git push              # push the current branch to the upstream branch
 git push -u origin    # set the upstream branch to origin and push the current branch
 git push origin main  # push the local main branch to the remote origin repository
 git push --tags       # push all tags to the remote repository
+```
+
+### git pull
+
+**ChatGPT**
+
+The syntax of the git pull command is as follows:
+```console
+git pull [<options>] [<repository>] [<refspec>…​]
+```
+
+Where:
+
+- **\`git pull\`** is the command to update the local repository with changes from a remote repository and merge them into the current branch.
+**\<options\>** are any options you want to pass to the pull command. Some common options include:
+- **-r** or **--rebase**: instead of merging, rebase the current branch on top of the fetched branch
+- **-f** or **--force**: force a non-fast-forward update
+- **\<repository\>** specifies the remote repository to pull from. This can be a URL or a shortcut name, such as "origin".
+- **\<refspec\>…**​ specifies the branch or branches to pull. This can be a branch name, a commit hash, or a tag name. If you don't specify a refspec, Git will pull all branches that have been updated.
+
+Some examples of the **\`git pull\`** command are:
+```console
+git pull              # fetch and merge changes from the remote repository into the current branch
+git pull --rebase     # fetch and rebase changes from the remote repository into the current branch
+git pull origin main  # fetch and merge changes from the main branch of the remote origin repository into the current branch
 ```
 
