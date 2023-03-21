@@ -225,3 +225,15 @@
 3. [stackoverflow.com](https://stackoverflow.com/questions/43970559/what-is-exactly-meaning-of-commit-command-in-git)
 4. [atlassian.com](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)
 5. [docs.github.com](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)
+
+
+### **How are commits stored in git?**
+
+**Bing**
+> Commits are stored in Git’s repository, also known as the object database (or object store). This resides in your project root at the path.git/objects/ (1). Git commits are stored the same way as all other Git objects such as blobs and trees. Git’s code builds up the commit in a memory buffer in the format shown above. Next, the OpenSSL SHA library is used to calculate the SHA-1 hash of the commit data (1). Every object that is stored in the object database gets stored by its SHA-1 hash (2).
+
+1. [initialcommit.com](https://initialcommit.com/blog/what-is-a-commit-in-git)
+2. [stackoverflow.com](https://stackoverflow.com/questions/31132621/where-are-the-git-commit-ids-stored)
+3. [stackoverflow.com](https://stackoverflow.com/questions/8198105/how-does-git-store-files)
+4. [github.com](https://github.com/git-guides/git-commit)
+
