@@ -157,3 +157,15 @@
 3. [docs.gitlab.com](https://docs.gitlab.com/ee/development/architecture.html)
 
 
+### **What is a directory in Git in detail?**
+
+**Bing**
+> In Git, a directory is a folder that contains files and other directories. When you create a new repository in Git, it creates a directory with the same name as the repository (1). The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer (1). The working directory is the directory that holds the current checkout of the files you are working on (2).
+
+1. [git-scm.com](https://www.git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
+2. [shafiul.github.io](http://shafiul.github.io/gitbook/1_git_directory_and_working_directory.html)
+3. [stackoverflow.com](https://stackoverflow.com/questions/29217859/what-is-the-git-folder)
+4. [about.gitlab.com](https://about.gitlab.com/handbook/create-directory/)
+5. [stackoverflow.com](https://stackoverflow.com/questions/29217859/what-is-the-git-folder)
+6. [geeksforgeeks.org](https://www.geeksforgeeks.org/states-of-a-file-in-git-working-directory/)
+
