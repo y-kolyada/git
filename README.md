@@ -169,3 +169,17 @@
 5. [stackoverflow.com](https://stackoverflow.com/questions/29217859/what-is-the-git-folder)
 6. [geeksforgeeks.org](https://www.geeksforgeeks.org/states-of-a-file-in-git-working-directory/)
 
+
+### **What is a staging area in Git in detail??**
+
+**Bing**
+> The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Its technical name in Git parlance is the “index”, but the phrase “staging area” works just as well (1). The staging area is like a rough draft space, it’s where you can git add the version of a file or multiple files that you want to save in your next commit (in other words in the next version of your project) (2). The staging area is a fundamental part of version control and can be used effectively to make version control easier and uncomplicated (3).
+
+1. [git-scm.com](https://www.git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
+2. [stackoverflow.com](https://stackoverflow.com/questions/49228209/whats-the-use-of-the-staging-area-in-git)
+3. [developernation.net](https://www.developernation.net/blog/git-internals-part-3-understanding-the-staging-area-in-git/)
+4. [git-scm.com](https://git-scm.com/about/staging-area)
+5. [w3schools.com](https://www.w3schools.com/git/git_staging_environment.asp)
+
+
+
