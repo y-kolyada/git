@@ -182,4 +182,14 @@
 5. [w3schools.com](https://www.w3schools.com/git/git_staging_environment.asp)
 
 
+### **What is a staging area in Git in detail??**
+
+**Bing**
+> In Git, a repository is a collection of files of various different versions of a project. These files are imported from the repository into the local server of the user for further updations and modifications in the content of the file (1). A Git repository is the .git/ folder inside a project. This repository tracks all changes made to files in your project, building a history over time. Meaning, if you delete the .git/ folder, then you delete your project’s history (2). A repository contains all of your project’s files and each file’s revision history. You can discuss and manage your project’s work within the repository (3).
+
+1. [geeksforgeeks.org](https://www.geeksforgeeks.org/what-is-a-git-repository/)
+2. [gitkraken.com](https://www.gitkraken.com/learn/git/tutorials/what-is-a-git-repository)
+3. [docs.github.com](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+4. [educba.com](https://www.educba.com/git-repository/)
+
 
