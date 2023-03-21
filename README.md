@@ -214,3 +214,14 @@
 3. [docs.github.com](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)
 4. [stackoverflow.com](https://stackoverflow.com/questions/20889346/what-does-git-remote-mean)
 
+
+### **What is a commit in Git?**
+
+**Bing**
+> In Git, a commit is a snapshot of your project’s working directory at a specific point in time, taken by a specific author. Git keeps a record of all commits made in your project and uses this to build up a full history of every change ever made to each file (1). Git considers each commit change point or “save point”. It is a point in the project you can go back to if you find a bug, or want to make a change. When we commit, we should always include a message. By adding clear messages to each commit, it is easy for yourself (and others) to see what has changed and when (2).
+
+1. [initialcommit.com](https://initialcommit.com/blog/what-is-a-commit-in-git)
+2. [w3schools.com](https://www.w3schools.com/git/git_commit.asp)
+3. [stackoverflow.com](https://stackoverflow.com/questions/43970559/what-is-exactly-meaning-of-commit-command-in-git)
+4. [atlassian.com](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)
+5. [docs.github.com](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)
