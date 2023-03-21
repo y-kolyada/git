@@ -95,3 +95,21 @@
 3. [about.gitlab.com](https://about.gitlab.com/handbook/product/single-application/)
 4. [trustradius.com](https://www.trustradius.com/products/gitlab/reviews?qs=pros-and-cons)
 
+
+### **What are the main differences between GitHub and GitLab?**
+
+**Bing**
+> GitHub and GitLab are both web-based Git repository managers that provide source code management, continuous integration, and continuous deployment (1). Here are some differences between GitHub and GitLab:
+> 
+> GitHub is more popular than GitLab (1).
+>
+> GitHub has higher availability and is more focused on infrastructure performance, while GitLab is more focused on offering a features-based system with a centralized, integrated platform for web developers (2).
+>
+> GitLab is open source, which means you can download the source code from here and self-host the service on your own servers or on a cloud provider (1).
+>
+> GitLab has more features than GitHub (1).
+
+1. [pediaa.com](https://pediaa.com/what-is-the-difference-between-github-and-gitlab/)
+2. [upgrad.com](https://www.upgrad.com/blog/github-vs-gitlab-difference-between-github-and-gitlab/)
+3. [kinsta.com](https://kinsta.com/blog/gitlab-vs-github/)
+4. [zdnet.com](https://www.zdnet.com/article/github-vs-gitlab-the-key-differences/)
