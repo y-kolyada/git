@@ -34,6 +34,7 @@
 - [git clone](#git-clone)
 - [git add](#git-add)
 - [git commit](#git-commit)
+- [git push](#git-push)
 
 
 ## Overview
@@ -809,3 +810,32 @@ Where:
 - **--gpg-sign** option adds a GPG signature to the commit.
 - **--** separates the options from the files to be committed.
 - **\<file\>…​** specifies the files to be committed.
+
+
+### git push
+
+**ChatGPT**
+
+The syntax of the git push command is as follows:
+```console
+git push [<options>] [<repository>] [<refspec>…​]
+```
+
+Where:
+
+- **\`git push\`** is the command to push local commits to a remote repository.
+*\<options\>* are any options you want to pass to the push command. Some common options include:
+- **-u** or **--set-upstream**: sets the upstream branch for the current branch
+- **-f** or **--force**: forces the push even if it results in a non-fast-forward merge
+- **-n** or **--dry-run**: shows what would be pushed without actually pushing
+- **\<repository\>** specifies the remote repository to push to. This can be a URL or a shortcut name, such as "origin".
+- **\<refspec\>…**​ specifies the branch or branches to push. This can be a branch name, a commit hash, or a tag name. If you don't specify a refspec, Git will push all branches that have been updated.
+
+Some examples of the **\`git push\`** command are:
+```console
+git push              # push the current branch to the upstream branch
+git push -u origin    # set the upstream branch to origin and push the current branch
+git push origin main  # push the local main branch to the remote origin repository
+git push --tags       # push all tags to the remote repository
+```
+
