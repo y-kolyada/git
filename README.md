@@ -170,7 +170,7 @@
 6. [geeksforgeeks.org](https://www.geeksforgeeks.org/states-of-a-file-in-git-working-directory/)
 
 
-### **What is a staging area in Git in detail??**
+### **What is a staging area in Git in detail?**
 
 **Bing**
 > The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Its technical name in Git parlance is the “index”, but the phrase “staging area” works just as well (1). The staging area is like a rough draft space, it’s where you can git add the version of a file or multiple files that you want to save in your next commit (in other words in the next version of your project) (2). The staging area is a fundamental part of version control and can be used effectively to make version control easier and uncomplicated (3).
@@ -182,7 +182,7 @@
 5. [w3schools.com](https://www.w3schools.com/git/git_staging_environment.asp)
 
 
-### **What is a staging area in Git in detail??**
+### **What is a staging area in Git in detail?**
 
 **Bing**
 > In Git, a repository is a collection of files of various different versions of a project. These files are imported from the repository into the local server of the user for further updations and modifications in the content of the file (1). A Git repository is the .git/ folder inside a project. This repository tracks all changes made to files in your project, building a history over time. Meaning, if you delete the .git/ folder, then you delete your project’s history (2). A repository contains all of your project’s files and each file’s revision history. You can discuss and manage your project’s work within the repository (3).
@@ -192,4 +192,14 @@
 3. [docs.github.com](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
 4. [educba.com](https://www.educba.com/git-repository/)
 
+
+### **What is a local repository in Git in detail?**
+
+**Bing**
+> A Git local repository is the one on which we will make local changes, typically this local repository is on our computer (1). Git remote repository is the one of the server, typically a machine situated at some distance away. Git has two repository types: local and remote. The local repo is on your computer for only your direct use. The remote repo is typically elsewhere and for your indirect use (2). You typically obtain a Git repository in one of two ways: You can take a local directory that is currently not under version control, and turn it into a Git repository, or You can clone an existing Git repository from elsewhere. In either case, you end up with a Git repository on your local machine, ready for work (3).
+
+1. [stackoverflow.com](https://stackoverflow.com/questions/13072111/gits-local-repository-and-remote-repository-confusing-concepts)
+2. [stackoverflow.com](https://stackoverflow.com/questions/56296790/what-exactly-is-a-git-local-repository)
+3. [git-scm.com](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+4. [knowledgeburrow.com](https://knowledgeburrow.com/what-is-local-and-remote-repository-in-git/)
 
