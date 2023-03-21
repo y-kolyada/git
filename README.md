@@ -1,6 +1,6 @@
 # Git FAQ
 
-## Main concepts
+## Overview
 
 ### **What is Git?**
 
@@ -143,4 +143,17 @@
 1. [howtogeek.com](https://www.howtogeek.com/devops/how-to-set-up-a-private-git-server/)
 2. [inmotionhosting.com](https://www.inmotionhosting.com/support/website/git/git-server/)
 3. [docs.github.com](https://docs.github.com/en/get-started/quickstart/set-up-git)
+
+
+## The architecture of Git
+
+### **What are the basic architectural components of Git?**
+
+**Bing**
+> Git has three main components: the working directory, the staging area, and the repository (1). The working directory is where you make changes to your files. The staging area is where you prepare your changes for the next commit. The repository is where Git stores all the versions of your files (2).
+
+1. [designveloper.com](https://www.designveloper.com/blog/git-concepts-architecture/)
+2. [freecodecamp.org](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
+3. [docs.gitlab.com](https://docs.gitlab.com/ee/development/architecture.html)
+
 
