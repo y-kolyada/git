@@ -237,3 +237,18 @@
 3. [stackoverflow.com](https://stackoverflow.com/questions/8198105/how-does-git-store-files)
 4. [github.com](https://github.com/git-guides/git-commit)
 
+
+### **What is a blob object and where blob objects are stored in Git?**
+
+**Bing**
+> A Git blob (binary large object) is the object type used to store the contents of each file in a repository. Each version of a file in Git is represented as a blob. A blob holds a file’s data but doesn’t contain any metadata about the file or even its name (1). A blob in Git is just a file’s binary data, stored along with the size of that data and a label indicating the object’s type, which in this case is a 'blob’ (2). Because a blob is just a stream of binary data, it is also referred to as an octet stream or a byte stream (2).
+>
+>Blob objects are stored in Git’s repository, also known as the object database (or object store). This resides in your project root at the path .git/objects/ (1). Every object that is stored in the object database gets stored by its SHA-1 hash (1).
+
+
+1. [initialcommit.com](https://initialcommit.com/blog/what-is-a-blob-in-git)
+2. [tutorialspoint.com](https://www.tutorialspoint.com/explain-blob-object-and-tree-object-in-git)
+3. [docs.github.com](https://docs.github.com/en/rest/git/blobs)
+4. [learn.microsoft.com](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
+
+
