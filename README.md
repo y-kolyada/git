@@ -943,3 +943,32 @@ In this example, we're checking out a previous version of **\`myfile.txt\`** fro
 This command will replace the current version of **\`myfile.txt\`** with the version from three commits ago. This is useful if we want to undo changes made to a file and go back to a previous version.
 
 
+### git merge
+
+**ChatGPT**
+
+The syntax of the **\`git merge\`** command is as follows:
+```console
+git merge [options] [branch]
+```
+
+Where:
+
+- **\`git merge\`**: This is the command itself.
+- **[options]**: These are optional flags that modify the behavior of the command. Some commonly used options include --no-ff (prevent a "fast-forward" merge), --abort (abort an in-progress merge), and --squash (combine the changes from multiple commits into a single commit).
+- **[branch]**: This is the name of the branch that you want to merge into the current branch.
+
+When you run the git merge command, Git will attempt to merge the changes from the specified branch into the current branch. If the two branches have diverged and made different changes to the same files, Git will try to automatically merge the changes together. If there are conflicts that Git cannot resolve automatically, it will mark the conflicts in the affected files and ask you to manually resolve them.
+
+Here's an example of the git merge command with syntax:
+```console
+git merge feature-branch
+```
+In this example, we're merging the changes from the **\`feature-branch\`** into the current branch. Here's a breakdown of the syntax:
+
+- **git merge**: This is the command itself.
+- **feature-branch**: This is the name of the branch that we want to merge into the current branch.
+
+This command will attempt to automatically merge the changes from **\`feature-branch\`** into the current branch. If there are any conflicts that Git cannot resolve automatically, it will ask you to manually resolve them before the merge can be completed.
+
+
