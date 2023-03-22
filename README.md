@@ -1,4 +1,4 @@
-# AI's Git FAQ-30
+# AI's Git FAQ-100
 
 ## Table of Contents
 
@@ -78,6 +78,24 @@
 3. [learn.microsoft.com](https://learn.microsoft.com/en-us/devops/develop/git/what-is-git)
 4. [bing.com](https://bing.com/search?q=What+is+Git%3f)
 
+**ChatGPT**
+
+Git is a popular version control system that is widely used in software development to manage source code and track changes over time. It was created by Linus Torvalds in 2005 as an open source project and has since become one of the most widely used version control systems in the world.
+
+Git allows developers to create and manage multiple versions of their codebase, enabling collaboration among multiple contributors and enabling users to easily roll back changes if necessary. It provides a rich set of features, including branching, merging, and tagging, that allow developers to easily manage and track the progress of their projects.
+
+Some of the key benefits of using Git include:
+
+- **Version control**: Git allows developers to keep track of multiple versions of their codebase, making it easy to roll back changes or revert to an earlier version of their code.
+
+- **Collaboration**: Git allows multiple developers to work on the same codebase simultaneously, making it easy to collaborate on projects and track changes made by different contributors.
+
+- **Branching and merging**: Git allows developers to create multiple branches of their codebase, enabling them to work on different features or bug fixes simultaneously without interfering with each other. Branches can be merged back into the main codebase when changes are complete.
+
+- **Tagging**: Git allows developers to tag specific versions of their codebase, making it easy to mark important milestones or releases and enabling users to easily identify and access specific versions of the codebase.
+
+Git is widely used in the software development industry and has become an essential tool for developers working on a wide range of projects. It provides a powerful set of features for managing and tracking changes to code, making it an indispensable tool for modern software development.
+
 
 ### **How do I get started using Git?**
 
@@ -155,7 +173,7 @@ There are many more advanced features and commands that you can learn as you bec
 >
 > - Push the changes to GitHub.
 
-**ChatGPT***
+**ChatGPT**
 
 1. Create a GitHub account. Go to the GitHub website (https://github.com/) and sign up for a new account.
 
@@ -196,7 +214,7 @@ There are many more features and tools that you can explore as you become more f
 4. [geeksforgeeks.org](https://www.geeksforgeeks.org/difference-between-git-and-github/)
 5. [git-tower.com](https://www.git-tower.com/learn/git/faq/git-vs-github/)
 
-**ChatGPT***
+**ChatGPT**
 
 Git and GitHub are related but different tools:
 
