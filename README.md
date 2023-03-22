@@ -141,19 +141,19 @@ There are many more advanced features and commands that you can learn as you bec
 **Bing**
 > To get started with GitHub, you can follow these steps:
 > 
-> Create a GitHub account by visiting the GitHub website.
+> - Create a GitHub account by visiting the GitHub website.
 >
-> Install Git on your computer.
+> - Install Git on your computer.
 >
-> Create a new repository on GitHub.
+> - Create a new repository on GitHub.
 >
-> Clone the repository to your local machine.
+> - Clone the repository to your local machine.
 >
-> Add files to the repository.
+> - Add files to the repository.
 >
-> Commit the changes.
+> - Commit the changes.
 >
-> Push the changes to GitHub.
+> - Push the changes to GitHub.
 
 **ChatGPT***
 
