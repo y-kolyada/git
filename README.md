@@ -29,6 +29,7 @@
 - [What is a merge in Git?](#what-is-a-merge-in-git)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
 - [What is a cherry-picking in Git?](#what-is-a-cherry-picking-in-git)
+- [What is a revert in Git?](#what-is-a-revert-in-git)
 
 [MAIN COMMANDS IN GIT](#main-commands-in-git)
 - [git init](#git-init)
@@ -712,6 +713,25 @@ It's important to note that rebasing can be a potentially destructive operation,
 In Git, "cherry-picking" is the process of selecting a specific commit from one branch and applying it to another branch. It allows you to apply a single commit or a range of commits from one branch onto another branch, without having to merge the entire branch. This can be useful in situations where you want to apply a specific fix or feature from one branch onto another branch, without bringing in all the other changes from the source branch.
 
 
+### **What is a revert in Git?**
+
+**Bing**
+> In Git, git revert is used to undo changes to a repository’s commit history (1). It creates a new commit that inverses the changes specified instead of deleting or orphaning commits in the commit history (1). Unlike other ‘undo’ commands like git checkout and git reset which move the HEAD and branch ref pointers to a specified commit, git revert does not move ref pointers to this commit (1).
+
+1. [atlassian.com](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)
+2. [javatpoint.com](https://www.javatpoint.com/git-revert)
+3. [git-scm.com](https://git-scm.com/docs/git-revert)
+4. [w3schools.com](https://www.w3schools.com/git/git_revert.asp)
+
+**ChatGPT**
+
+When you run the **\`git revert\`** command, Git creates a new commit that applies the opposite of the changes made in the specified commit. For example, if the specified commit added a line of code, the revert commit would remove that line of code. The revert commit also includes a commit message that explains that the commit is a revert of a previous commit.
+
+It's important to note that the git revert command does not delete or erase the original commit. Instead, it creates a new commit that undoes the changes made in the original commit. This means that the history of the project remains intact, and you can still see the original commit and the revert commit in the project's Git history.
+
+Overall, the **\`git revert\`** command is a powerful tool that allows you to undo changes without disrupting the project's history or causing conflicts with other contributors.
+
+
 ## Main commands in Git
 
 Here are some of the main commands in Git:
@@ -1241,13 +1261,7 @@ git revert -n <commit>
 
 After running the **\`git revert\`** command, Git will create a new commit that undoes the changes made in the specified commit. The revert commit will have the opposite changes of the original commit, effectively canceling out the original changes. This allows you to undo changes without rewriting Git history, which can be useful for collaborative projects where multiple people are working on the same codebase.
 
-When you run the **\`git revert\`** command, Git creates a new commit that applies the opposite of the changes made in the specified commit. For example, if the specified commit added a line of code, the revert commit would remove that line of code. The revert commit also includes a commit message that explains that the commit is a revert of a previous commit.
-
-It's important to note that the git revert command does not delete or erase the original commit. Instead, it creates a new commit that undoes the changes made in the original commit. This means that the history of the project remains intact, and you can still see the original commit and the revert commit in the project's Git history.
-
-Overall, the **\`git revert\`** command is a powerful tool that allows you to undo changes without disrupting the project's history or causing conflicts with other contributors.
-
-An example of using the git revert -m command:
+An example of using the git revert -m command (**ChatGPT: demonstrate an example of the 'git revert -m' command**):
 
 Let's say you have a merge commit in your Git history, which merged two branches together. The merge commit has a hash value of **\`abcdefg\`** and its first parent is the branch that you want to revert. In this case, you can run the following command to revert the changes from that branch:
 ```console
@@ -1259,4 +1273,5 @@ Here, the **\`-m\`** option specifies which parent commit to use for the revert.
 After running this command, Git will create a new commit that undoes the changes made in the first parent commit of the merge commit. This new commit will have a commit message that explains that it is a revert of the first parent commit.
 
 Note that if the merge commit had more than two parents, you would need to specify which parent commit to revert by using the **\`-m\`** option with a different number. For example, if you want to revert the changes made in the second parent commit, you would use **\`-m 2\`**.
+
 
