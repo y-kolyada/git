@@ -27,6 +27,7 @@
 - [What is a branch in Git and what is the main branch?](#what-is-a-branch-in-git-and-what-is-the-main-branch)
 - [What is a tag in Git in detail?](#what-is-a-tag-in-git-in-detail)
 - [What is a merge in Git?](#what-is-a-merge-in-git)
+- [What is a config in Git?](#what-is-a-config-in-git)
 
 [HISTORY OPERATIONS](#history-operations)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
@@ -50,10 +51,10 @@
 - [git diff](#git-diff)
 
 [ADDITIONAL COMMANDS IN GIT](#additional-commands-in-git)
+- [git config](#git-config)
+- [git tag](#git-tag)
 - [git rebase](#git-rebase)
 - [git cherry-pick](#git-cherry-pick)
-- [git revert](#git-revert)
-- [git tag](#git-tag)
 - [git revert](#git-revert)
 - [git reset](#git-reset)
 - [git rm](#git-rm)
@@ -685,6 +686,32 @@ There are two main types of merges in Git: fast-forward merges and three-way mer
 A three-way merge occurs when the two branches being merged have diverged, meaning they both have new changes that are not in the other branch. In this case, Git automatically attempts to reconcile the changes made in both branches and create a new commit that represents the combined state of the code. If there are conflicts between the changes made in each branch, Git will prompt the user to resolve those conflicts before the merge can be completed.
 
 
+### **What is a config in Git?**
+
+**Bing**
+> Git config is used to set Git configuration values on a global or local project level (1). These configuration levels correspond to .gitconfig text files (1). Executing git config will modify a configuration text file (1). You can use the Git configuration file to customize how Git works2. This file exists in the project level where Git is initialized (/project/.git/config) or at the root level (~/.gitconfig) (2).
+
+1. [atlassian.com](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config)
+2. [freecodecamp.org](https://www.freecodecamp.org/news/git-config-how-to-configure-git-settings/)
+3. [w3docs.com](https://www.w3docs.com/learn-git/git-config.html)
+4. [git-scm.com](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
+5. [git-scm.com](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+**ChatGPT**
+
+Git configuration is a way to customize your Git experience by setting various options and parameters that affect how Git operates.
+
+Git configuration can be set at three levels: system, global, and local. The system-level configuration applies to all users on the system, the global-level configuration applies to all repositories for the current user, and the local-level configuration applies to a specific repository.
+
+The git config command is used to configure Git. Some common examples of Git configuration options that can be set include the user name and email address associated with your commits, the default text editor to use for commit messages, and various settings related to merging, rebasing, and push behavior.
+
+To set a Git configuration option, you can use the git config command followed by the name of the option and its value. For example, to set the user name for your Git commits, you can use the following command:
+```config
+git config --global user.name "Your Name"
+```
+This sets the user.name option globally, so it will apply to all repositories for the current user. You can also set configuration options for a specific repository by omitting the --global flag and running the command inside the repository directory.
+
+
 ## History operations
 
 
@@ -840,22 +867,24 @@ These are just a few of the most commonly used Git commands. Git has many other 
 
 ## Additional commands in Git
 
-1. **\`git rebase\`**: Rebase commits from one branch to another.
+1. **\`git config\`**: Is used to configure Git.
 
-2. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
+2. **\`git rebase\`**: Rebase commits from one branch to another.
 
-3. **\`git revert\`**: Cancels changes made in the specified commit.
+3. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
 
-4. \* **\`git tag\`**: Create a tag for a specific commit to refer to it.
+4. **\`git revert\`**: Cancels changes made in the specified commit.
 
-5. \* **\`git rever\`**: Is used to undo changes made to a repository’s commit history.
+5. **\`git tag\`**: Create a tag for a specific commit to refer to it.
 
-6. \* **\`git reset\`**: Is used to undo changes made to a repository’s commit history.
+6. **\`git rever\`**: Is used to undo changes made to a repository’s commit history.
 
-7. \* **\`git rm\`**: Is used to remove files from a Git repository.
+7. **\`git reset\`**: Is used to undo changes made to a repository’s commit history.
+
+8. **\`git rm\`**: Is used to remove files from a Git repository.
+
 
 In Git, git reset is used to undo changes made to a repository’s commit history1. It has three core forms of invocation1. The first form resets the current branch head to a specified commit and possibly updates the index (resetting it to the tree of the specified commit) and the working tree depending on <mode>2. The second form resets the staging area to match a specified commit but leaves the working directory unchanged3. The third form resets both the staging area and working directory to match a specified commit1.
-
 
 
 ### git init
@@ -1102,60 +1131,6 @@ In this example, we're merging the changes from the **\`feature-branch\`** into 
 This command will attempt to automatically merge the changes from **\`feature-branch\`** into the current branch. If there are any conflicts that Git cannot resolve automatically, it will ask you to manually resolve them before the merge can be completed.
 
 
-### git rebase
-
-**ChatGPT**
-
-The **\`git rebase\`** command allows you to apply changes from one branch onto another branch. The basic syntax of the **\`git rebase\`** command is as follows:
-```console
-git rebase [<options>] [<upstream>] [<branch>]
-```
-Where:
-
-- **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
-> - **-i** or **--interactive**: allows you to interactively rebase the branch, allowing you to edit, delete, and reorder commits.
-> - **--onto \<newbase\>**: specifies a new starting point for the rebase operation.
-> - *-p* or **--preserve-merges**: preserves merge commits instead of flattening them into a linear history.
-- **\<upstream\>** specifies the branch or commit to rebase onto. This is the branch that will become the new base for the current branch.
-- **\<branch\>** specifies the branch to rebase. This is the branch that will be rebased onto the <upstream> branch.
-
-Here's an example of using **\`git rebase\`**:
-```console
-git rebase master feature-branch
-```
-This command rebases the **\`feature-branch\`** onto the **\`master branch\`**. The output might look something like this:
-```console
-First, rewinding head to replay your work on top of it...
-Applying: Add new feature
-```
-In this example, **\`master\`** is the **\`<upstream\>** branch and **\`feature-branch\`** is the **\<branch\>** to be rebased. The **\`git rebase\`** command takes the changes made in feature-branch and applies them onto the tip of master. If there are any conflicts, Git will pause the rebase operation and prompt you to resolve them before continuing.
-
-Note that rebasing can be a destructive operation that modifies the commit history of your repository, so it's important to use with caution and to make sure you have a backup of your work before performing a rebase.
-
-
-### git cherry-pick
-
-**ChatGPT**
-
-The basic syntax for **\`git cherry-pick\`** a commit is as follows:
-```console
-git cherry-pick <commit>
-```
-
-Where:
-
-- **\<commit\>** is the commit ID or branch name of the commit you want to apply to the current branch.
-
-Here's an example of using **\`git cherry-pick\`**:
-
-Suppose you have a **\`master\`** branch and a **\`feature\`** branch, and you want to apply a single commit from the **\`feature\`** branch onto **\`master\`**. The commit ID of the commit you want to apply is **\`abc123\`**. You can do this with the following command:
-```console
-git cherry-pick abc123
-```
-This command will apply the changes made in the commit with ID **\`abc123\`** to the current branch (**\`master\`** in this case).
-
-Note that when you cherry-pick a commit, Git creates a new commit in the target branch with a new commit ID. The content of the new commit will be the same as the original commit, but the commit metadata (such as author, date, and commit message) will be different. Also, cherry-picking can sometimes lead to conflicts if the same changes have already been made in the target branch. In that case, you'll need to resolve the conflicts manually.
-
 
 ### git status
 
@@ -1307,6 +1282,42 @@ index 7e3d4d4..8c465a4 100644
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
 
 
+## git config
+
+**ChatGPT**
+
+The syntax of the **\`git config\`** command is:
+```console
+git config [--global] <key> <value>
+```
+
+Here, **\`--global\`** is an optional flag that specifies that the configuration option should be set globally, rather than just for the current repository. If this flag is omitted, the option will be set locally for the current repository.
+
+**\<key\>** is the name of the configuration option you want to set, and **\<value\>** is the value you want to assign to that option. For example, to set the user name associated with your Git commits, you can use the following command:
+```config
+git config --global user.name "Your Name"
+```
+This sets the **\`user.name\`** option globally, so it will apply to all repositories for the current user. To set the option for a specific repository, omit the **\`--global\`** flag and run the command inside the repository directory.
+
+You can also view the current value of a configuration option by running the **\`git config \<key\>\`** command, or view all configured options and their values using the **\`git config --list\`** command. To remove a configuration option, you can use the **\`git config --unset \<key\>\`** command.
+
+There are several main configuration files used in Git to customize and configure its behavior. These include:
+
+1. System-level configuration file: This file applies to all users on the system and is located at **\`/etc/gitconfig\`** on Unix-like systems or in the Git installation directory on Windows.
+2. Global configuration file: This file applies to all Git repositories for the current user and is located at **\`~/.gitconfig\`** or **\`~/.config/git/config\`** on Unix-like systems, or at **\`%USERPROFILE%/.gitconfig\`** on Windows.
+3. Local configuration file: This file applies only to the current Git repository and is located at **\`.git/config\`** within the repository.
+
+These configuration files are formatted as INI files, which consist of sections and key-value pairs. Here are some examples of configuration options that can be set in each of these files:
+
+- **user.name** and **user.email**: These options specify the name and email address associated with your Git commits.
+- **core.editor**: This option specifies the text editor to use for editing commit messages and other text files within Git.
+- **core.autocrlf**: This option specifies how Git handles line endings in text files, and can be set to true, false, or input.
+- **alias**: This option allows you to define aliases for commonly used Git commands, such as co for checkout or br for branch.
+- **merge**: This option allows you to specify a custom merge strategy for Git.
+
+These are just a few examples of configuration options that can be set in Git's configuration files. You can use the **\`git config\`** command to view and modify these options, either globally or on a per-repository basis.
+
+
 ### git tag
 
 **ChatGPT**
@@ -1345,6 +1356,62 @@ To overwrite an existing tag with a new tag on the current **\`HEAD\`** commit:
 ```console
 git tag -f <tagname>
 ```
+
+
+### git rebase
+
+**ChatGPT**
+
+The **\`git rebase\`** command allows you to apply changes from one branch onto another branch. The basic syntax of the **\`git rebase\`** command is as follows:
+```console
+git rebase [<options>] [<upstream>] [<branch>]
+```
+Where:
+
+- **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
+> - **-i** or **--interactive**: allows you to interactively rebase the branch, allowing you to edit, delete, and reorder commits.
+> - **--onto \<newbase\>**: specifies a new starting point for the rebase operation.
+> - *-p* or **--preserve-merges**: preserves merge commits instead of flattening them into a linear history.
+- **\<upstream\>** specifies the branch or commit to rebase onto. This is the branch that will become the new base for the current branch.
+- **\<branch\>** specifies the branch to rebase. This is the branch that will be rebased onto the <upstream> branch.
+
+Here's an example of using **\`git rebase\`**:
+```console
+git rebase master feature-branch
+```
+This command rebases the **\`feature-branch\`** onto the **\`master branch\`**. The output might look something like this:
+```console
+First, rewinding head to replay your work on top of it...
+Applying: Add new feature
+```
+In this example, **\`master\`** is the **\`<upstream\>** branch and **\`feature-branch\`** is the **\<branch\>** to be rebased. The **\`git rebase\`** command takes the changes made in feature-branch and applies them onto the tip of master. If there are any conflicts, Git will pause the rebase operation and prompt you to resolve them before continuing.
+
+Note that rebasing can be a destructive operation that modifies the commit history of your repository, so it's important to use with caution and to make sure you have a backup of your work before performing a rebase.
+
+
+### git cherry-pick
+
+**ChatGPT**
+
+The basic syntax for **\`git cherry-pick\`** a commit is as follows:
+```console
+git cherry-pick <commit>
+```
+
+Where:
+
+- **\<commit\>** is the commit ID or branch name of the commit you want to apply to the current branch.
+
+Here's an example of using **\`git cherry-pick\`**:
+
+Suppose you have a **\`master\`** branch and a **\`feature\`** branch, and you want to apply a single commit from the **\`feature\`** branch onto **\`master\`**. The commit ID of the commit you want to apply is **\`abc123\`**. You can do this with the following command:
+```console
+git cherry-pick abc123
+```
+This command will apply the changes made in the commit with ID **\`abc123\`** to the current branch (**\`master\`** in this case).
+
+Note that when you cherry-pick a commit, Git creates a new commit in the target branch with a new commit ID. The content of the new commit will be the same as the original commit, but the commit metadata (such as author, date, and commit message) will be different. Also, cherry-picking can sometimes lead to conflicts if the same changes have already been made in the target branch. In that case, you'll need to resolve the conflicts manually.
+
 
 ### git revert
 
