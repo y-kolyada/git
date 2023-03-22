@@ -210,7 +210,7 @@ In short, Git is a command-line tool that you use locally to manage your code, w
 ### **What are the benefits of using GitHub?**
 
 **Bing**
-> - There are many benefits of using GitHub. Here are some of them:
+> There are many benefits of using GitHub. Here are some of them:
 > 
 > - It makes it easy to contribute to your open source projects. Nearly every open-source project uses GitHub to manage their project (1).
 >
@@ -250,7 +250,7 @@ Overall, GitHub is a powerful and flexible platform that provides many benefits 
 ### **What are the benefits of using GitLab?**
 
 **Bing**
-> - GitLab is a web-based Git repository manager that provides source code management, continuous integration, and continuous deployment (1). Here are some benefits of using GitLab:
+> GitLab is a web-based Git repository manager that provides source code management, continuous integration, and continuous deployment (1). Here are some benefits of using GitLab:
 > 
 > - Collaboration. GitLab allows all the team members to collaborate in every phase of the project (1).
 >
