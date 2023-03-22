@@ -31,6 +31,7 @@
 - [What is a config in Git?](#what-is-a-config-in-git)
 
 [HISTORY OPERATIONS](#history-operations)
+- [What is git show in Git?](#what-is-git-show-in-git)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
 - [What is a cherry-picking in Git?](#what-is-a-cherry-picking-in-git)
 - [What is a revert in Git?](#what-is-a-revert-in-git)
@@ -53,6 +54,7 @@
 - [git diff](#git-diff)
 
 [ADDITIONAL COMMANDS IN GIT](#additional-commands-in-git)
+- [git show](#git-show)
 - [git tag](#git-tag)
 - [git rebase](#git-rebase)
 - [git cherry-pick](#git-cherry-pick)
@@ -834,6 +836,48 @@ This sets the user.name option globally, so it will apply to all repositories fo
 ## History operations
 
 
+### **What is git show in Git?**
+
+**Bing**
+> In Git, git show is a command used to view information about any git object (1)(2). It can be used to target specific files at specific revisions (2). Examining a commit range with git show will output all the individual commits between the range (2) git show can be a helpful tool for creating patch notes and tracking changes in a repository (2).
+
+1. [initialcommit.com](https://initialcommit.com/blog/git-show)
+2. [atlassian.com](https://www.atlassian.com/git/tutorials/git-show)
+3. [initialcommit.com](https://initialcommit.com/blog/git-show)
+4. [stackoverflow.com](https://stackoverflow.com/questions/1157818/how-can-i-show-what-a-commit-did)
+5. [git-scm.com](https://git-scm.com/docs/git-show)
+6. [hostinger.com](https://www.hostinger.com/tutorials/basic-git-commands)
+
+**ChatGPT**
+
+In Git, **\`git show\`** is a command that displays the contents of a Git object, such as a commit, tag, or blob. The **\`git show\`** command is useful for inspecting the contents of a specific object, as well as for examining the differences between different objects.
+
+When you run **\`git show\`** followed by a reference to a Git object (such as a commit hash or a tag name), Git will display the details of that object, including its metadata (such as author, commit message, and timestamp) and the changes made in that commit.
+
+Here's an example of using **\`git show\`** to display the contents of a commit:
+```console
+$ git show abc123
+commit abc1234567890abcdef1234567890abcdef12
+Author: John Doe <johndoe@example.com>
+Date:   Tue Mar 1 12:00:00 2022 -0500
+
+    Add new feature
+
+diff --git a/file1.txt b/file1.txt
+index 0123456..abcdefg 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -1,2 +1,3 @@
+ Line 1
+ Line 2
++Line 3
+```
+
+In this example, **\`git show abc123\`** displays the details of the commit with the hash **\`abc1234567890abcdef1234567890abcdef12\`**, including the author, date, and commit message. It also displays the changes made in that commit, including a diff of the changes to the file **\`file1.txt\`**.
+
+**\`git show\`** is a versatile and powerful command that can be used in many different ways to examine the contents of your Git repository.
+
+
 ### **What is a rebase in Git?**
 
 **Bing**
@@ -1435,6 +1479,46 @@ index 7e3d4d4..8c465a4 100644
 ```
 
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
+
+
+### git show
+
+**ChatGPT**
+
+The syntax of the **\`git show\`** command is:
+```console
+git show [<options>] [<object>]
+```
+
+Where:
+
+The git show command takes two optional arguments:
+
+- **\<options\>**: One or more options that modify the behavior of the git show command. Some common options include:
+> - **-p**: Show the changes as a patch.
+> - **--name-only**: Show only the names of the files that were changed.
+> - **--name-status**: Show the names and status of the files that were changed.
+> - **--oneline**: Show each commit on a single line.
+- **\<object\>**: The Git object to display. This can be a commit, tag, tree, or blob.
+
+Here are some examples of how to use the **\`git show\`** command:
+```console
+# Show the details of the latest commit
+git show
+
+# Show the details of a specific commit
+git show abc123
+
+# Show the changes made in a commit as a patch
+git show -p abc123
+
+# Show the names of the files changed in a commit
+git show --name-only abc123
+
+# Show the names and status of the files changed in a commit
+git show --name-status abc123
+```
+The **\`git show\`** command is a versatile and powerful command that can be used to examine the contents of your Git repository in a variety of ways.
 
 
 ### git tag
