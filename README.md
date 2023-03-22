@@ -210,21 +210,21 @@ In short, Git is a command-line tool that you use locally to manage your code, w
 ### **What are the benefits of using GitHub?**
 
 **Bing**
-> There are many benefits of using GitHub. Here are some of them:
+> - There are many benefits of using GitHub. Here are some of them:
 > 
-> It makes it easy to contribute to your open source projects. Nearly every open-source project uses GitHub to manage their project (1).
+> - It makes it easy to contribute to your open source projects. Nearly every open-source project uses GitHub to manage their project (1).
 >
-> Documentation. By using GitHub, you make it easier to get excellent documentation. Their help section and guides have articles for nearly any topic related to git that you can think of (1).
+> - Documentation. By using GitHub, you make it easier to get excellent documentation. Their help section and guides have articles for nearly any topic related to git that you can think of (1).
 >
-> Showcase your work. Are you a developer and wishes to attract recruiters? GitHub is the best tool you can rely on for this (1).
+> - Showcase your work. Are you a developer and wishes to attract recruiters? GitHub is the best tool you can rely on for this (1).
 >
-> Markdown. GitHub uses Markdown, which is a lightweight markup language that allows you to write formatted text using a plain text editor (1).
+> - Markdown. GitHub uses Markdown, which is a lightweight markup language that allows you to write formatted text using a plain text editor (1).
 >
-> GitHub is a repository. GitHub is a repository that allows you to store your code and collaborate with others (1).
+> - GitHub is a repository. GitHub is a repository that allows you to store your code and collaborate with others (1).
 >
-> Track changes in your code across versions. GitHub allows you to track changes in your code across versions (1).
+> - Track changes in your code across versions. GitHub allows you to track changes in your code across versions (1).
 >
-> Integration options. GitHub has many integration options with other tools and services (1).
+> - Integration options. GitHub has many integration options with other tools and services (1).
 
 1. [apiumhub.com](https://apiumhub.com/tech-blog-barcelona/using-github/)
 2. [dzone.com](https://dzone.com/articles/benefits-of-using-github)
@@ -250,16 +250,17 @@ Overall, GitHub is a powerful and flexible platform that provides many benefits 
 ### **What are the benefits of using GitLab?**
 
 **Bing**
-> GitLab is a web-based Git repository manager that provides source code management, continuous integration, and continuous deployment (1). Here are some benefits of using GitLab:
+> - GitLab is a web-based Git repository manager that provides source code management, continuous integration, and continuous deployment (1). Here are some benefits of using GitLab:
 > 
-> Collaboration. GitLab allows all the team members to collaborate in every phase of the project (1).
+> - Collaboration. GitLab allows all the team members to collaborate in every phase of the project (1).
 >
-> Free and easy to manage. GitLab is available for free and easy to manage and configure (2).
+> - Free and easy to manage. GitLab is available for free and easy to manage and configure (2).
 > 
-> Code reviews and pull requests. GitLab’s code reviews and pull requests make it more compact and user-friendly (2).
-> Automation of the complete DevOps. GitLab provides the functionality to make automation of the complete DevOps which makes a plan to design, create, build, verify, test, deploy, and monitoring on scalability, reputation, availability, and replication (2).
+> - Code reviews and pull requests. GitLab’s code reviews and pull requests make it more compact and user-friendly (2).
+>
+> - Automation of the complete DevOps. GitLab provides the functionality to make automation of the complete DevOps which makes a plan to design, create, build, verify, test, deploy, and monitoring on scalability, reputation, availability, and replication (2).
 > 
-> Single application. GitLab is a single application that shortens cycle times, increases productivity, and thus creates value for customers (3).
+> - Single application. GitLab is a single application that shortens cycle times, increases productivity, and thus creates value for customers (3).
 
 1. [simplilearn.com](https://www.simplilearn.com/tutorials/git-tutorial/what-is-gitlab)
 2. [educba.com](https://www.educba.com/what-is-gitlab/)
@@ -290,13 +291,13 @@ Overall, GitLab is a powerful and flexible tool that provides many benefits to d
 **Bing**
 > GitHub and GitLab are both web-based Git repository managers that provide source code management, continuous integration, and continuous deployment (1). Here are some differences between GitHub and GitLab:
 > 
-> GitHub is more popular than GitLab (1).
+> - GitHub is more popular than GitLab (1).
 >
-> GitHub has higher availability and is more focused on infrastructure performance, while GitLab is more focused on offering a features-based system with a centralized, integrated platform for web developers (2).
+> - GitHub has higher availability and is more focused on infrastructure performance, while GitLab is more focused on offering a features-based system with a centralized, integrated platform for web developers (2).
 >
-> GitLab is open source, which means you can download the source code from here and self-host the service on your own servers or on a cloud provider (1).
+> - GitLab is open source, which means you can download the source code from here and self-host the service on your own servers or on a cloud provider (1).
 >
-> GitLab has more features than GitHub (1).
+> - GitLab has more features than GitHub (1).
 
 1. [pediaa.com](https://pediaa.com/what-is-the-difference-between-github-and-gitlab/)
 2. [upgrad.com](https://www.upgrad.com/blog/github-vs-gitlab-difference-between-github-and-gitlab/)
