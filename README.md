@@ -1002,3 +1002,45 @@ no changes added to commit (use "git add" and/or "git commit -a")
 In this example, Git is telling us that we're currently on the **\`main\`** branch and it's up-to-date with the remote repository. It's also telling us that **\`myfile.txt\`** has been modified but not yet staged for the next commit. Git also provides suggestions on how to stage or discard changes using other Git commands.
 
 
+### git log
+
+**ChatGPT**
+
+The syntax of the **\`git log\`** command is as follows:
+```console
+git log [<options>] [<revision range>] [[--] <path>...]
+```
+
+Where:
+
+- **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
+> - --oneline: condenses each commit to a single line.
+> - --graph: displays a text-based graph of the commit history.
+> - --decorate: shows tags and branch names next to the commit.
+- **\<revision range\>** specifies the range of commits to display. This can be a single commit ID, a branch name, a tag name, or a combination of these. Some examples are:
+> - **master**: shows the commit history of the master branch.
+> - **HEAD~3..HEAD**: shows the last three commits.
+> - **tag1..tag2**: shows the commits between tag1 and tag2.
+- **\<path\>** is an optional path to a file or directory. This restricts the log output to the commits that affect the specified path.
+
+Note that the **\`git log\`** command displays the commit history in reverse chronological order by default, with the most recent commit shown first.
+
+Here's an example of using git log with some common options and parameters:
+```console
+git log --oneline --graph --decorate master
+```
+
+This command shows the commit history of the master branch in a condensed format, with a text-based graph and branch and tag names displayed next to each commit. The output might look something like this:
+```console
+*   e96d4f4 (HEAD -> master) Merge branch 'feature-branch'
+|\
+| * 6b03d52 Add new feature
+|/
+*   9b32dcf Merge branch 'hotfix-branch'
+|\
+| * 0645f80 Fix bug
+|/
+*   3a9be57 Initial commit
+```
+
+In this example, the **\`--oneline\`** option condenses each commit to a single line, making it easier to read. The **\`--graph\`** option shows a text-based graph of the commit history, indicating where branches and merges occurred. The **\`--decorate\`** option shows tags and branch names next to each commit. The master parameter specifies the branch whose commit history to display.
