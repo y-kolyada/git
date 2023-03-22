@@ -28,6 +28,7 @@
 - [What is a tag in Git in detail?](#what-is-a-tag-in-git-in-detail)
 - [What is a merge in Git?](#what-is-a-merge-in-git)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
+- [What is a cherry-picking in Git?](#what-is-a-cherry-picking-in-git)
 
 [MAIN COMMANDS IN GIT](#main-commands-in-git)
 - [git init](#git-init)
@@ -695,7 +696,21 @@ Here's an example of how a rebase works: Suppose you have a branch called "featu
 It's important to note that rebasing can be a potentially destructive operation, since it rewrites the history of the branch. If you push a rebased branch to a remote repository, it can cause problems for other developers who have based their work on the original version of the branch. Therefore, it's generally recommended to only rebase local branches.
 
 
-What is a cherry-picking in Git?
+### **What is a cherry-picking in Git?**
+
+**Bing**
+>  In Git, cherry-picking means choosing a commit from one branch and applying it to another branch (1). This is useful when you want to apply a specific commit from one branch to another branch without merging the whole branch (2). For example, if you made a mistake and committed a change into the wrong branch but do not want to merge the whole branch, you can revert the commit and apply it on another branch using cherry-pick (3).
+
+1. [geeksforgeeks.org](https://www.geeksforgeeks.org/git-cherry-pick/)
+2. [atlassian.com](https://www.atlassian.com/git/tutorials/cherry-pick)
+3. [javatpoint.com](https://www.javatpoint.com/git-cherry-pick)
+4. [stackoverflow.com](https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean)
+5. [git-scm.com](https://git-scm.com/docs/git-cherry-pick)
+
+**ChatGPT**
+
+In Git, "cherry-picking" is the process of selecting a specific commit from one branch and applying it to another branch. It allows you to apply a single commit or a range of commits from one branch onto another branch, without having to merge the entire branch. This can be useful in situations where you want to apply a specific fix or feature from one branch onto another branch, without bringing in all the other changes from the source branch.
+
 
 ## Main commands in Git
 
