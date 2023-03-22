@@ -719,11 +719,13 @@ Here are some of the main commands in Git:
 
 9. **\`git merge\`**: Merges changes from one branch into another.
 
-10. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
+10. \*  **\`git rebase\`**: Merges changes from one branch into another.
 
-11. **\`git log\`**: Displays a log of all the commits in the repository.
+11. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
 
-12. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+12. **\`git log\`**: Displays a log of all the commits in the repository.
+
+13. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
 
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
 
@@ -972,6 +974,37 @@ In this example, we're merging the changes from the **\`feature-branch\`** into 
 This command will attempt to automatically merge the changes from **\`feature-branch\`** into the current branch. If there are any conflicts that Git cannot resolve automatically, it will ask you to manually resolve them before the merge can be completed.
 
 
+### git rebase
+
+**ChatGPT**
+
+The **\`git rebase\`** command allows you to apply changes from one branch onto another branch. The basic syntax of the **\`git rebase\`** command is as follows:
+```console
+git rebase [<options>] [<upstream>] [<branch>]
+```
+Where:
+
+- **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
+> - **-i** or **--interactive**: allows you to interactively rebase the branch, allowing you to edit, delete, and reorder commits.
+> - **--onto \<newbase\>**: specifies a new starting point for the rebase operation.
+> - *-p* or **--preserve-merges**: preserves merge commits instead of flattening them into a linear history.
+- **\<upstream\>** specifies the branch or commit to rebase onto. This is the branch that will become the new base for the current branch.
+- **\<branch\>** specifies the branch to rebase. This is the branch that will be rebased onto the <upstream> branch.
+
+Here's an example of using **\`git rebase\`**:
+```console
+git rebase master feature-branch
+```
+This command rebases the **\`feature-branch\`** onto the **\`master branch\`**. The output might look something like this:
+```console
+First, rewinding head to replay your work on top of it...
+Applying: Add new feature
+```
+In this example, **\`master\`** is the **\`<upstream\>** branch and **\`feature-branch\`** is the **\<branch\>** to be rebased. The **\`git rebase\`** command takes the changes made in feature-branch and applies them onto the tip of master. If there are any conflicts, Git will pause the rebase operation and prompt you to resolve them before continuing.
+
+Note that rebasing can be a destructive operation that modifies the commit history of your repository, so it's important to use with caution and to make sure you have a backup of your work before performing a rebase.
+
+
 ### git status
 
 **ChatGPT**
@@ -1086,3 +1119,6 @@ index 7e3d4d4..8c465a4 100644
 ```
 
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
+
+
+```
