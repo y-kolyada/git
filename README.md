@@ -734,13 +734,15 @@ Here are some of the main commands in Git:
 
 9. **\`git merge\`**: Merges changes from one branch into another.
 
-10. \*  **\`git rebase\`**: Merges changes from one branch into another.
+10. \*  **\`git rebase\`**: Rebase commits from one branch to another.
 
-11. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
+11. \*  **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
 
-12. **\`git log\`**: Displays a log of all the commits in the repository.
+12. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
 
-13. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+13. **\`git log\`**: Displays a log of all the commits in the repository.
+
+14. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
 
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
 
@@ -1098,7 +1100,7 @@ In this example, the **\`--oneline\`** option condenses each commit to a single 
 
 **ChatGPT**
 
-The **\`git diff\`** command compares different versions of files and displays the differences between them. The basic syntax of the **\`git diff\`** command is as follows::
+The **\`git diff\`** command compares different versions of files and displays the differences between them. The basic syntax of the **\`git diff\`** command is as follows:
 ```console
 git diff [<options>] [<commit>] [--] [<path>...]
 ```
@@ -1136,4 +1138,26 @@ index 7e3d4d4..8c465a4 100644
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
 
 
+### git cherry-pick
+
+**ChatGPT**
+
+The basic syntax for **\`git cherry-pick\`** a commit is as follows:
+```console
+git cherry-pick <commit>
 ```
+
+Where:
+
+- **\<commit\>** is the commit ID or branch name of the commit you want to apply to the current branch.
+
+Here's an example of using **\`git cherry-pick\`**:
+
+Suppose you have a **\`master\`** branch and a **\`feature\`** branch, and you want to apply a single commit from the **\`feature\`** branch onto **\`master\`**. The commit ID of the commit you want to apply is **\`abc123\`**. You can do this with the following command:
+```console
+git cherry-pick abc123
+```
+This command will apply the changes made in the commit with ID **\`abc123\`** to the current branch (**\`master\`** in this case).
+
+Note that when you cherry-pick a commit, Git creates a new commit in the target branch with a new commit ID. The content of the new commit will be the same as the original commit, but the commit metadata (such as author, date, and commit message) will be different. Also, cherry-picking can sometimes lead to conflicts if the same changes have already been made in the target branch. In that case, you'll need to resolve the conflicts manually.
+
