@@ -1014,9 +1014,9 @@ git log [<options>] [<revision range>] [[--] <path>...]
 Where:
 
 - **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
-> - --oneline: condenses each commit to a single line.
-> - --graph: displays a text-based graph of the commit history.
-> - --decorate: shows tags and branch names next to the commit.
+> - **--oneline**: condenses each commit to a single line.
+> - **--graph**: displays a text-based graph of the commit history.
+> - **--decorate**: shows tags and branch names next to the commit.
 - **\<revision range\>** specifies the range of commits to display. This can be a single commit ID, a branch name, a tag name, or a combination of these. Some examples are:
 > - **master**: shows the commit history of the master branch.
 > - **HEAD~3..HEAD**: shows the last three commits.
@@ -1044,3 +1044,45 @@ This command shows the commit history of the master branch in a condensed format
 ```
 
 In this example, the **\`--oneline\`** option condenses each commit to a single line, making it easier to read. The **\`--graph\`** option shows a text-based graph of the commit history, indicating where branches and merges occurred. The **\`--decorate\`** option shows tags and branch names next to each commit. The master parameter specifies the branch whose commit history to display.
+
+
+### git diff
+
+**ChatGPT**
+
+The **\`git diff\`** command compares different versions of files and displays the differences between them. The basic syntax of the **\`git diff\`** command is as follows::
+```console
+git diff [<options>] [<commit>] [--] [<path>...]
+```
+
+Where:
+
+- **\<options\>** are optional flags and parameters that can modify the behavior of the command. Some common options are:
+> - **--color**: highlights the differences with color.
+> - **--cached**: compares the working tree with the staging area instead of the most recent commit.
+> - **--stat**: shows a summary of the changes instead of the detailed differences.
+- **\<commit\>** is an optional reference to a specific commit or branch. If not specified, git diff compares the working tree with the most recent commit.
+- **\<path\>** is an optional path to a file or directory. This restricts the diff output to the changes that affect the specified path.
+
+Note that the **\`--\`** separator is used to separate options and flags from file paths. This is important if you're trying to compare files with names that begin with a dash ("-").
+
+Here's an example of using **\`git diff\`**:
+```console
+git diff HEAD~2..HEAD -- somefile.txt
+```
+
+This command shows the differences between the most recent commit (**\`HEAD\`**) and the commit two revisions back (**\`HEAD~2\`**) for the file **\`somefile.txt\`**. The output might look something like this:
+```console
+diff --git a/somefile.txt b/somefile.txt
+index 7e3d4d4..8c465a4 100644
+--- a/somefile.txt
++++ b/somefile.txt
+@@ -1,4 +1,4 @@
+-This is the old content of somefile.txt
++This is the new content of somefile.txt
+
+-It had some lines here.
++It has fewer lines now.
+```
+
+In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
