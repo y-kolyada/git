@@ -972,3 +972,33 @@ In this example, we're merging the changes from the **\`feature-branch\`** into 
 This command will attempt to automatically merge the changes from **\`feature-branch\`** into the current branch. If there are any conflicts that Git cannot resolve automatically, it will ask you to manually resolve them before the merge can be completed.
 
 
+### git status
+
+**ChatGPT**
+
+The syntax of the **\`git status\`** command is as follows:
+```console
+git status
+```
+This command is used to display the current status of the repository. It shows the state of the working directory, staging area, and the current branch.
+
+When you run **\`git status\`**, Git will show you a summary of the changes that have been made to the repository since the last commit. It will display which files have been modified, which files are staged for the next commit, and which files are not yet tracked by Git. It will also indicate whether the current branch is up-to-date with the remote repository or if there are new commits that need to be pulled down.
+
+Here's an example of the **\`git status\`** command:
+```console
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+
+	modified:   myfile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+In this example, Git is telling us that we're currently on the **\`main\`** branch and it's up-to-date with the remote repository. It's also telling us that **\`myfile.txt\`** has been modified but not yet staged for the next commit. Git also provides suggestions on how to stage or discard changes using other Git commands.
+
+
