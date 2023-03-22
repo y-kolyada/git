@@ -738,13 +738,15 @@ Here are some of the main commands in Git:
 
 11. \*  **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
 
-12. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
+12. \*  **\`git revert\`**: Cancels changes made in the specified commit.
 
-13. **\`git log\`**: Displays a log of all the commits in the repository.
+13. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
 
-14. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+14. **\`git log\`**: Displays a log of all the commits in the repository.
 
-15. \* **\`git tag\`**: Create a tag for a specific commit to refer to it.
+15. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+
+16. \* **\`git tag\`**: Create a tag for a specific commit to refer to it.
 
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
 
@@ -1198,8 +1200,63 @@ To create an annotated tag on a specific commit with a tag message:
 git tag -a -m "<tag message>" <tagname> <commit>
 ```
 
-To overwrite an existing tag with a new tag on the current HEAD commit:
+To overwrite an existing tag with a new tag on the current **\`HEAD\`** commit:
 ```console
 git tag -f <tagname>
 ```
+
+### git revert
+
+**ChatGPT**
+
+The syntax of the **\`git tag\`** command is:
+```console
+git revert [<options>] <commit>
+```
+
+Where:
+
+- **\<commit\>**: Specifies the commit to revert. This can be a commit hash, branch name, tag name, or any other reference that points to a commit.
+- **\<options\>**: Optional arguments to customize the revert operation. Some common options are:
+> - **-n**, **--no-commit**: Reverts the changes but does not create a new commit. This allows the user to manually review the changes and create a new commit with a proper message.
+> - **-m parent-number**: Specifies which parent commit to use for merge commits. For example, -m 1 will revert the changes made in the first parent commit of a merge commit.
+> - **-e, --edit**: Opens the commit message editor to allow the user to modify the revert commit message.
+
+Some examples:
+
+To revert the changes made in a specific commit and create a new commit:
+```console
+git revert <commit>
+```
+
+To revert the changes made in a merge commit and specify the parent commit to use:
+```console
+git revert -m 1 <commit>
+```
+
+To revert the changes made in a commit but not create a new commit:
+```console
+git revert -n <commit>
+```
+
+After running the **\`git revert\`** command, Git will create a new commit that undoes the changes made in the specified commit. The revert commit will have the opposite changes of the original commit, effectively canceling out the original changes. This allows you to undo changes without rewriting Git history, which can be useful for collaborative projects where multiple people are working on the same codebase.
+
+When you run the **\`git revert\`** command, Git creates a new commit that applies the opposite of the changes made in the specified commit. For example, if the specified commit added a line of code, the revert commit would remove that line of code. The revert commit also includes a commit message that explains that the commit is a revert of a previous commit.
+
+It's important to note that the git revert command does not delete or erase the original commit. Instead, it creates a new commit that undoes the changes made in the original commit. This means that the history of the project remains intact, and you can still see the original commit and the revert commit in the project's Git history.
+
+Overall, the **\`git revert\`** command is a powerful tool that allows you to undo changes without disrupting the project's history or causing conflicts with other contributors.
+
+An example of using the git revert -m command:
+
+Let's say you have a merge commit in your Git history, which merged two branches together. The merge commit has a hash value of **\`abcdefg\`** and its first parent is the branch that you want to revert. In this case, you can run the following command to revert the changes from that branch:
+```console
+git revert -m 1 abcdefg
+```
+
+Here, the **\`-m\`** option specifies which parent commit to use for the revert. Since we want to revert the changes made in the first parent commit (i.e., the branch that we want to undo), we use **\`-m 1\`**.
+
+After running this command, Git will create a new commit that undoes the changes made in the first parent commit of the merge commit. This new commit will have a commit message that explains that it is a revert of the first parent commit.
+
+Note that if the merge commit had more than two parents, you would need to specify which parent commit to revert by using the **\`-m\`** option with a different number. For example, if you want to revert the changes made in the second parent commit, you would use **\`-m 2\`**.
 
