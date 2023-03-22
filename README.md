@@ -1,4 +1,4 @@
-# AI's Git FAQ-100
+# AI's Git FAQ-80
 
 ## Table of Contents
 
