@@ -27,6 +27,8 @@
 - [What is a branch in Git and what is the main branch?](#what-is-a-branch-in-git-and-what-is-the-main-branch)
 - [What is a tag in Git in detail?](#what-is-a-tag-in-git-in-detail)
 - [What is a merge in Git?](#what-is-a-merge-in-git)
+
+[HISTORY OPERATIONS](#history-operations)
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
 - [What is a cherry-picking in Git?](#what-is-a-cherry-picking-in-git)
 - [What is a revert in Git?](#what-is-a-revert-in-git)
@@ -681,6 +683,10 @@ Merging is typically used to bring changes from one branch into another. For exa
 There are two main types of merges in Git: fast-forward merges and three-way merges. A fast-forward merge occurs when the branch being merged has no new changes that are not already in the target branch. In this case, Git simply moves the pointer of the target branch forward to the commit that represents the latest change in the merged branch.
 
 A three-way merge occurs when the two branches being merged have diverged, meaning they both have new changes that are not in the other branch. In this case, Git automatically attempts to reconcile the changes made in both branches and create a new commit that represents the combined state of the code. If there are conflicts between the changes made in each branch, Git will prompt the user to resolve those conflicts before the merge can be completed.
+
+
+## History operations
+
 
 ### **What is a rebase in Git?**
 
