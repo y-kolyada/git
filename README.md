@@ -744,6 +744,8 @@ Here are some of the main commands in Git:
 
 14. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
 
+15. \* **\`git tag\`**: Create a tag for a specific commit to refer to it.
+
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
 
 
@@ -1022,6 +1024,30 @@ In this example, **\`master\`** is the **\`<upstream\>** branch and **\`feature-
 Note that rebasing can be a destructive operation that modifies the commit history of your repository, so it's important to use with caution and to make sure you have a backup of your work before performing a rebase.
 
 
+### git cherry-pick
+
+**ChatGPT**
+
+The basic syntax for **\`git cherry-pick\`** a commit is as follows:
+```console
+git cherry-pick <commit>
+```
+
+Where:
+
+- **\<commit\>** is the commit ID or branch name of the commit you want to apply to the current branch.
+
+Here's an example of using **\`git cherry-pick\`**:
+
+Suppose you have a **\`master\`** branch and a **\`feature\`** branch, and you want to apply a single commit from the **\`feature\`** branch onto **\`master\`**. The commit ID of the commit you want to apply is **\`abc123\`**. You can do this with the following command:
+```console
+git cherry-pick abc123
+```
+This command will apply the changes made in the commit with ID **\`abc123\`** to the current branch (**\`master\`** in this case).
+
+Note that when you cherry-pick a commit, Git creates a new commit in the target branch with a new commit ID. The content of the new commit will be the same as the original commit, but the commit metadata (such as author, date, and commit message) will be different. Also, cherry-picking can sometimes lead to conflicts if the same changes have already been made in the target branch. In that case, you'll need to resolve the conflicts manually.
+
+
 ### git status
 
 **ChatGPT**
@@ -1138,26 +1164,42 @@ index 7e3d4d4..8c465a4 100644
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
 
 
-### git cherry-pick
+### git tag
 
 **ChatGPT**
 
-The basic syntax for **\`git cherry-pick\`** a commit is as follows:
+The syntax of the **\`git tag\`** command is:
 ```console
-git cherry-pick <commit>
+git tag [-a] [-f] [-m <msg>] [<tagname>] [<commit>]
 ```
 
 Where:
 
-- **\<commit\>** is the commit ID or branch name of the commit you want to apply to the current branch.
+- **-a**: Creates an annotated tag. This option requires a tag message to be specified with the -m option.
+- **-f**: Overwrites an existing tag with the same name.
+- **-m \<msg\>**: Specifies the tag message.
+- **\<tagname\>**: Specifies the name of the tag to create.
+- **\<commit\>**: Specifies the commit to tag. If this option is not specified, the current HEAD commit is used.
 
-Here's an example of using **\`git cherry-pick\`**:
+Some examples:
 
-Suppose you have a **\`master\`** branch and a **\`feature\`** branch, and you want to apply a single commit from the **\`feature\`** branch onto **\`master\`**. The commit ID of the commit you want to apply is **\`abc123\`**. You can do this with the following command:
+To create a lightweight tag on the current **\`HEAD\`** commit:
 ```console
-git cherry-pick abc123
+git tag <tagname>
 ```
-This command will apply the changes made in the commit with ID **\`abc123\`** to the current branch (**\`master\`** in this case).
 
-Note that when you cherry-pick a commit, Git creates a new commit in the target branch with a new commit ID. The content of the new commit will be the same as the original commit, but the commit metadata (such as author, date, and commit message) will be different. Also, cherry-picking can sometimes lead to conflicts if the same changes have already been made in the target branch. In that case, you'll need to resolve the conflicts manually.
+To create an annotated tag on the current **\`HEAD\`** commit with a tag message:
+```console
+git tag -a -m "<tag message>" <tagname>
+```
+
+To create an annotated tag on a specific commit with a tag message:
+```console
+git tag -a -m "<tag message>" <tagname> <commit>
+```
+
+To overwrite an existing tag with a new tag on the current HEAD commit:
+```console
+git tag -f <tagname>
+```
 
