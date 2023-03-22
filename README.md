@@ -30,6 +30,7 @@
 - [What is a rebase in Git?](#what-is-a-rebase-in-git)
 - [What is a cherry-picking in Git?](#what-is-a-cherry-picking-in-git)
 - [What is a revert in Git?](#what-is-a-revert-in-git)
+- [What is a reset in Git?](#what-is-a-reset-in-git)
 
 [MAIN COMMANDS IN GIT](#main-commands-in-git)
 - [git init](#git-init)
@@ -732,6 +733,40 @@ It's important to note that the git revert command does not delete or erase the 
 Overall, the **\`git revert\`** command is a powerful tool that allows you to undo changes without disrupting the project's history or causing conflicts with other contributors.
 
 
+### **What is a reset in Git?**
+
+**Bing**
+> In Git, git reset is used to undo changes made to a repository’s commit history (1). It has three core forms of invocation (1). The first form resets the current branch head to a specified commit and possibly updates the index (resetting it to the tree of the specified commit) and the working tree depending on <mode> (2). The second form resets the staging area to match a specified commit but leaves the working directory unchanged (3). The third form resets both the staging area and working directory to match a specified commit (1).
+
+1. [javatpoint.com](https://www.javatpoint.com/git-reset)
+2. [git-scm.com](https://git-scm.com/docs/git-reset)
+3. [atlassian.com](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset)
+4. [w3schools.com](https://www.w3schools.com/git/git_reset.asp)
+
+**ChatGPT**
+
+**\`git reset\`** is a command in Git that allows you to reset the state of the repository to a previous commit. This can be useful if you want to undo changes made to the repository or if you want to go back to a previous version of your project.
+
+There are several ways to use the **\`git reset\`** command, including:
+
+1. **\`git reset --soft \<commit\>\`**: This command will reset the repository to the specified commit, but it will keep the changes you made after that commit staged. This means that you can make further changes to the repository and then commit them as a new commit.
+
+2. **\`git reset --mixed \<commit\>\`**: This command will reset the repository to the specified commit and unstage any changes you made after that commit. This means that you can make further changes to the repository and then stage and commit them as a new commit.
+
+3. **\`git reset --hard \<commit\>\`**: This command will reset the repository to the specified commit and discard any changes you made after that commit. This means that you will lose any changes you made after the specified commit.
+
+
+It's important to note that **\`git reset\`** should be used with caution as it can permanently delete changes that you may not want to lose. It's recommended to create a backup of your repository before using **\`git reset\`** to avoid losing any important data.
+
+**\`git reset\`** is a command that is used to reset the state of a local repository. It does not affect the state of a remote repository, unless you push the changes made by the reset to the remote repository.
+
+When you run **\`git reset\`** without specifying a branch or commit, it will reset the current branch to the last commit. This means that it will only affect the local repository and will not make any changes to the remote repository.
+
+However, if you make changes to the local repository using **\`git reset\`** and then push those changes to the remote repository, the state of the remote repository will be updated to match the state of the local repository.
+
+It's important to note that git reset should be used with caution, especially when working with a remote repository, as it can potentially overwrite changes made by other developers. It's recommended to communicate with your team before using **\`git reset\`** on a shared repository to ensure that everyone is aware of the changes being made.
+
+
 ## Main commands in Git
 
 Here are some of the main commands in Git:
@@ -1229,7 +1264,7 @@ git tag -f <tagname>
 
 **ChatGPT**
 
-The syntax of the **\`git tag\`** command is:
+The syntax of the **\`git revert\`** command is:
 ```console
 git revert [<options>] <commit>
 ```
@@ -1273,5 +1308,61 @@ Here, the **\`-m\`** option specifies which parent commit to use for the revert.
 After running this command, Git will create a new commit that undoes the changes made in the first parent commit of the merge commit. This new commit will have a commit message that explains that it is a revert of the first parent commit.
 
 Note that if the merge commit had more than two parents, you would need to specify which parent commit to revert by using the **\`-m\`** option with a different number. For example, if you want to revert the changes made in the second parent commit, you would use **\`-m 2\`**.
+
+
+## git reset
+
+**ChatGPT**
+
+The syntax of the **\`git reset\`** command is:
+```console
+git reset [<mode>] [<commit>]
+```
+
+Where :
+
+- **\<mode\>** is an optional flag that specifies the reset mode.
+- **\<commit\>** is the commit that you want to reset to.
+
+Here are some common modes that can be used with **\`git reset\`**:
+- **--soft**: This mode resets the HEAD to the specified commit, but does not modify the working directory or the staging area. Any changes that were made in commits after the specified commit will be left in the staging area.
+
+- **--mixed** (default): This mode resets the HEAD to the specified commit and also resets the staging area, but does not modify the working directory. Any changes that were made in commits after the specified commit will be left in the working directory.
+
+- **--hard**: This mode resets the HEAD to the specified commit and also resets the staging area and the working directory. Any changes that were made in commits after the specified commit will be permanently discarded.
+
+Here are a few examples of how to use **\`git reset\`**:
+
+1. This will reset the repository to a specific commit using the **\`--hard\`** mode:
+```console
+git reset --hard abc123
+``
+This would reset the repository to the commit with the hash **\`abc123\`**, and discard any changes that were made in commits after that point.
+
+2. Resetting the current branch to a previous commit:
+```console
+git reset HEAD~2
+```
+This will reset the current branch to the commit that is two commits back in the history. The changes made in the two most recent commits will be removed from the branch.
+
+3. Unstaging changes:
+```console
+git reset file.txt
+```
+This will unstage the changes made to **\`file.txt\`**, effectively removing them from the staging area. The changes will still be present in the working directory.
+
+4. Discarding changes:
+```console
+git reset --hard HEAD
+```
+This will discard any changes made in the working directory and staging area, effectively resetting the repository to the last commit. This can be useful if you want to start over from scratch.
+
+5. Undoing a commit:
+```console
+git reset HEAD~1
+```
+This will undo the most recent commit, leaving the changes made in that commit in the working directory. You can then make further changes to the repository and commit them again.
+
+It's important to note that **\`git reset\`** can be a destructive command, so it's important to use it carefully and make sure you understand its effects before running it.
 
 
