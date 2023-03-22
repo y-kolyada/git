@@ -1004,29 +1004,31 @@ The **\`git rm\`** command has several options that allow you to customize its b
 
 Here are some of the main commands in Git:
 
-1. **\`git init\`**: Initializes a new Git repository in the current directory.
+1. **\`git config\`**: Is used to configure Git.
 
-2. **\`git clone\`**: Creates a copy of a remote Git repository on your local machine.
+2. **\`git init\`**: Initializes a new Git repository in the current directory.
 
-3. **\`git add\`**: Adds changes to the staging area in preparation for a commit.
+3. **\`git clone\`**: Creates a copy of a remote Git repository on your local machine.
 
-4. **\`git commit\`**: Creates a new commit with the changes in the staging area.
+4. **\`git add\`**: Adds changes to the staging area in preparation for a commit.
 
-5. **\`git push\`**: Uploads local changes to a remote repository.
+5. **\`git commit\`**: Creates a new commit with the changes in the staging area.
 
-6. **\`git pull\`**: Downloads changes from a remote repository and merges them with your local repository.
+6. **\`git push\`**: Uploads local changes to a remote repository.
 
-7. **\`git branch\`**: Lists, creates, or deletes branches in the repository.
+7. **\`git pull\`**: Downloads changes from a remote repository and merges them with your local repository.
 
-8. **\`git checkout\`**: Switches to a different branch or restores a specific commit.
+8. **\`git branch\`**: Lists, creates, or deletes branches in the repository.
 
-9. **\`git merge\`**: Merges changes from one branch into another.
+9. **\`git checkout\`**: Switches to a different branch or restores a specific commit.
 
-10. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
+10. **\`git merge\`**: Merges changes from one branch into another.
 
-11. **\`git log\`**: Displays a log of all the commits in the repository.
+11. **\`git status\`**: Shows the current status of the repository, including any changes that have been made.
 
-12. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
+12. **\`git log\`**: Displays a log of all the commits in the repository.
+
+13. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
 
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
 
@@ -1465,21 +1467,19 @@ In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commi
 
 ## Additional commands in Git
 
-1. **\`git config\`**: Is used to configure Git.
+1. **\`git show\`**: Shows the information about any git object.
 
-2. **\`git rebase\`**: Rebase commits from one branch to another.
+2. **\`git tag\`**: Create a tag for a specific commit to refer to it.
 
-3. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
+3. **\`git rebase\`**: Rebase commits from one branch to another.
 
-4. **\`git revert\`**: Cancels changes made in the specified commit.
+4. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
 
-5. **\`git tag\`**: Create a tag for a specific commit to refer to it.
+5. **\`git revert\`**: Cancels changes made in the specified commit.
 
 6. **\`git rever\`**: Is used to undo changes made to a repository’s commit history.
 
-7. **\`git reset\`**: Is used to undo changes made to a repository’s commit history.
-
-8. **\`git rm\`**: Is used to remove files from a Git repository.
+7. **\`git rm\`**: Is used to remove files from a Git repository.
 
 
 ### git show
