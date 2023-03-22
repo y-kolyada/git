@@ -999,6 +999,7 @@ The **\`git rm\`** command has several options that allow you to customize its b
 - **--cached**: This option removes the file from the index (staging area) only, but leaves it in the working directory. This means that the file will not be included in the next commit, but will still exist in the local file system.
 
 
+
 ## Main commands in Git
 
 Here are some of the main commands in Git:
@@ -1028,27 +1029,6 @@ Here are some of the main commands in Git:
 12. **\`git diff\`**: Shows the differences between two versions of a file or between two branches.
 
 These are just a few of the most commonly used Git commands. Git has many other commands that can be used for various tasks, such as managing tags, rebasing, and cherry-picking, among others. You can use the git help command followed by a specific command to learn more about its usage and options.
-
-## Additional commands in Git
-
-1. **\`git config\`**: Is used to configure Git.
-
-2. **\`git rebase\`**: Rebase commits from one branch to another.
-
-3. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
-
-4. **\`git revert\`**: Cancels changes made in the specified commit.
-
-5. **\`git tag\`**: Create a tag for a specific commit to refer to it.
-
-6. **\`git rever\`**: Is used to undo changes made to a repository’s commit history.
-
-7. **\`git reset\`**: Is used to undo changes made to a repository’s commit history.
-
-8. **\`git rm\`**: Is used to remove files from a Git repository.
-
-
-In Git, git reset is used to undo changes made to a repository’s commit history1. It has three core forms of invocation1. The first form resets the current branch head to a specified commit and possibly updates the index (resetting it to the tree of the specified commit) and the working tree depending on <mode>2. The second form resets the staging area to match a specified commit but leaves the working directory unchanged3. The third form resets both the staging area and working directory to match a specified commit1.
 
 
 ### git config
@@ -1480,6 +1460,26 @@ index 7e3d4d4..8c465a4 100644
 ```
 
 In this example, the **\`HEAD~2..HEAD\`** parameter specifies the range of commits to compare, in this case, the most recent two commits. The **\`somefile.txt\`** parameter specifies the file to compare. The output shows the differences between the two versions of the file, highlighted in red and green.
+
+
+
+## Additional commands in Git
+
+1. **\`git config\`**: Is used to configure Git.
+
+2. **\`git rebase\`**: Rebase commits from one branch to another.
+
+3. **\`git cherry-pick\`**: Cherry-picking means choosing a commit from one branch and applying it to another.
+
+4. **\`git revert\`**: Cancels changes made in the specified commit.
+
+5. **\`git tag\`**: Create a tag for a specific commit to refer to it.
+
+6. **\`git rever\`**: Is used to undo changes made to a repository’s commit history.
+
+7. **\`git reset\`**: Is used to undo changes made to a repository’s commit history.
+
+8. **\`git rm\`**: Is used to remove files from a Git repository.
 
 
 ### git show
