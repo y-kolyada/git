@@ -48,16 +48,19 @@ Each question within a group follows a clear, readable structure:
 
 ## 5. Landing Page Harmonization (index.html)
 
-- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized with the 150-question qualification matrix under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` and `<h2 id="levels">`.
-- Update the overview descriptions of topics 13, 14, and 15 on `index.html` to accurately reflect the agreed 5x3 architecture matrix (the 5 logical blocks per level).
+- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized bottom-up with the 150-question qualification matrix under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` and `<h2 id="levels">`.
+- Update the corresponding chapter summary bullet on `ru/index.html` so it accurately reflects the real 50 questions delivered in topics 13, 14, and 15 (Вопросы) according to the 5x3 architecture matrix.
 - Update the illustrative cross-tier comparison box on the landing page (`<div class="box"><h3>Практический пример: как меняется ответ с ростом уровня</h3>`) to showcase how a single technical question is approached differently by a Noob (mechanics), Pro (reliability and cleanliness), and IGL (systems architecture and security).
+- Updating `ru/index.html` is an inescapable step of the delivery: delivering a chapter 13-15 (Вопросы) without synchronizing its bullet on `ru/index.html` is an unaccepted defect (недоделка).
 
 ## 6. Delivery Workflow
 
-1. Write `lessons/step-N.md` with strictly 3 predicates before editing product files.
-2. Draft all 50 questions in `ru/<N>.html`.
-3. Add required claims to `tools/claims.tsv` and verify with `./tools/check-claims.sh`.
-4. Run `python3 tools/build-nav.py` and `python3 tools/build-search.py`.
-5. Run `./check.sh` (ensure `ЗЕЛЁНОЕ`, 9/9, 0 mobile defects).
-6. Commit with scope `feat(content):` and an informative commit body.
-7. Record delivery in `lessons/record-N.md`.
+1. Agree on the 5x3 thematic matrix in chat before drafting questions.
+2. Write `lessons/step-N.md` with strictly 3 predicates before editing product files (Predicate 3 must explicitly require `ru/index.html` bottom-up synchronization).
+3. Draft all 50 questions in `ru/<N>.html` across the 5 thematic blocks of 10 questions each with answers and interview rationales.
+4. Update `ru/index.html` bottom-up: synchronize the chapter overview bullet under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` with the actual questions and blocks delivered.
+5. Add at least 3 machine-checkable claims to `tools/claims.tsv` and verify with `./tools/check-claims.sh`.
+6. Run build scripts (`python3 tools/build-nav.py && python3 tools/build-meta.py && python3 tools/build-search.py`).
+7. Run `./check.sh` (ensure `ЗЕЛЁНОЕ`, 9/9, 0 mobile defects on 390px, 0 em dashes).
+8. Commit with scope `feat(content):` or `refactor(page):` and an informative commit body.
+9. Record delivery in `lessons/record-N.md` and present to Conductor with an explicit next-step fork.

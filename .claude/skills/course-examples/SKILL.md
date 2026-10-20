@@ -41,15 +41,18 @@ Every scenario MUST be structured using the 3-part triad:
 
 ## 6. Landing Page Harmonization (index.html)
 
-- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized with the delivered practical scenarios under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>`.
-- Update the corresponding chapter summaries on `index.html` so they accurately reflect the real battle-tested scenarios delivered in topics 10, 11, and 12, capturing the progression from Noob (basic hygiene) to Pro (team workflows) and IGL (platform architecture).
+- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized bottom-up with the delivered practical scenarios under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>`.
+- Update the corresponding chapter summary bullet on `ru/index.html` so it accurately reflects the real battle-tested scenarios delivered in topics 10, 11, and 12 (Примеры), capturing the progression from Noob (basic hygiene) to Pro (team workflows) and IGL (platform architecture).
+- Updating `ru/index.html` is an inescapable step of the delivery: delivering a chapter 10-12 (Примеры) without synchronizing its bullet on `ru/index.html` is an unaccepted defect (недоделка).
 
 ## 7. Delivery Workflow
 
-1. Write `lessons/step-N.md` with strictly 3 predicates before editing any product files.
-2. Draft the scenarios in `ru/<N>.html` adhering to the triad and word floor.
-3. Add at least 3 executable claims to `tools/claims.tsv`.
-4. Run `python3 tools/build-nav.py` and `python3 tools/build-search.py`.
-5. Verify with `./check.sh` (must be completely `ЗЕЛЁНОЕ`, 9/9, 0 mobile defects).
-6. Commit with scope `feat(content):` and detailed 1-2 paragraph explanatory commit body.
-7. Record delivery in `lessons/record-N.md`.
+1. Agree on the 3-tier practical scenario matrix in chat before writing files.
+2. Write `lessons/step-N.md` with strictly 3 predicates before editing product files (Predicate 3 must explicitly require `ru/index.html` bottom-up synchronization).
+3. Draft all scenarios in `ru/<N>.html` adhering to the triad, word floor, and mobile safety.
+4. Update `ru/index.html` bottom-up: synchronize the chapter overview bullet under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` with the actual scenarios delivered.
+5. Add at least 3 executable claims to `tools/claims.tsv` and verify with `./tools/check-claims.sh`.
+6. Run build scripts (`python3 tools/build-nav.py && python3 tools/build-meta.py && python3 tools/build-search.py`).
+7. Verify with `./check.sh` (must be completely `ЗЕЛЁНОЕ`, 9/9, 0 mobile defects on 390px, 0 em dashes).
+8. Commit with scope `feat(content):` or `refactor(page):` and detailed 1-2 paragraph explanatory commit body.
+9. Record delivery in `lessons/record-N.md` and present to Conductor with an explicit next-step fork.
