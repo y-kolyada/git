@@ -190,10 +190,11 @@
 
 ```
 ec16fa2 feat(content): explain merge topology, three-way merge-base, and ff flags in topic 04
+39d6f02 docs(record): record step 4 delivery for topic 04
 ```
 
 ## Приёмка
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
