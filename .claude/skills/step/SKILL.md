@@ -61,3 +61,10 @@ check printed. The accepted/returned column is the Architect's and is never fill
 Every page typed under a step must follow the series numbering contract:
 - **Level 1 (Topic navigation):** Sidebar `<nav class="contents">` holds 15 topics, each explicitly carrying `<span class="num">N</span>` before the topic title.
 - **Level 2 (In-page topic sections):** Substantive sections on pages 01-12 are numbered sequentially: `<h2 id="...">N · Title <a class="anchor-link" href="#...">#</a></h2>`. Only "Главная мысль страницы" and "Артефакты" remain unnumbered.
+
+## 9. The Noob / Pro / IGL scale and gaming philosophy
+
+The series views technical growth as an engaging game:
+- **Noob:** learning core mechanics and eliminating magic.
+- **Pro:** reliable execution, avoiding silent failures, clean teamwork.
+- **IGL (In-Game Leader):** architectural vision, setting the rules of engagement, and leading under pressure. Learning, work, business, and complexity are demanding yet captivating games. IGL is strictly "In-Game Leader", never "Internal Guild Lead".
