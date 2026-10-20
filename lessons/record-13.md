@@ -218,4 +218,4 @@ aff7c9b feat(content): explain catastrophe recovery, bisect CI runner, and secre
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
+| Архитектор (`ik`) | Принято |
