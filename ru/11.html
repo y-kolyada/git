@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры Git · уровень Pro · devops-git · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть практических сценариев командной работы: интерактивный rebase, чистка конфликтов, бэкпорт через cherry-pick, worktree и force-with-lease.">
 <link rel="canonical" href="https://y-kolyada.github.io/git/ru/11.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/git/ru/11.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/git/en/11.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-git">
 <meta property="og:title" content="Примеры · Pro">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть практических сценариев командной работы: интерактивный rebase, чистка конфликтов, бэкпорт через cherry-pick, worktree и force-with-lease.">
 <meta property="og:url" content="https://y-kolyada.github.io/git/ru/11.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/git/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Шесть практических сценариев командной работы: интерактивный rebase, чистка конфликтов, бэкпорт через cherry-pick, worktree и force-with-lease.","url":"https://y-kolyada.github.io/git/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,17 +67,17 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
-      <li><a href="02.html"><span class="num">2</span>Индекс: как изменение попадает в коммит</a></li>
-      <li><a href="03.html"><span class="num">3</span>Ветка, HEAD и переключение</a></li>
-      <li><a href="04.html"><span class="num">4</span>Слияние: merge и fast-forward</a></li>
-      <li><a href="05.html"><span class="num">5</span>Rebase: переписанная история и её цена</a></li>
-      <li><a href="06.html"><span class="num">6</span>Конфликт: откуда он берётся и как его закрыть</a></li>
-      <li><a href="07.html"><span class="num">7</span>Отмена: restore, reset, revert, reflog</a></li>
-      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий: fetch, pull, push</a></li>
-      <li><a href="09.html"><span class="num">9</span>Хирургия: cherry-pick, stash, bisect, worktree</a></li>
+      <li><a href="01.html"><span class="num">1</span>Хранилище .git</a></li>
+      <li><a href="02.html"><span class="num">2</span>Индекс и коммит</a></li>
+      <li><a href="03.html"><span class="num">3</span>Ветка и HEAD</a></li>
+      <li><a href="04.html"><span class="num">4</span>Слияние и fast-forward</a></li>
+      <li><a href="05.html"><span class="num">5</span>Rebase и история</a></li>
+      <li><a href="06.html"><span class="num">6</span>Конфликты слияния</a></li>
+      <li><a href="07.html"><span class="num">7</span>Отмена и reflog</a></li>
+      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий</a></li>
+      <li><a href="09.html"><span class="num">9</span>Хирургия Git</a></li>
       <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
-      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="11.html" aria-current="page"><span class="num">11</span>Примеры · Pro</a></li>
       <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
       <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
       <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
@@ -93,20 +93,143 @@
 
   <main id="main">
     <h1>Примеры · Pro</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1434">Слов: 1434</p>
+    <p class="lead">Шесть практических сценариев командной работы: интерактивный rebase, чистка конфликтов, бэкпорт через cherry-pick, worktree и force-with-lease.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>На уровне Pro фокус инженера смещается с базовых манипуляций локальными файлами на культуру командного взаимодействия и надёжность производственного конвейера. В распределённой команде небрежный коммит или слепой force-push моментально бьют по коллегам, ломают сборки на CI и засоряют журнал мусорными мерж-петлями. Шесть сценариев ниже закрывают ключевые профессиональные практики: подготовку чистого Pull Request через интерактивный rebase, трёхсторонний разбор сложных конфликтов без паники, точечный перенос хотфиксов между релизами через cherry-pick с сохранением источника, мгновенное переключение контекста через worktree без потери незавершённых правок, глубокую работу со стешем и безопасную синхронизацию через force-with-lease. Каждый разбор содержит боевую задачу, готовый терминальный сценарий и объяснение внутренней механики («Почему так»).</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="interactive-rebase">1 · Интерактивный rebase для чистоты истории <a class="anchor-link" href="#interactive-rebase">#</a></h2>
+    <p><strong>Задача:</strong> перед открытием Pull Request превратить хаотичную цепочку черновых правок («fix typo», «test», «wip») в аккуратную атомарную историю без следов промежуточных экспериментов.</p>
+    <pre><code># 1. Проверяем историю текущей ветки перед оформлением PR
+git log --oneline -4
+# e4f1a23 fix typo in test
+# 7c9b812 add unit test for payment gateway
+# 3a1d044 wip: implement stripe integration
+# b52e901 feat(api): scaffold payment endpoints</code></pre>
+    <pre><code># 2. Запускаем интерактивный перенос последних 4 коммитов
+git rebase -i HEAD~4
+
+# В открывшемся редакторе склеиваем черновые правки в чистовой коммит:
+# pick b52e901 feat(api): scaffold payment endpoints
+# pick 3a1d044 wip: implement stripe integration
+# fixup e4f1a23 fix typo in test
+# squash 7c9b812 add unit test for payment gateway</code></pre>
+    <pre><code># 3. Альтернатива Pro: автоматическая склейка через fixup
+git commit --fixup=3a1d044
+git rebase -i --autosquash HEAD~5</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Интерактивный rebase - главный инструмент уважения к коллегам, которые будут рецензировать ваш код. Вместо цепочки из десяти мелких правок с невнятными сообщениями ревьюер видит законченное логическое изменение. Директива <code>fixup</code> вливает изменения в предыдущий коммит и автоматически отбрасывает промежуточное сообщение, оставляя историю кристально чистой. Директива <code>squash</code> склеивает коммиты, но предлагает объединить их описания в одно общее сообщение. Связка флага <code>--fixup=&lt;hash&gt;</code> и команды <code>git rebase -i --autosquash</code> автоматизирует эту рутину: Git сам находит целевой коммит в стеке и подставляет директиву <code>fixup</code> в нужную строку плана.</div>
+
+    <h2 id="resolving-conflicts">2 · Анатомия и закрытие конфликта слияния <a class="anchor-link" href="#resolving-conflicts">#</a></h2>
+    <p><strong>Задача:</strong> при интеграции фичи с веткой main возник конфликт в файле настроек; требуется разобраться в причинах коллизии, принять верные строки и чисто завершить операцию.</p>
+    <pre><code># 1. Попытка слияния с веткой main приводит к конфликту
+git merge main
+# Auto-merging config/settings.py
+# CONFLICT (content): Merge conflict in config/settings.py
+# Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+    <pre><code># 2. Инспекция стадий индекса для конфликтующего файла
+git ls-files -u
+# 100644 a1b2c3d... 1  config/settings.py  (общий предок)
+# 100644 e4f5a6b... 2  config/settings.py  (наша ветка HEAD / ours)
+# 100644 c7d8e9f... 3  config/settings.py  (вливаемая ветка / theirs)
+
+# 3. Выбор версии файла целиком (если решение однозначно)
+git checkout --theirs config/settings.py
+# или git checkout --ours config/settings.py</code></pre>
+    <pre><code># 4. Фиксация разрешения и продолжение операции
+git add config/settings.py
+git merge --continue
+
+# 5. Если слияние пошло не так: полный и безопасный откат
+git merge --abort</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Конфликт - не поломка и не катастрофа, а штатный защитный механизм Git, когда два разработчика изменили одни и те же строки одного файла с момента расхождения веток. В момент конфликта индекс переходит в особое трёхстороннее состояние: стадия 1 хранит хеш общего предка (merge-base), стадия 2 - версию вашей текущей ветки (ours), стадия 3 - версию вливаемой ветки (theirs). Команды <code>git checkout --ours</code> и <code>git checkout --theirs</code> позволяют разрешить конфликт за доли секунды, если одна из сторон заведомо актуальнее. Если же конфликт оказался неожиданно масштабным, вызов <code>git merge --abort</code> мгновенно возвращает репозиторий в исходное чистое состояние до начала слияния, не оставляя мусорных файлов.</div>
+
+    <h2 id="cherry-pick-backport">3 · Хирургический перенос коммита (бэкпорт) <a class="anchor-link" href="#cherry-pick-backport">#</a></h2>
+    <p><strong>Задача:</strong> критический фикс уязвимости сделан в главной ветке main; требуется точечно перенести его в стабильную релизную ветку v1.4 без затягивания сотен других новых коммитов.</p>
+    <pre><code># 1. Находим хеш коммита с исправлением в ветке main
+git log -1 --oneline main --grep="fix(security)"
+# c8a31e5 fix(security): sanitize user input in authentication headers</code></pre>
+    <pre><code># 2. Переключаемся на изолированную релизную ветку
+git switch release/v1.4
+
+# 3. Переносим коммит с обязательным флагом provenance (-x)
+git cherry-pick -x c8a31e5</code></pre>
+    <pre><code># 4. Проверяем, как зафиксировался перенос в журнале
+git log -1
+# commit 9f12d44...
+# Author: Alex Developer <alex@example.com>
+#
+#     fix(security): sanitize user input in authentication headers
+#
+#     (cherry picked from commit c8a31e5f891a2bc44120...)</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Команда <code>git cherry-pick</code> берёт патч, порождённый указанным коммитом, и накладывает его на верхушку текущей ветки, создавая совершенно новый коммит со своим уникальным SHA-1. Флаг <code>-x</code> обязателен в корпоративной практике уровня Pro: он вставляет в тело коммита служебную строку с точным хешем оригинального коммита из <code>main</code>. Без флага <code>-x</code> через полгода ни один инженер или аудитор не сможет установить, откуда взялся данный патч, исправлен ли баг в мастере и является ли коммит дубликатом. Если при переносе возник конфликт, разрешите его и выполните <code>git cherry-pick --continue</code> или отмените вызовом <code>git cherry-pick --abort</code>.</div>
+
+    <h2 id="worktree-multitasking">4 · Параллельная работа без переключения веток (worktree) <a class="anchor-link" href="#worktree-multitasking">#</a></h2>
+    <p><strong>Задача:</strong> вы пишете сложную фичу в ветке feat/checkout, сборка и тесты занимают длительное время; внезапно поступает задача срочно выпустить хотфикс в production без сброса локального окружения.</p>
+    <pre><code># 1. Подключаем параллельную рабочую директорию для хотфикса
+git worktree add ../hotfix-auth -b hotfix/auth-leak origin/main
+
+# 2. Переходим в созданный изолированный каталог
+cd ../hotfix-auth
+# Проверяем, что ветка уже переключена на хотфикс:
+git branch --show-current
+# hotfix/auth-leak</code></pre>
+    <pre><code># 3. Вносим правку, тестируем и публикуем
+echo "fixed" >> src/security.py
+git commit -am "fix(security): patch token reflection"
+git push origin hotfix/auth-leak
+
+# 4. Возвращаемся в основной каталог и удаляем временное дерево
+cd ../main-project
+git worktree remove ../hotfix-auth
+git worktree list</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Классическая ошибка новичка при срочном переключении - создавать новый медленный клон репозитория по сети либо прятать незавершённые файлы в <code>git stash</code>, что ломает кеши компиляторов и сбивает запущенные тесты. Механизм <code>git worktree</code> создаёт независимую рабочую директорию, подключенную к тому же самому локальному хранилищу <code>.git</code>. Все объекты, коммиты и ссылки общие: скачивать ничего не нужно, а в каталоге ворктри вместо тяжёлой базы лежит легковесный текстовый файл <code>.git</code>, указывающий на мастер-репозиторий. Это позволяет держать открытыми две разные ветки в разных окнах редактора и собирать их параллельно.</div>
+
+    <h2 id="stash-advanced">5 · Временный карман: именованный stash и stash branch <a class="anchor-link" href="#stash-advanced">#</a></h2>
+    <p><strong>Задача:</strong> в рабочей директории накопились экспериментальные наброски; нужно очистить рабочее дерево для другой задачи, а затем превратить эти наброски в чистую отдельную ветку.</p>
+    <pre><code># 1. Сохраняем наброски с осмысленным описанием и неотслеживаемыми файлами
+git stash push -u -m "wip: исследование кеширования сессий в redis"
+
+# 2. Проверяем стек сохраненных карманов
+git stash list
+# stash@{0}: On feat/api: wip: исследование кеширования сессий в redis</code></pre>
+    <pre><code># 3. Инспектируем содержимое кармана без его извлечения
+git stash show -p stash@{0}
+
+# 4. Превращаем карман в отдельную изолированную ветку
+git stash branch feat/redis-cache stash@{0}
+# Создана ветка feat/redis-cache, изменения применены, запись из стека удалена</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Вызов <code>git stash</code> без аргументов опасен: он генерирует безликие записи <code>WIP on branch...</code> и по умолчанию пропускает новые неотслеживаемые файлы (untracked). Флаг <code>-u</code> (или <code>--include-untracked</code>) гарантирует, что созданные файлы не пропадут. Команда <code>git stash branch &lt;name&gt;</code> решает фундаментальную проблему конфликтов при восстановлении: если за время вашей работы текущая ветка убежала вперёд, обычный <code>git stash pop</code> приведёт к тяжёлому конфликту слияния. Вызов <code>stash branch</code> автоматически создаёт новую ветку ровно от того коммита, на котором находился репозиторий в момент создания стеша, без малейших конфликтов накладывает изменения и сама удаляет запись из стека.</div>
+
+    <h2 id="safe-push-rebase">6 · Безопасная публикация: force-with-lease и pull --rebase <a class="anchor-link" href="#safe-push-rebase">#</a></h2>
+    <p><strong>Задача:</strong> после локального интерактивного rebase вашей ветки требуется обновить удалённую ветку на сервере, исключив риск случайного затирания коммитов коллеги.</p>
+    <pre><code># 1. Линейно подтягиваем обновления базовой ветки main
+git pull --rebase origin main
+
+# 2. Безопасная форсированная отправка переписанной ветки
+git push --force-with-lease origin feat/billing</code></pre>
+    <pre><code># 3. Настройка линейного обновления по умолчанию для всех репозиториев
+git config --global pull.rebase true
+
+# 4. Проверка отказа при попытке затереть чужую работу
+git push --force-with-lease origin feat/billing
+# ! [rejected] feat/billing -> feat/billing (stale info)
+# error: failed to push some refs to 'origin'</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Слепой вызов <code>git push --force</code> (или <code>-f</code>) - одна из главных причин уничтожения работы в командах. Если коллега успел отправить свой коммит в вашу общую ветку, пока вы локально выполняли rebase, обычный <code>--force</code> молча сотрёт его коммит с сервера. Опция <code>--force-with-lease</code> действует как оптимистическая блокировка: Git проверяет, совпадает ли текущий хеш ветки на сервере с вашей последней известной копией <code>refs/remotes/origin/...</code>. Если на сервере появился чужой коммит, Git немедленно остановит публикацию с ошибкой <code>stale info</code>. Это вынуждает сначала сделать <code>git fetch</code>, ознакомиться с чужой работой, интегрировать её и лишь затем безопасно обновить удалённую ветку.</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После освоения практических сценариев уровня Pro в вашем арсенале зафиксированы стандарты командного взаимодействия:</p>
+      <ul>
+        <li><strong>Культура Pull Request:</strong> подготовка чистой истории коммитов через <code>git rebase -i</code> и связку <code>git commit --fixup</code> с автоматическим <code>--autosquash</code>.</li>
+        <li><strong>Трёхсторонняя ясность:</strong> владение стадиями индекса при конфликтах слияния и безопасный сброс через <code>git merge --abort</code>.</li>
+        <li><strong>Прослеживаемость бэкпортов:</strong> перенос хотфиксов через <code>git cherry-pick -x</code> с сохранением хеша источника.</li>
+        <li><strong>Многозадачность без клонов:</strong> мгновенное переключение контекста между фичами через изолированные директории <code>git worktree</code>.</li>
+        <li><strong>Безопасный карман:</strong> работа со стешем через <code>git stash push -u -m "..."</code> и бесконфликтное создание веток через <code>git stash branch</code>.</li>
+        <li><strong>Защита от перезаписи:</strong> категорический отказ от слепого <code>--force</code> в пользу гарантированно безопасного <code>git push --force-with-lease</code>.</li>
+      </ul>
     </div>
   </main>
 
