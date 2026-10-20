@@ -1,3 +1,8 @@
-# what the site states <TAB> expected output <TAB> command
-# One line per claim. Tabs, not spaces. Example from the reference site:
-# set -e не действует внутри условия	0	bash -c 'set -e; if false; then :; fi; echo 0'
+# what the site states	expected output	command
+хеш blob равен sha1sum от заголовка blob и содержимого	3b18e512dba79e4c8300dd08aeb37f8e728b8dad	printf 'blob 12\0hello world\n' | sha1sum | awk '{print $1}'
+git cat-file определяет тип объекта blob по его хешу	blob	T=$(mktemp -d); git -C "$T" init -q; printf 'hello world\n' | git -C "$T" hash-object -w --stdin >/dev/null; git -C "$T" cat-file -t 3b18e512dba79e4c8300dd08aeb37f8e728b8dad; rm -rf "$T"
+git cat-file выводит точное содержимое blob без метаданных	hello world	T=$(mktemp -d); git -C "$T" init -q; printf 'hello world\n' | git -C "$T" hash-object -w --stdin >/dev/null; git -C "$T" cat-file -p 3b18e512dba79e4c8300dd08aeb37f8e728b8dad; rm -rf "$T"
+указатель HEAD в новом репозитории ссылается на ветку main	ref: refs/heads/main	T=$(mktemp -d); git -C "$T" init -b main -q; cat "$T/.git/HEAD"; rm -rf "$T"
+файл локальной ветки содержит ровно 41 байт	41	T=$(mktemp -d); git -C "$T" init -b main -q; git -C "$T" config user.email "a@b.c"; git -C "$T" config user.name "A"; git -C "$T" commit --allow-empty -m "init" -q; wc -c < "$T/.git/refs/heads/main" | tr -d ' '; rm -rf "$T"
+тип объекта коммита в базе Git равен commit	commit	T=$(mktemp -d); git -C "$T" init -b main -q; git -C "$T" config user.email "a@b.c"; git -C "$T" config user.name "A"; git -C "$T" commit --allow-empty -m "init" -q; git -C "$T" cat-file -t HEAD; rm -rf "$T"
+дерево коммита имеет тип tree	tree	T=$(mktemp -d); git -C "$T" init -b main -q; git -C "$T" config user.email "a@b.c"; git -C "$T" config user.name "A"; git -C "$T" commit --allow-empty -m "init" -q; git -C "$T" cat-file -t HEAD^{tree}; rm -rf "$T"
