@@ -226,10 +226,11 @@
 
 ```
 7726e04 feat(content): explain three-tree undo model, restore, reset, and revert in topic 07
+8ef9eee docs(record): record step 7 delivery for topic 07
 ```
 
 ## Приёмка
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
