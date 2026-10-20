@@ -42,7 +42,7 @@ Work begins only after that word. Until then, the answer to "just do it quickly"
 
 ## 7. When the work is done
 
-The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each check printed. When the Conductor explicitly approves the delivery in chat (e.g. "Раздел N принят", "принято"), the AI records the acceptance verdict in the table, indicating a working review authorizing progression to the next step without precluding future refinements.
+The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each check printed. When the Conductor explicitly approves the delivery in chat (e.g. "Раздел N принят", "принято"), the AI records the acceptance verdict in the table, indicating a working review authorizing progression to the next step without precluding future refinements. Always conclude the delivery report with an explicit, low-cost choice of next steps for the Conductor (or explicitly state that no forks remain). Before executing any command blocks during the work, always output a single-sentence micro-goal (`**Микро-цель:** ...`) explaining what is being done and why tokens are spent.
 
 ## 8. Structural numbering invariants
 
@@ -60,3 +60,11 @@ The series views technical growth as an engaging game:
 ## 10. No hard line breaks in Markdown files
 
 Paragraphs, list items, and blockquotes must be written as single continuous lines of text without manual line wrapping at arbitrary columns (such as 80 or 100 characters). Hard newlines are used only between structural blocks (headings, paragraphs, list items, code blocks, tables). Editors handle visual soft-wrapping; single-line prose ensures clean, minimal git diffs and prevents formatting degradation over time.
+
+## 11. Practical example chapters (10-12)
+
+Practical chapters cover 6-7 battle-tested scenarios per chapter (18-21 per course). Each scenario follows the strict triad: `<p><strong>Задача:</strong> ...</p>`, `<pre><code>...</code></pre>`, `<div class="prints"><strong>Почему так:</strong> ...</div>`. Multi-column `<table>` elements are forbidden due to 390px mobile viewport overflow. Each practical chapter declares at least 3 machine-checkable claims in `tools/claims.tsv`.
+
+## 12. Question banks (13-15)
+
+Question banks contain strictly 50 questions per chapter (150 per course). Subsections group questions by tens: `1 · Вопросы (1-10)` .. `5 · Вопросы (41-50)`. Each question provides a clear title, complete answer, and cross-links to glossary terms.

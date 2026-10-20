@@ -1,0 +1,52 @@
+---
+name: course-questions
+description: Guides the design, implementation, and verification of qualification question bank chapters (topics 13-15 · Noob, Pro, IGL) across the AI Factory course series.
+---
+
+# Skill · Qualification Question Banks (13-15)
+
+Use this skill whenever working on question bank chapters: topic 13 (Noob), topic 14 (Pro), or topic 15 (IGL).
+
+## 1. Scope and Volume
+
+- **Exact count:** strictly 50 questions per chapter (total 150 questions across topics 13-15).
+- **Word floor:** strictly at least 1100 words per chapter (typical target: 1500-2200 words for 50 substantive questions).
+- **Audience tiering:**
+  - **Topic 13 (Noob):** 50 foundational questions covering fundamental syntax, CLI commands, basic lifecycle, and common pitfalls.
+  - **Topic 14 (Pro):** 50 professional questions on team collaboration, error handling, performance tuning, and CI/CD best practices.
+  - **Topic 15 (IGL):** 50 systems architecture and leadership questions on security boundaries, compliance, enterprise scale, and infrastructure governance.
+
+## 2. In-Page Grouping and Navigation
+
+- **Headings contract:** Substantive `<h2>` headings group questions into blocks of 10:
+  - `<h2 id="q01-10">1 · Вопросы (1-10) <a class="anchor-link" href="#q01-10">#</a></h2>`
+  - `<h2 id="q11-20">2 · Вопросы (11-20) <a class="anchor-link" href="#q11-20">#</a></h2>`
+  - `<h2 id="q21-30">3 · Вопросы (21-30) <a class="anchor-link" href="#q21-30">#</a></h2>`
+  - `<h2 id="q31-40">4 · Вопросы (31-40) <a class="anchor-link" href="#q31-40">#</a></h2>`
+  - `<h2 id="q41-50">5 · Вопросы (41-50) <a class="anchor-link" href="#q41-50">#</a></h2>`
+- This preserves the two-level numbering invariant and integrates cleanly with the sidebar TOC (`page-toc`).
+- Introductory "Главная мысль страницы" and closing "Артефакты" headings remain unnumbered.
+
+## 3. Question Structure
+
+Each question within a group follows a clear, readable structure:
+1. **Numbered title:** `<p><strong>N. Clear, direct question formulation?</strong></p>`
+2. **Answer and explanation:** Substantive technical explanation covering the mechanism, edge cases, and best practices.
+3. **Glossary cross-links:** Connect technical terminology to `glossary.html` via `<a href="glossary.html#term">term</a>`.
+4. **Code snippets where helpful:** Compact inline `<code>` or short `<pre><code>` blocks demonstrating exact behavior.
+
+## 4. Mobile Viewport (390px) and Typography Rules
+
+- No wide `<table>` elements that cause horizontal overflow.
+- Zero em dashes (`—`, U+2014) anywhere; use spaced hyphen ` - ` or plain hyphen in ranges `(1-10)`.
+- No hard line breaks in Markdown documentation.
+
+## 5. Delivery Workflow
+
+1. Write `lessons/step-N.md` with strictly 3 predicates before editing product files.
+2. Draft all 50 questions in `ru/<N>.html`.
+3. Add required claims to `tools/claims.tsv` and verify with `./tools/check-claims.sh`.
+4. Run `python3 tools/build-nav.py` and `python3 tools/build-search.py`.
+5. Run `./check.sh` (ensure `ЗЕЛЁНОЕ`, 9/9, 0 mobile defects).
+6. Commit with scope `feat(content):` and an informative commit body.
+7. Record delivery in `lessons/record-N.md`.
