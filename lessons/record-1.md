@@ -165,5 +165,5 @@ e646a5e name the fifteen sections and repair two defects of the stamp
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
 
