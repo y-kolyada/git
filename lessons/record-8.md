@@ -238,10 +238,11 @@
 
 ```
 2d7b8a4 feat(content): explain remote topology, refspec, fetch, and pull in topic 08
+d7c502c docs(record): record step 8 delivery for topic 08
 ```
 
 ## Приёмка
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
