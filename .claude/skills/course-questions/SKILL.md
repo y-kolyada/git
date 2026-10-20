@@ -16,7 +16,12 @@ Use this skill whenever working on question bank chapters: topic 13 (Noob), topi
   - **Topic 14 (Pro):** 50 professional questions on team collaboration, error handling, performance tuning, and CI/CD best practices.
   - **Topic 15 (IGL):** 50 systems architecture and leadership questions on security boundaries, compliance, enterprise scale, and infrastructure governance.
 
-## 2. In-Page Grouping and Navigation
+## 2. Top-Down Planning (The 5x3 Architecture Matrix)
+
+- **Phase 1 · Architectural Framing:** Before writing any question text, agree with the Conductor on the high-level 5x3 thematic matrix (5 logical blocks of 10 questions for Noob, 5 for Pro, 5 for IGL, total 15 blocks). Never dump 150 individual question texts into the chat upfront; formulate only the concise 1-sentence scope for each 10-question block. This guarantees course-wide balance, eliminates topical overlap, and conserves token budget.
+- **Phase 2 · Autonomous Sequential Delivery:** Deliver question banks in strictly 3 independent steps (one chapter per step: Step N -> Topic 13, Step N+1 -> Topic 14, Step N+2 -> Topic 15). Detailed question formulations, comprehensive technical answers, and explicit interview rationale are drafted directly into the target page `ru/<N>.html` under approved step tasks.
+
+## 3. In-Page Grouping and Navigation
 
 - **Headings contract:** Substantive `<h2>` headings group questions into blocks of 10:
   - `<h2 id="q01-10">1 · Вопросы (1-10) <a class="anchor-link" href="#q01-10">#</a></h2>`
@@ -41,7 +46,13 @@ Each question within a group follows a clear, readable structure:
 - Zero em dashes (`—`, U+2014) anywhere; use spaced hyphen ` - ` or plain hyphen in ranges `(1-10)`.
 - No hard line breaks in Markdown documentation.
 
-## 5. Delivery Workflow
+## 5. Landing Page Integration (index.html)
+
+- The landing page (`ru/index.html`) introduces the 150-question qualification bank under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` and the three maturity levels under `<h2 id="levels">`.
+- Ensure that the descriptions of topics 13, 14, and 15 on `index.html` accurately reflect the 5x3 architecture matrix (the 5 logical blocks per level).
+- Verify the illustrative cross-tier comparison box on the landing page (`<div class="box"><h3>Практический пример: как меняется ответ с ростом уровня</h3>`), which demonstrates how a single technical question is approached differently by a Noob (mechanics), Pro (reliability and cleanliness), and IGL (systems architecture and security).
+
+## 6. Delivery Workflow
 
 1. Write `lessons/step-N.md` with strictly 3 predicates before editing product files.
 2. Draft all 50 questions in `ru/<N>.html`.
