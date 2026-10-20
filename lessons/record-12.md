@@ -215,4 +215,4 @@ a92f20d feat(content): explain interactive rebase, conflict anatomy, and worktre
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
+| Архитектор (`ik`) | Принято |
