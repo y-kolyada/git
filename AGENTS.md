@@ -44,7 +44,14 @@
 4. **If the tree holds another pilot's uncommitted work, do not switch branches.** Assemble the release in a separate worktree: `git worktree add /tmp/release-N prod`, `git -C /tmp/release-N merge --no-ff dev -m "release N: ..."`, `git worktree remove /tmp/release-N`.
 5. **A cut release pins the tip of `dev`:** do not rewrite that history afterwards, or the next merge adds a second, empty delivery node.
 6. **The AI never runs `git push` and never merges into `prod`.** It stops after local commits and hands control back.
-7. **Commit messages are in English** and follow the Conventional Commits format with a scope (`feat(content):`, `refactor(page):`, `fix(page):`, `chore(engine):`, `docs(record):`). **No `Co-Authored-By:` lines.**
+7. **Commit messages are in English** and follow the Conventional Commits format with an explicit scope:
+   - `feat(content):` for new chapters, question banks, and substantive text additions;
+   - `refactor(nav|page):` for restructuring navigation, headings, and cross-topic links;
+   - `fix(page|claims):` for correcting errors in markup, claims, or code snippets;
+   - `chore(engine):` for synchronized engine updates from the seed (`seed/swa/`);
+   - `chore(agents):` for rules, prompts, `AGENTS.md`, and agent orchestration policies;
+   - `docs(record):` strictly for shift delivery records (`lessons/record-N.md`).
+   **No `Co-Authored-By:` lines.**
    - **The subject** says what changed for the reader or the system in active voice, not what the pilot typed.
    - **Meaningful commits (`feat`, `refactor`, `fix`) must have a body:** 1-2 paragraphs explaining the before/after, the architectural rationale, exact measured facts (word count against the floor, exit codes, number of verified claims), and confirmation that checks are green. Empty one-liners are rejected.
 
