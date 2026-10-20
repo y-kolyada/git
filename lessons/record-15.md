@@ -222,4 +222,4 @@ bc9a802 feat(content): write 50 intermediate questions on branching workflows an
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
+| Архитектор (`ik`) | Принято |
