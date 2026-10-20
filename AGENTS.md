@@ -13,6 +13,10 @@ same files on every site. Found a defect or a missing feature in them? Write one
 `lessons/notes-N.md`, keep working around it, and the fix is made **once** in the seed
 (`ai-factory-builder/seed/swa/`) and handed to every site.
 
+**Engine updates are isolated and approved.** Bringing in updated engine files from the seed
+(`seed/swa/sync.sh`) is committed in a **dedicated commit** (`chore(engine): sync from seed ...`)
+with no product files or content mixed in, and **only with the Conductor's explicit approval**.
+
 **Three files are the exception, and they are the site's own:**
 `tools/check-examples.sh` runs the code the pages show, `tools/check-claims.sh` executes what
 the pages state, and `tools/claims.tsv` holds those statements. The mechanism is shared, the
@@ -69,8 +73,15 @@ number and the word the search smoke test types.
    merge adds a second, empty delivery node.
 6. **The AI never runs `git push` and never merges into `prod`.** It stops after local commits
    and hands control back.
-7. **Commit messages are in English** and say what changed for the reader, not which files moved.
+7. **Commit messages are in English** and follow the Conventional Commits format with a scope
+   (`feat(content):`, `refactor(page):`, `fix(page):`, `chore(engine):`, `docs(record):`).
    **No `Co-Authored-By:` lines.**
+   - **The subject** says what changed for the reader or the system in active voice, not what
+     the pilot typed.
+   - **Meaningful commits (`feat`, `refactor`, `fix`) must have a body:** 1-2 paragraphs
+     explaining the before/after, the architectural rationale, exact measured facts (word count
+     against the floor, exit codes, number of verified claims), and confirmation that checks
+     are green. Empty one-liners are rejected.
 
 ---
 
