@@ -202,10 +202,11 @@
 
 ```
 310155c feat(content): explain rebase mechanics, hash divergence, and reflog in topic 05
+285d730 docs(record): record step 5 delivery for topic 05
 ```
 
 ## Приёмка
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
