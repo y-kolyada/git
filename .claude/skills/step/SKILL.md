@@ -9,52 +9,40 @@ Use this whenever the Architect asks for a new page, a new section, a change or 
 
 ## 1. The stop crane
 
-No product file is touched. Not a page, not `style.css`, not `site.conf`. The only file you may
-write first is the step document itself, `lessons/step-N.md`.
+No product file is touched. Not a page, not `style.css`, not `site.conf`. The only file you may write first is the step document itself, `lessons/step-N.md`.
 
 ## 2. The goal, in one sentence
 
-State what must **exist** when the work is done. Not "improve the site", but "page `01.html`
-holds the six mechanisms the rest of the site builds on, in Russian".
+State what must **exist** when the work is done. Not "improve the site", but "page `01.html` holds the six mechanisms the rest of the site builds on, in Russian".
 
 ## 3. Exactly three predicates
 
 A predicate is a statement you can answer yes or no by looking at the result.
 
 - **Forbidden:** evaluative words. Beautiful, convenient, modern, clear, high-quality.
-- **Allowed:** facts. This heading exists; there are no fewer than six sections;
-  `./check.sh` prints ЗЕЛЁНОЕ; the menu item became a link.
-- **At least one predicate must be checked by a machine.** If all three are checked by eye, the
-  step closes on an opinion instead of a fact.
-- **A vague request is not grounds for interrogation.** Offer two concrete options with their
-  costs and leave room for a third.
+- **Allowed:** facts. This heading exists; there are no fewer than six sections; `./check.sh` prints ЗЕЛЁНОЕ; the menu item became a link.
+- **At least one predicate must be checked by a machine.** If all three are checked by eye, the step closes on an opinion instead of a fact.
+- **A vague request is not grounds for interrogation.** Offer two concrete options with their costs and leave room for a third.
 
 ## 4. Boundaries
 
-Write down separately what the step does **not** include, and move each item to
-`lessons/backlog.md` as one line: what · why it is needed · **why not now**. The third field is
-what separates a decision from forgetfulness. A boundary is as much part of the step as a
-predicate.
+Write down separately what the step does **not** include, and move each item to `lessons/backlog.md` as one line: what · why it is needed · **why not now**. The third field is what separates a decision from forgetfulness. A boundary is as much part of the step as a predicate.
 
 ## 5. The draft goes into the file
 
-Write the goal, the three predicates and the boundaries into `lessons/step-N.md`, where N is the
-current step number.
+Write the goal, the three predicates and the boundaries into `lessons/step-N.md`, where N is the current step number.
 
 ## 6. Stop
 
 Show the predicates and stop:
 
-> "The predicates are in `lessons/step-N.md`. Read them and correct them: they are yours, not
-> mine. Say the word and I start typing."
+> "The predicates are in `lessons/step-N.md`. Read them and correct them: they are yours, not mine. Say the word and I start typing."
 
-Work begins only after that word. Until then, the answer to "just do it quickly" is a polite
-refusal and a pointer to this stop crane.
+Work begins only after that word. Until then, the answer to "just do it quickly" is a polite refusal and a pointer to this stop crane.
 
 ## 7. When the work is done
 
-The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each
-check printed. The accepted/returned column is the Architect's and is never filled by an AI.
+The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each check printed. The accepted/returned column is the Architect's and is never filled by an AI.
 
 ## 8. Structural numbering invariants
 
@@ -68,3 +56,7 @@ The series views technical growth as an engaging game:
 - **Noob:** learning core mechanics and eliminating magic.
 - **Pro:** reliable execution, avoiding silent failures, clean teamwork.
 - **IGL (In-Game Leader):** architectural vision, setting the rules of engagement, and leading under pressure. Learning, work, business, and complexity are demanding yet captivating games. IGL is strictly "In-Game Leader", never "Internal Guild Lead".
+
+## 10. No hard line breaks in Markdown files
+
+Paragraphs, list items, and blockquotes must be written as single continuous lines of text without manual line wrapping at arbitrary columns (such as 80 or 100 characters). Hard newlines are used only between structural blocks (headings, paragraphs, list items, code blocks, tables). Editors handle visual soft-wrapping; single-line prose ensures clean, minimal git diffs and prevents formatting degradation over time.
