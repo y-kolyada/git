@@ -24,7 +24,7 @@
 | :-- | :-- | :-- |
 | **Architect** | Conductor (`ik`) | The intent and the boundaries. Writes or approves the task (`lessons/step-N.md`) and decides what is deferred to `lessons/backlog.md`. Without the word "делаем" the AI does not touch product files. |
 | **Pilot** | AI (Claude Code, Gemini) | Types the work, proves it with checks, records what was done. Never pushes, never merges into `prod`. |
-| **Acceptance** | Conductor | Writes "accepted" or "returned" in `lessons/record-N.md`. That column is never filled by an AI. |
+| **Acceptance** | Conductor | Determines the verdict. When the Conductor writes in chat that a section or step is accepted (e.g. "Раздел N принят", "принято"), the AI records the acceptance in `lessons/record-N.md`. This indicates a working review authorizing progression to the next step, without precluding future refinements. |
 
 ---
 
@@ -87,7 +87,7 @@
 | Artifact | File | Who |
 | :-- | :-- | :-- |
 | **Task** | `lessons/step-N.md` | written or approved by the Conductor **before** the work |
-| **Record** | `lessons/record-N.md` | typed by the AI against `git diff` and the predicates; the accepted/returned column is the Conductor's |
+| **Record** | `lessons/record-N.md` | typed by the AI against `git diff` and the predicates; acceptance is recorded by the AI upon the Conductor's explicit approval in chat |
 | **Check** | `./check.sh` | run by the machine; the eye judges meaning, not the machine |
 
 Deferred work goes to `lessons/backlog.md`. Findings that belong to the shared engine go to `lessons/notes-N.md` and travel to the seed.

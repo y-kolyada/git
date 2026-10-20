@@ -42,7 +42,7 @@ Work begins only after that word. Until then, the answer to "just do it quickly"
 
 ## 7. When the work is done
 
-The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each check printed. The accepted/returned column is the Architect's and is never filled by an AI.
+The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each check printed. When the Conductor explicitly approves the delivery in chat (e.g. "Раздел N принят", "принято"), the AI records the acceptance verdict in the table, indicating a working review authorizing progression to the next step without precluding future refinements.
 
 ## 8. Structural numbering invariants
 
