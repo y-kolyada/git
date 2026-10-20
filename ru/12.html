@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры Git · уровень IGL · devops-git · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть сценариев системного лидерства: спасение после катастроф, бинарный поиск регрессий на CI, аудит секретов, хуки и расследование инцидентов.">
 <link rel="canonical" href="https://y-kolyada.github.io/git/ru/12.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/git/ru/12.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/git/en/12.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-git">
 <meta property="og:title" content="Примеры · IGL">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть сценариев системного лидерства: спасение после катастроф, бинарный поиск регрессий на CI, аудит секретов, хуки и расследование инцидентов.">
 <meta property="og:url" content="https://y-kolyada.github.io/git/ru/12.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/git/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Шесть сценариев системного лидерства: спасение после катастроф, бинарный поиск регрессий на CI, аудит секретов, хуки и расследование инцидентов.","url":"https://y-kolyada.github.io/git/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,18 +67,18 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
-      <li><a href="02.html"><span class="num">2</span>Индекс: как изменение попадает в коммит</a></li>
-      <li><a href="03.html"><span class="num">3</span>Ветка, HEAD и переключение</a></li>
-      <li><a href="04.html"><span class="num">4</span>Слияние: merge и fast-forward</a></li>
-      <li><a href="05.html"><span class="num">5</span>Rebase: переписанная история и её цена</a></li>
-      <li><a href="06.html"><span class="num">6</span>Конфликт: откуда он берётся и как его закрыть</a></li>
-      <li><a href="07.html"><span class="num">7</span>Отмена: restore, reset, revert, reflog</a></li>
-      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий: fetch, pull, push</a></li>
-      <li><a href="09.html"><span class="num">9</span>Хирургия: cherry-pick, stash, bisect, worktree</a></li>
+      <li><a href="01.html"><span class="num">1</span>Хранилище .git</a></li>
+      <li><a href="02.html"><span class="num">2</span>Индекс и коммит</a></li>
+      <li><a href="03.html"><span class="num">3</span>Ветка и HEAD</a></li>
+      <li><a href="04.html"><span class="num">4</span>Слияние и fast-forward</a></li>
+      <li><a href="05.html"><span class="num">5</span>Rebase и история</a></li>
+      <li><a href="06.html"><span class="num">6</span>Конфликты слияния</a></li>
+      <li><a href="07.html"><span class="num">7</span>Отмена и reflog</a></li>
+      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий</a></li>
+      <li><a href="09.html"><span class="num">9</span>Хирургия Git</a></li>
       <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
       <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
-      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="12.html" aria-current="page"><span class="num">12</span>Примеры · IGL</a></li>
       <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
       <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
       <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
@@ -93,20 +93,145 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1489">Слов: 1489</p>
+    <p class="lead">Шесть сценариев системного лидерства: спасение после катастроф, бинарный поиск регрессий на CI, аудит секретов, хуки и расследование инцидентов.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>На уровне IGL (In-Game Leader) фокус внимания переходит от написания кода к системной надёжности, архитектуре ведения истории и защите кодовой базы всей организации. Системный лидер - это тот, кто сохраняет хладнокровие во время прод-аварий, умеет восстанавливать затёртые коммиты из глубин базы объектов, автоматизирует расследование багов на CI и внедряет нерушимые инженерные контракты для предотвращения инцидентов. Шесть сценариев ниже дают арсенал для худших ситуаций: спасение коммитов после случайного удаления веток или деструктивного сброса, бинарный поиск виновника дефекта через автоматизированный bisect, глубокий аудит pack-файлов и удаление утекших ключей, гейткипинг через хуки, выбор оптимальной стратегии интеграции и восстановление синхронизации команды после некорректного force-push.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="catastrophe-recovery">1 · Спасение после катастрофы: reflog и fsck <a class="anchor-link" href="#catastrophe-recovery">#</a></h2>
+    <p><strong>Задача:</strong> разработчик случайно выполнил деструктивный сброс <code>git reset --hard HEAD~5</code> и удалил локальную ветку до отправки на сервер; требуется срочно восстановить потерянные коммиты.</p>
+    <pre><code># 1. Открываем журнал перемещений указателя HEAD
+git reflog -n 10
+# 7c1e9a2 HEAD@{0}: reset: moving to HEAD~5
+# b8f2a41 HEAD@{1}: commit: feat(billing): integrate stripe webhook handler
+# 3d90e12 HEAD@{2}: commit: fix(db): add index on transaction_id</code></pre>
+    <pre><code># 2. Мгновенно восстанавливаем ветку на состояние до сброса
+git switch -c recovered-feature HEAD@{1}
+
+# 3. Если reflog был поврежден или очищен: сканируем потерянные объекты
+git fsck --lost-found --unreachable
+# Checking object directories: 100% (256/256), done.
+# dangling commit b8f2a41c901e23f...
+# dangling blob 4a9f112e...
+
+# 4. Проверяем содержимое найденного коммита и привязываем ветку
+git cat-file -p b8f2a41
+git branch rescued-work b8f2a41</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Архитектура Git устроена так, что данные почти никогда не удаляются мгновенно. Любой коммит, созданный в локальном репозитории, остаётся физическим объектом в каталоге <code>.git/objects/</code> минимум 14-30 дней до того, как его удалит сборщик мусора (garbage collector). Журнал <code>git reflog</code> ведёт независимый хронологический учёт каждого смещения указателя <code>HEAD</code>. Даже если ветка была полностью удалена через <code>git branch -D</code>, её последний коммит сохраняется в reflog. Если же reflog недоступен, низкоуровневая команда <code>git fsck --lost-found</code> находит так называемые «висячие коммиты» (dangling commits) - коммиты, на которые не ссылается ни одна ветка или тег, - и помещает ссылки на них в каталог <code>.git/lost-found/commit/</code>. Спасение данных в Git - это не магия, а знание адресации объектов по SHA-1.</div>
+
+    <h2 id="bisect-automation">2 · Автоматическая локализация регрессий на CI: bisect run <a class="anchor-link" href="#bisect-automation">#</a></h2>
+    <p><strong>Задача:</strong> в основной ветке обнаружено критическое падение производительности или сбой теста, внесённый где-то за последние 300 коммитов; требуется автоматически найти коммит-виновник без участия человека.</p>
+    <pre><code># 1. Создаем легковесный воспроизводящий скрипт test.sh
+cat &lt;&lt; 'EOF' &gt; test.sh
+#!/usr/bin/env bash
+# Запуск изолированного интеграционного теста
+python3 -m pytest tests/test_payment_latency.py -q &gt; /dev/null 2&gt;&amp;1
+EOF
+chmod +x test.sh</code></pre>
+    <pre><code># 2. Инициализируем бинарный поиск с указанием заведомо исправного тега
+git bisect start HEAD v2.4.0
+
+# 3. Запускаем автоматического робота расследования
+git bisect run ./test.sh
+# Bisecting: 149 revisions left to test after this (roughly 7 steps)
+# ...
+# 8f9b2c4 is the first bad commit
+# Author: Developer &lt;dev@example.com&gt;
+# Date:   Mon Oct 19 14:22:10 2026
+#     perf(cache): switch session storage to memory pool</code></pre>
+    <pre><code># 4. Завершаем расследование и возвращаем рабочую копию
+git bisect reset</code></pre>
+    <div class="prints"><strong>Почему так:</strong> При диапазоне в 300 коммитов ручная проверка заняла бы часы. Бинарный поиск <code>git bisect</code> находит виновника ровно за <code>log2(N)</code> шагов - для 300 коммитов это всего 8-9 проверок. Команда <code>git bisect run &lt;script&gt;</code> полностью исключает человеческий фактор: Git сам переключает рабочую директорию, запускает указанную программу и анализирует её код возврата (exit code). Если код возврата равен 0, Git помечает коммит как <code>good</code>; если от 1 до 127 (кроме 125) - как <code>bad</code>. Специальный код 125 сообщает Git пропустить текущий коммит (<code>skip</code>), если в нём присутствовала несвязанная ошибка сборки. Встроив этот сценарий в CI-пайплайн, IGL превращает локализацию регрессий в пятиминутную рутину.</div>
+
+    <h2 id="secrets-audit">3 · Аудит и чистка секретов: поиск тяжелых блобов и утечек <a class="anchor-link" href="#secrets-audit">#</a></h2>
+    <p><strong>Задача:</strong> размер репозитория превысил 1 ГБ из-за случайно закоммиченных бинарных дампов, либо разработчик по ошибке закоммитил файл с production-паролями; требуется найти виновников и вырезать их из истории навсегда.</p>
+    <pre><code># 1. Сканируем упакованные объекты и находим топ-5 самых тяжелых файлов
+git verify-pack -v .git/objects/pack/*.idx \
+  | sort -k 3 -n -r \
+  | head -n 5
+# a7c21f9... blob   45120984 38192011 1029384
+
+# 2. Выясняем имя файла в дереве по найденному SHA-1 блоба
+git rev-list --objects --all | grep a7c21f9
+# a7c21f9... database_backup_2026.sql</code></pre>
+    <pre><code># 3. Вырезаем тяжелый файл или секреты из всей истории репозитория
+git filter-repo --invert-paths --path database_backup_2026.sql
+
+# 4. Принудительно очищаем локальные логи и запускаем агрессивный сборщик
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Обычное удаление файла через <code>git rm secrets.env &amp;&amp; git commit</code> не удаляет его из базы объектов! Файл остаётся во всех предыдущих коммитах и скачивается каждым разработчиком при клонировании. Утилита <code>git verify-pack</code> анализирует индексные файлы паков (<code>.idx</code>) и выводит реальный размер блобов в байтах. Для полного устранения утечки требуется переписать историю графа (DAG) с помощью официального инструмента <code>git-filter-repo</code>: он пересобирает все коммиты без указанного пути. Важнейшая аксиома IGL: после утечки секрета в репозиторий удаление его из Git недостаточно - утекший токен или пароль должен считаться скомпрометированным и немедленно отозван в провайдере.</div>
+
+    <h2 id="quality-gatekeeping">4 · Контракты и гейткипинг на хуках: pre-commit и commit-msg <a class="anchor-link" href="#quality-gatekeeping">#</a></h2>
+    <p><strong>Задача:</strong> гарантировать соблюдение единых стандартов сообщений коммитов и исключить попадание неотформатированного кода в репозиторий с помощью автоматических хуков.</p>
+    <pre><code># 1. Переопределяем стандартный путь к хукам в версионируемую папку
+git config core.hooksPath .githooks
+
+# 2. Создаем контракт сообщения коммита .githooks/commit-msg
+cat &lt;&lt; 'EOF' &gt; .githooks/commit-msg
+#!/usr/bin/env bash
+# Проверка Conventional Commits: feat(scope): message
+MSG=$(head -n 1 "$1")
+PATTERN="^(feat|fix|docs|style|refactor|perf|test|chore)(\([a-z0-9_-]+\))?: .+"
+
+if ! echo "$MSG" | grep -qE "$PATTERN"; then
+  echo "ОШИБКА: Сообщение коммита не соответствует стандарту Conventional Commits." &gt;&amp;2
+  echo "Пример: feat(auth): add oauth2 token validation" &gt;&amp;2
+  exit 1
+fi
+EOF
+chmod +x .githooks/commit-msg</code></pre>
+    <pre><code># 3. Тестируем защиту: невалидный коммит отклоняется
+git commit -m "fixed bug"
+# ОШИБКА: Сообщение коммита не соответствует стандарту Conventional Commits.
+# commit failed</code></pre>
+    <div class="prints"><strong>Почему так:</strong> По умолчанию каталог <code>.git/hooks/</code> находится вне контроля версий: скрипты из него не передаются при <code>git clone</code>, и каждый разработчик вынужден настраивать их вручную. Опция <code>git config core.hooksPath .githooks</code> решает эту архитектурную проблему: папка <code>.githooks/</code> лежит в корне проекта, коммитится в Git и одинаково работает у всех участников команды. Хук <code>commit-msg</code> получает путь к файлу с черновиком сообщения первым аргументом (<code>$1</code>). Если хук завершается с кодом ошибки (exit 1), Git прерывает создание коммита, сохраняя изменения в индексе. На стороне сервера аналогичную роль выполняет хук <code>pre-receive</code>, проверяющий пуши всей команды до обновления ссылок.</div>
+
+    <h2 id="merge-strategies">5 · Стратегия слияний и защита веток: merge-commit, squash, rebase <a class="anchor-link" href="#merge-strategies">#</a></h2>
+    <p><strong>Задача:</strong> формализовать единую командную политику интеграции веток в production-репозитории и настроить правила предотвращения хаоса в истории проекта.</p>
+    <pre><code># Сценарий А: Squash and Merge (для пользовательских фич в trunk-based)
+# 15 черновых коммитов схлопываются в один аккуратный блок
+git merge --squash feature/shopping-cart
+git commit -m "feat(cart): deliver shopping cart functionality (#142)"</code></pre>
+    <pre><code># Сценарий Б: Merge Commit --no-ff (для релизных поездов и спринтов)
+# Сохраняет контекст ветки и отдельный узел слияния с двумя родителями
+git merge --no-ff release/2026-10-20 -m "release: cut release v2.5.0"
+
+# Сценарий В: Инспекция истории без мусорных внутренних коммитов
+git log --oneline --graph --first-parent main</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Выбор стратегии слияния - ответственность IGL, определяющая читаемость истории на годы вперёд. Стратегия <code>Squash and Merge</code> идеальна для повседневных PR: авторы могут коммитить локально хоть каждые 5 минут, но в основную ветку попадёт ровно один атомарный коммит, который легко откатить через <code>git revert</code> в случае инцидента. Стратегия <code>Merge Commit (--no-ff)</code> обязательна для интеграции релизов: флаг <code>--no-ff</code> создаёт выделенный коммит слияния с двумя предками, фиксируя факт поставки. Флаг <code>--first-parent</code> в <code>git log</code> позволяет руководителю видеть только главную магистраль релизов, скрывая сотни второстепенных коммитов внутри фича-веток.</div>
+
+    <h2 id="crisis-recovery">6 · Разрешение кризисов синхронизации в команде: расследование force-push <a class="anchor-link" href="#crisis-recovery">#</a></h2>
+    <p><strong>Задача:</strong> коллега по ошибке выполнил неаккуратный <code>git push --force</code> в общую ветку и затёр историю за последние два дня; требуется вернуть ветку на сервере в исходное состояние.</p>
+    <pre><code># 1. Получаем свежее состояние сервера без автоматических слияний
+git fetch origin
+
+# 2. Ищем локальную историю изменений удаленной ссылки origin/main
+git reflog show origin/main -n 5
+# 4a2b1c0 (origin/main) refs/remotes/origin/main@{0}: update by push (forced)
+# f9e8d7c refs/remotes/origin/main@{1}: update by fetch (было до форс-пуша!)</code></pre>
+    <pre><code># 3. Безопасно возвращаем удаленную ветку на правильный хеш
+git push --force-with-lease origin f9e8d7c:main
+
+# 4. Команда коллегам для синхронизации без создания дублей
+git fetch origin
+git reset --hard origin/main</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Когда кто-то делает <code>git push --force</code>, он переписывает указатель на сервере, но на компьютерах коллег, которые делали <code>fetch</code> до инцидента, старый хеш всё ещё жив! Локальный reflog удалённой ветки <code>git reflog show origin/main</code> хранит историю всех обновлений удалённого трекера. Запись <code>HEAD@{1}</code> до принудительного обновления указывает на точный хеш потерянной вершины. Зная этот хеш, IGL возвращает ветку на сервере через <code>git push --force-with-lease origin &lt;hash&gt;:main</code>. <strong>Критическое правило IGL при инциденте:</strong> запретить команде делать <code>git pull</code>! Обычный pull попытается слить новую и восстановленную историю, создав хаос из перепутанных дублей коммитов. Правильный алгоритм - <code>git fetch</code> и синхронизирующий <code>git reset --hard origin/main</code>.</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После освоения практических сценариев уровня IGL у вас есть системный регламент управления рисками и качеством в инженерной команде:</p>
+      <ul>
+        <li><strong>Протокол спасения данных:</strong> пошаговый алгоритм восстановления коммитов через <code>git reflog</code> и низкоуровневый обход <code>git fsck --lost-found</code>.</li>
+        <li><strong>Автоматизированное расследование:</strong> скриптовый запуск <code>git bisect run</code> для мгновенного нахождения регрессий на CI без ручного труда.</li>
+        <li><strong>Санитария кодовой базы:</strong> аудит pack-файлов через <code>git verify-pack</code> и полное удаление утекших данных через <code>git-filter-repo</code>.</li>
+        <li><strong>Версионируемый гейткипинг:</strong> централизованные хуки в репозитории через <code>core.hooksPath</code> с проверкой формата сообщений и линтинга.</li>
+        <li><strong>Архитектура веток:</strong> осознанный выбор между <code>Squash and Merge</code> и <code>--no-ff</code> с инспекцией через <code>--first-parent</code>.</li>
+        <li><strong>Регламент выхода из сбоев:</strong> протокол локализации чужих деструктивных форс-пушей и безаварийной синхронизации команды.</li>
+      </ul>
     </div>
   </main>
 
