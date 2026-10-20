@@ -217,4 +217,4 @@ cdabc43 chore(agents): formalize canonical structure for step-N, record-N, and n
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
+| Архитектор (`ik`) | Принято |
