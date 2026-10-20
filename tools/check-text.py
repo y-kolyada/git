@@ -39,7 +39,7 @@ def main():
     if len(bad_dash) > 8:
         print('        -> ... и ещё %d' % (len(bad_dash) - 8))
     if bad_name:
-        print('  запрещённых слов «російськ»: %d' % len(bad_name))
+        print('  несоответствий «російськ»: %d' % len(bad_name))
         for page, piece in bad_name[:8]:
             print('        -> %s: %s' % (page, piece[:70]))
         if len(bad_name) > 8:
@@ -50,7 +50,7 @@ def main():
         print()
         return 1
     if bad_name:
-        print('  \033[31mКРАСНОЕ\033[0m  - формулировка «російська/російською» запрещена: есть русский язык / руська мова')
+        print('  \033[31mКРАСНОЕ\033[0m  - формулировка «російська/російською» не используется: исходный русский язык / руська мова')
         print()
         return 1
     print('  \033[32mЗЕЛЁНОЕ\033[0m')

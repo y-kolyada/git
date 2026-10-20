@@ -110,7 +110,7 @@ number and the word the search smoke test types.
    - **Level 1 (Topic navigation):** Every link in `<nav class="contents">` to topics 01-15 carries `<span class="num">N</span>` with the integer topic number (`1`..`15`). CSS suppresses default `<ol>` list numbering (`list-style: none`), so without `.num` the numbers are invisible. `tools/build-nav.py` restores them, and `./check.sh` guards them.
    - **Level 2 (In-page topic sections):** Every substantive subsection heading `<h2>` on pages 01-12 follows the pattern `<h2 id="...">N · Title <a class="anchor-link" href="#...">#</a></h2>` (where `N` is 1, 2, 3...). Question banks (13-15) state question ranges in parentheses (e.g. `(1-10)`). The introductory "Главная мысль страницы" and closing "Артефакты" headings are unnumbered.
 9. **Language naming convention (русский язык / руська мова):**
-   Формулировка «російська мова» / «російською» запрещена во всех материалах, коде, упряжи и заглушках сайтов серии. Исходный язык материалов именуется «русский язык» (исторически во времена Киевской Руси - «руська мова / речь»). В украинских карточках-заглушках (`.stub-card`) используется точная форма: «Повна робоча версія цієї сторінки опублікована руською мовою.» За этим следит `tools/check-text.py`.
+   В материалах, коде, упряжи и заглушках сайтов серии мы придерживаемся исторической и языковой точности: формулировка «російська мова» / «російською» не используется. Исходный язык материалов именуется «русский язык» (исторически во времена Киевской Руси - «руська мова / речь»). В украинских карточках-заглушках (`.stub-card`) используется точная форма: «Повна робоча версія цієї сторінки опублікована руською мовою.» За этим следит `tools/check-text.py`.
 
 ---
 
