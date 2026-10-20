@@ -43,6 +43,7 @@ run() {
 }
 
 run "страница и заголовок" ./tools/check-page.sh ru/index.html
+run "оболочка и навигация" python3 tools/build-nav.py --check
 run "утверждения сайта"    ./tools/check-claims.sh
 run "примеры запускаются"  ./tools/check-examples.sh
 run "ссылки и якоря"       python3 tools/check-links.py

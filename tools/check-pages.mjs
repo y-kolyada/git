@@ -276,6 +276,26 @@ for (const file of files) {
       if (title && !btn.textContent.includes(title)) out.push('свёрнутая строка не называет текущую страницу');
     }
 
+    const allItems = [...nav.querySelectorAll('ol > li > a')];
+    const missingNum = allItems.filter((a) => !a.querySelector('.num'));
+    if (missingNum.length > 0) {
+      out.push('в меню у ' + missingNum.length + ' пунктов нет <span class="num">');
+    }
+
+    const isTopic = /\/(0[1-9]|1[0-2])\.html$/.test(window.location.href);
+    if (isTopic) {
+      const h2s = [...document.querySelectorAll('main h2[id]')].filter((h) => {
+        return h.id !== 'key-idea' && h.id !== 'artifacts' && !h.closest('.glossary-term');
+      });
+      for (const h2 of h2s) {
+        const text = h2.textContent.replace('#', '').trim();
+        if (!/^\d+\s*·\s*/.test(text)) {
+          out.push('раздел "' + text.slice(0, 30) + '" не пронумерован (нужен формат "N · Название")');
+          break;
+        }
+      }
+    }
+
     // Разворот и касание раздела проверяются на одной странице языка: каждый
     // прыжок по якорю стоит секунды, а проверка должна оставаться запускаемой.
     if (!deep) return out;

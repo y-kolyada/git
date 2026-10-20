@@ -46,6 +46,8 @@ SKIP_LINK = re.compile(r'\s*<a class="skip"[^>]*>.*?</a>', re.S)
 SWITCHER = re.compile(r'<(div|nav) class="lang-switcher"[^>]*>(.*?)</\1>', re.S)
 SWITCH_LINK = re.compile(r'<a ([^>]*?)href="([^"]+)"([^>]*)>([A-Z]{2})</a>')
 ASSETS = ('style.css', 'swa.js', 'terms.js', 'cp.js')
+NAV_ITEM = re.compile(r'(<nav class="contents"[^>]*>.*?</nav>)', re.S | re.I)
+NAV_LINK = re.compile(r'(<a\b[^>]*href="(?:\.\./\w\w/)?(\d\d)\.html"[^>]*>)(.*?)(</a>)', re.S | re.I)
 
 # Версия оснастки в ссылке. Браузер кэширует файл по адресу, а адрес без
 # версии не меняется, когда меняется файл: вернувшийся читатель получает
@@ -145,9 +147,34 @@ def version(text, counts):
     return ASSET_LINK.sub(stamp, text)
 
 
+def number_nav(text, counts):
+    """Каждый из 15 разделов в навигаторе несёт <span class="num">N</span>.
+
+    Стили отключают стандартную нумерацию списка ol, чтобы номер стоял
+    приглушённым и фиксированной ширины. Если номер потерялся при правке,
+    генератор возвращает его на место."""
+    def fix_nav(nav_match):
+        nav_block = nav_match.group(1)
+
+        def fix_link(m):
+            num = int(m.group(2))
+            open_tag = m.group(1)
+            inner = m.group(3)
+            close_tag = m.group(4)
+            clean = re.sub(r'^\s*<span class="num">\d+</span>\s*', '', inner)
+            new_inner = '<span class="num">%d</span>%s' % (num, clean)
+            if new_inner != inner:
+                counts['nav_num'] = counts.get('nav_num', 0) + 1
+            return open_tag + new_inner + close_tag
+
+        return NAV_LINK.sub(fix_link, nav_block)
+
+    return NAV_ITEM.sub(fix_nav, text)
+
+
 def rewrite(text, lang, migrate=False):
     counts = {'assets': 0, 'pages': 0, 'lessons': 0, 'icons': 0, 'access': 0, 'version': 0,
-              'site': 0}
+              'site': 0, 'nav_num': 0}
 
     def house(found):
         tag = '<html lang="%s" data-site="%s">' % (found.group(1), CONF['key'])
@@ -219,6 +246,8 @@ def rewrite(text, lang, migrate=False):
     text, fixed = accessible(text, lang)
     counts['access'] = fixed
 
+    text = number_nav(text, counts)
+
     text = version(text, counts)
     return text, counts
 
@@ -266,13 +295,14 @@ def main(argv):
     args = [a for a in argv[1:] if not a.startswith('--')]
     migrate = '--migrate' in argv[1:]
     relink = '--relink' in argv[1:]
+    check_only = '--check' in argv[1:]
     roots = [d for d in (args or LANGS) if os.path.isdir(d)]
     if not roots:
         print('нет папок языков - запускайте из корня репозитория')
         return 2
 
     total = {'files': 0, 'touched': 0, 'assets': 0, 'pages': 0, 'lessons': 0, 'icons': 0,
-             'access': 0, 'version': 0, 'site': 0}
+             'access': 0, 'version': 0, 'site': 0, 'nav_num': 0}
     for lang in roots:
         for name in sorted(os.listdir(lang)):
             if not name.endswith('.html'):
@@ -289,8 +319,9 @@ def main(argv):
                 total[key] += counts[key]
             if after != before:
                 total['touched'] += 1
-                with open(path, 'w', encoding='utf-8') as handle:
-                    handle.write(after)
+                if not check_only:
+                    with open(path, 'w', encoding='utf-8') as handle:
+                        handle.write(after)
 
     # Корневая дверь лежит не в папке языка, а в корне. Из всей оболочки ей
     # нужна одна правка - версия в ссылке на таблицу стилей.
@@ -306,14 +337,34 @@ def main(argv):
         total['version'] += counts['version']
         if after != before:
             total['touched'] += 1
-            with open(door, 'w', encoding='utf-8') as handle:
-                handle.write(after)
+            if not check_only:
+                with open(door, 'w', encoding='utf-8') as handle:
+                    handle.write(after)
+
+    if check_only:
+        print()
+        print('  Оболочка страниц (--check)')
+        print('  ' + '-' * 46)
+        print('  страниц просмотрено:   %d' % total['files'])
+        if total['touched'] > 0:
+            print('  страниц устарело:      %d' % total['touched'])
+            if total['nav_num'] > 0:
+                print('  номеров разделов:      %d' % total['nav_num'])
+            print('  ' + '-' * 46)
+            print('  \033[31mКРАСНОЕ\033[0m  - запустите python3 tools/build-nav.py')
+            print()
+            return 1
+        print('  ' + '-' * 46)
+        print('  \033[32mЗЕЛЁНОЕ\033[0m')
+        print()
+        return 0
 
     print()
     print('  Оболочка страниц')
     print('  ' + '-' * 46)
     print('  страниц просмотрено:   %d' % total['files'])
     print('  страниц изменено:      %d' % total['touched'])
+    print('  номеров разделов:      %d' % total['nav_num'])
     print('  путей к оснастке:      %d' % total['assets'])
     print('  ссылок между страницами: %d' % total['pages'])
     print('  ссылок на занятия:     %d' % total['lessons'])

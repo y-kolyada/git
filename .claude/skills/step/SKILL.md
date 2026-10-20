@@ -55,3 +55,9 @@ refusal and a pointer to this stop crane.
 
 The record goes into `lessons/record-N.md`: what was typed, what the predicates say, what each
 check printed. The accepted/returned column is the Architect's and is never filled by an AI.
+
+## 8. Structural numbering invariants
+
+Every page typed under a step must follow the series numbering contract:
+- **Level 1 (Topic navigation):** Sidebar `<nav class="contents">` holds 15 topics, each explicitly carrying `<span class="num">N</span>` before the topic title.
+- **Level 2 (In-page topic sections):** Substantive sections on pages 01-12 are numbered sequentially: `<h2 id="...">N · Title <a class="anchor-link" href="#...">#</a></h2>`. Only "Главная мысль страницы" and "Артефакты" remain unnumbered.
