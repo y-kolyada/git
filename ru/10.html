@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры Git · уровень Noob · devops-git · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть практических сценариев базового цикла Git: от первого коммита и чтения diff до отмены правок и клонирования.">
 <link rel="canonical" href="https://y-kolyada.github.io/git/ru/10.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/git/ru/10.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/git/en/10.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-git">
 <meta property="og:title" content="Примеры · Noob">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть практических сценариев базового цикла Git: от первого коммита и чтения diff до отмены правок и клонирования.">
 <meta property="og:url" content="https://y-kolyada.github.io/git/ru/10.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/git/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Шесть практических сценариев базового цикла Git: от первого коммита и чтения diff до отмены правок и клонирования.","url":"https://y-kolyada.github.io/git/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,7 +67,7 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
       <li><a href="02.html"><span class="num">2</span>Индекс: как изменение попадает в коммит</a></li>
       <li><a href="03.html"><span class="num">3</span>Ветка, HEAD и переключение</a></li>
       <li><a href="04.html"><span class="num">4</span>Слияние: merge и fast-forward</a></li>
@@ -76,7 +76,7 @@
       <li><a href="07.html"><span class="num">7</span>Отмена: restore, reset, revert, reflog</a></li>
       <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий: fetch, pull, push</a></li>
       <li><a href="09.html"><span class="num">9</span>Хирургия: cherry-pick, stash, bisect, worktree</a></li>
-      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="10.html" aria-current="page"><span class="num">10</span>Примеры · Noob</a></li>
       <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
       <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
       <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
@@ -93,20 +93,144 @@
 
   <main id="main">
     <h1>Примеры · Noob</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1375">Слов: 1375</p>
+    <p class="lead">Шесть практических сценариев базового цикла Git: от первого коммита и чтения diff до отмены правок и клонирования.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>На уровне Noob цель инженера - убрать страх перед командной строкой и перестать воспринимать Git как набор заклинаний, вводимых наугад. Git не сохраняет файлы непрерывно, а создаёт неизменяемые снимки состояния только по явной команде. Шесть разборов ниже охватывают типовые задачи повседневного рабочего цикла: создание первого репозитория, подготовку изолированных изменений через индекс, чтение различий, поиск точек стабильности в истории, отмену локальных опечаток без риска потери данных и клонирование. В каждом сценарии приводится практическая задача, точные терминальные команды и разбор внутренней механики («Почему так»). Освоив эти шесть сценариев, вы перестанете бояться потерять свой код и научитесь фиксировать историю осмысленно.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="first-repo">1 · Первый репозиторий: init, .gitignore, начальный коммит <a class="anchor-link" href="#first-repo">#</a></h2>
+    <p><strong>Задача:</strong> превратить обычную директорию с исходным кодом в отслеживаемый репозиторий Git, отфильтровать временный мусор и сделать первый снимок проекта.</p>
+    <pre><code># 1. Превращаем каталог в локальный репозиторий
+git init -b main
+
+# 2. Задаем авторство для коммитов репозитория
+git config user.name "Alex Developer"
+git config user.email "alex@example.com"
+
+# 3. Исключаем мусор, логи и локальные переменные окружения
+cat &lt;&lt; 'EOF' &gt; .gitignore
+# системные файлы и логи
+*.log
+.DS_Store
+Thumbs.db
+
+# виртуальные окружения и зависимости
+.env
+.venv/
+node_modules/
+__pycache__/
+
+# временные артефакты сборки
+dist/
+build/
+*.tmp
+EOF</code></pre>
+    <pre><code># 4. Проверяем статус и создаем первый снимок
+git status -s
+git add .gitignore README.md src/
+git commit -m "init: начальная структура проекта и правила игнорирования"</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Для создания репозитория Git не требуется сеть или удалённый сервер: команда <code>git init</code> лишь создаёт скрытый подкаталог <code>.git/</code>, где хранится вся база объектов и история веток. Если удалить каталог <code>.git/</code>, проект мгновенно превратится в обычную папку с файлами. Файл <code>.gitignore</code> должен создаваться самым первым: он предотвращает случайное добавление в индекс временных файлов, паролей и объёмных зависимостей. Важнейшее правило: <code>.gitignore</code> фильтрует только <strong>неотслеживаемые</strong> файлы (untracked). Если файл уже однажды попал в индекс или коммит, добавление его имени в <code>.gitignore</code> ничего не изменит - сначала потребуется явно удалить его из индекса через <code>git rm --cached</code>.</div>
+
+    <h2 id="staging-workflow">2 · Рабочий цикл: статус, выборочный add и атомарный commit <a class="anchor-link" href="#staging-workflow">#</a></h2>
+    <p><strong>Задача:</strong> за рабочий день накопились правки в разных компонентах; требуется разделить их на два независимых, логически изолированных коммита вместо одного хаотичного слепка.</p>
+    <pre><code># 1. Проверяем рабочую копию кратким статусом
+git status -s
+# Вывод:
+#  M src/auth.py
+#  M src/database.py
+# ?? tests/test_auth.py</code></pre>
+    <pre><code># 2. Собираем первый коммит: логика аутентификации и тесты
+git add src/auth.py tests/test_auth.py
+git status -s
+# Вывод:
+# M  src/auth.py
+# A  tests/test_auth.py
+#  M src/database.py
+
+git commit -m "feat(auth): реализовать проверку jwt токенов"</code></pre>
+    <pre><code># 3. Оставшиеся изменения отправляем во второй коммит
+git add src/database.py
+git commit -m "fix(db): увеличить таймаут соединения с пулом postgresql"</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Индекс (staging area) - ключевое архитектурное преимущество Git перед другими системами. Он позволяет конструировать будущий коммит по крупицам, не отправляя в историю всё подряд. Новички часто используют <code>git commit -a</code> или <code>git add .</code>, фиксируя недописанный или несвязанный код. Золотой стандарт инженерии - <strong>атомарные коммиты</strong>: один коммит решает ровно одну изолированную задачу. Если в будущем фича аутентификации сломается, её можно будет откатить через <code>git revert</code> ровно за одну секунду, не затронув исправление таймаута базы данных. Короткий статус <code>git status -s</code> отображает две колонки: левая колонка показывает состояние индекса, правая - состояние рабочей копии.</div>
+
+    <h2 id="inspecting-changes">3 · Инспекция изменений: diff рабочей копии и staged <a class="anchor-link" href="#inspecting-changes">#</a></h2>
+    <p><strong>Задача:</strong> перед выполнением коммита точно убедиться, какие именно строки были добавлены или удалены, отделив уже подготовленные файлы от текущих черновиков.</p>
+    <pre><code># 1. Что изменилось в рабочей копии по сравнению с индексом
+git diff
+
+# 2. Просмотр разницы по конкретному файлу
+git diff src/auth.py
+
+# 3. Компактная сводка: сколько строк добавлено и удалено
+git diff --stat</code></pre>
+    <pre><code># 4. Что уже находится в индексе и войдет в следующий коммит
+git diff --staged
+
+# 5. Проверка изменений в индексе без лишнего шума
+git diff --staged --stat</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Распространённый тупик новичка: «Я отредактировал файл, выполнил <code>git add</code>, запускаю <code>git diff</code> - и в терминале пустота! Куда пропали мои изменения?». Они никуда не пропали: <code>git diff</code> без аргументов сравнивает рабочую копию с индексом. Так как после <code>git add</code> индекс и рабочая копия полностью совпадают, разница равна нулю. Чтобы увидеть подготовленные к коммиту строки, обязательно передаётся флаг <code>--staged</code> (или его синоним <code>--cached</code>), который сравнивает индекс со снимком последнего коммита <code>HEAD</code>. Обязательная привычка перед каждым коммитом - запуск <code>git diff --staged</code>: это единственный способ гарантированно заметить забытые отладочные <code>print()</code> или тестовые токены до того, как они попадут в вечный репозиторий.</div>
+
+    <h2 id="navigating-history">4 · История без паники: компактный log и поиск рабочей точки <a class="anchor-link" href="#navigating-history">#</a></h2>
+    <p><strong>Задача:</strong> сориентироваться в истории проекта, найти последний стабильный коммит и быстро выяснить, кто и когда менял критический участок кода.</p>
+    <pre><code># 1. Наглядный однострочный граф всей истории
+git log --oneline --graph --decorate -n 10
+
+# 2. Поиск коммитов по ключевому слову в сообщении
+git log --oneline --grep="auth"
+
+# 3. Просмотр полной истории конкретного файла с показом патчей
+git log -p -2 src/auth.py</code></pre>
+    <pre><code># 4. Строчное расследование: кто автор каждой строки в файле
+git blame -L 15,25 src/auth.py</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Стандартный вызов <code>git log</code> выводит многострочную карточку на каждый коммит с хешами, датами и авторами, из-за чего на экран помещается всего два-три коммита. Флаг <code>--oneline</code> сжимает запись до 7 символов сокращённого SHA-1 и первой строки сообщения, а <code>--graph</code> наглядно рисует ветвления и слияния символами псевдографики. Метка <code>HEAD -&gt; main</code> показывает, на какой ветке и каком коммите вы стоите прямо сейчас. Если в программе обнаружен сбой, утилита <code>git blame</code> позволяет мгновенно увидеть хеш коммита и автора, изменившего конкретные строки, а <code>git log -p</code> выводит точный diff каждого исторического шага.</div>
+
+    <h2 id="safe-undo">5 · Безопасный откат: отмена опечатки через restore без потери данных <a class="anchor-link" href="#safe-undo">#</a></h2>
+    <p><strong>Задача:</strong> вы допустили ошибку в коде или случайно добавили в индекс лишний служебный файл; требуется безопасно вернуть файл в исходное состояние без опасных сбросов всей ветки.</p>
+    <pre><code># Сценарий А: файл случайно добавлен в индекс через git add
+# Возвращаем файл из индекса в рабочую копию (снимаем метку staged)
+git restore --staged config/settings.yaml
+git status -s
+# Вывод:  M config/settings.yaml (файл изменен на диске, но не пойдет в коммит)</code></pre>
+    <pre><code># Сценарий Б: локальные правки в файле испортили логику
+# Возвращаем файл на диске к версии из последнего коммита / индекса
+git restore src/broken.py
+
+# Сценарий В: отмена изменений сразу во всей рабочей директории
+git restore .</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Исторически для отмены изменений использовались перегруженные команды <code>git checkout -- file</code> или деструктивный <code>git reset --hard</code>, который одним неверным нажатием стирал всю работу за день. Начиная с версии Git 2.23 введена специализированная команда <code>git restore</code> с кристально чистым разделением: <code>git restore --staged &lt;file&gt;</code> убирает файл из индекса, оставляя его физическое содержимое на диске неизменным; <code>git restore &lt;file&gt;</code> перезаписывает файл в рабочей копии эталонной версией из индекса или последнего коммита. <strong>Помните о границе безопасности:</strong> если изменения ещё ни разу не были зафиксированы коммитом, <code>git restore</code> сотрёт их безвозвратно. Если в изменениях есть хоть малейшая ценность, безопаснее временно положить их в карман через <code>git stash</code>.</div>
+
+    <h2 id="clone-and-sync">6 · Клонирование и первая синхронизация: clone, remote, pull <a class="anchor-link" href="#clone-and-sync">#</a></h2>
+    <p><strong>Задача:</strong> развернуть удалённый рабочий проект на новом компьютере, проверить настройки связи с сервером и чисто подтянуть свежие правки коллег.</p>
+    <pre><code># 1. Клонируем проект с удаленного репозитория
+git clone https://github.com/company/web-service.git
+cd web-service
+
+# 2. Проверяем адреса подключенных удаленных серверов
+git remote -v
+# origin  https://github.com/company/web-service.git (fetch)
+# origin  https://github.com/company/web-service.git (push)</code></pre>
+    <pre><code># 3. Безопасно подтягиваем свежие коммиты команды
+git pull --ff-only
+
+# 4. Проверяем, на сколько коммитов локальная ветка отстает или опережает сервер
+git status -sb
+# ## main...origin/main [up to date]</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Команда <code>git clone</code> скачивает не просто последние файлы («архив проекта»), а <strong>целиком весь репозиторий</strong>: все коммиты, все ветки и все теги за всё время разработки. При этом Git автоматически создаёт удалённую связь с именем <code>origin</code> и настраивает локальную ветку <code>main</code> на отслеживание <code>origin/main</code>. Ключевая рекомендация для уровня Noob: всегда выполнять получение изменений через <code>git pull --ff-only</code>. Обычный <code>git pull</code> при малейшем расхождении веток пытается автоматически создать слияние, порождая лишние мерж-коммиты и конфликты, которые пугают новичка. Флаг <code>--ff-only</code> разрешает операцию только тогда, когда локальная ветка может быть просто перемотана вперёд; если же локальная ветка ушла в сторону, операция безопасно прервётся, не повредив ваш код.</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После освоения практических сценариев уровня Noob в вашем арсенале зафиксирован устойчивый повседневный рабочий цикл:</p>
+      <ul>
+        <li><strong>Дисциплина инициализации:</strong> создание репозитория через <code>git init -b main</code> с предварительной настройкой правил <code>.gitignore</code> до добавления файлов.</li>
+        <li><strong>Осознанный индекс:</strong> отказ от слепого <code>git commit -a</code> в пользу атомарных коммитов с проверкой статуса <code>git status -s</code>.</li>
+        <li><strong>Контроль вносимых строк:</strong> обязательная инспекция подготовленных изменений через <code>git diff --staged</code> перед созданием каждого коммита.</li>
+        <li><strong>Прозрачная навигация:</strong> чтение истории репозитория через компактный граф <code>git log --oneline --graph --decorate</code>.</li>
+        <li><strong>Безопасный откат:</strong> хирургическое исправление ошибок через <code>git restore</code> и <code>git restore --staged</code> без риска потерять нужные файлы.</li>
+        <li><strong>Гигиена синхронизации:</strong> обновление локального репозитория через <code>git pull --ff-only</code>, исключающее паразитные случайные слияния.</li>
+      </ul>
     </div>
   </main>
 
