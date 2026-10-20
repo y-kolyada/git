@@ -269,7 +269,16 @@ for (const file of files) {
       out.push('текст не виден без прокрутки: он начинается на ' + top + 'px при экране ' + window.innerHeight + 'px');
     }
 
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    const isLanding = currentFile === 'index.html';
     const here = nav.querySelector('[aria-current="page"]');
+    const hereHref = here ? here.getAttribute('href') : null;
+    if (isLanding) {
+      if (here) out.push('на посадочной странице не должно быть активного пункта в навигаторе: ' + hereHref);
+    } else {
+      if (!here) out.push('в навигаторе нет активного пункта [aria-current="page"]');
+      else if (hereHref !== currentFile) out.push('активный пункт навигатора (' + hereHref + ') не совпадает с текущей страницей (' + currentFile + ')');
+    }
     if (here) {
       const num = here.querySelector('.num');
       const title = here.textContent.replace(num ? num.textContent : '', '').trim();
@@ -435,9 +444,19 @@ for (const file of files) {
 
       // Разделы страницы живут внутри её пункта меню, а не отдельным блоком под
       // всем списком: иначе навигатор оказывается за кромкой панели.
+      const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+      const isLanding = currentFile === 'index.html';
       const toc = document.getElementById('pageToc');
       const here = nav.querySelector('[aria-current="page"]');
-      const host = here && (here.closest('li') || here.parentElement);
+      const hereHref = here ? here.getAttribute('href') : null;
+      let badCurrent = null;
+      if (isLanding) {
+        if (here) badCurrent = 'на посадочной странице не должно быть активного пункта в навигаторе: ' + hereHref;
+      } else {
+        if (!here) badCurrent = 'в навигаторе нет активного пункта [aria-current="page"]';
+        else if (hereHref !== currentFile) badCurrent = 'активный пункт навигатора (' + hereHref + ') не совпадает с текущей страницей (' + currentFile + ')';
+      }
+      const host = here && hereHref === currentFile && (here.closest('li') || here.parentElement);
       // Два случая, и они требуют разного. У страницы со своим пунктом меню
       // разделы лежат внутри этого пункта. У лендинга своего пункта нет - его
       // разделы стоят первыми в панели, над картой сайта. Заглушке вкладывать
@@ -448,7 +467,9 @@ for (const file of files) {
       const list = nav.querySelector('ol');
       const placed = host
         ? !!(toc && host.contains(toc))
-        : !!(toc && list && (toc.compareDocumentPosition(list) & Node.DOCUMENT_POSITION_FOLLOWING));
+        : !host && !isLanding
+          ? false
+          : !!(toc && list && (toc.compareDocumentPosition(list) & Node.DOCUMENT_POSITION_FOLLOWING));
       const nested = links.length === 0 || placed;
       const ownItem = !!host;
       const firstTop = links.length
@@ -496,7 +517,7 @@ for (const file of files) {
 
       return { hidden, spyOk, below: Math.max(0, below), carried, clean,
                nested, ownItem, firstVisible, firstTop: Math.round(firstTop),
-               navVisible: nav.clientHeight, navScrollKept,
+               navVisible: nav.clientHeight, navScrollKept, badCurrent,
                // A page that does not scroll has no current section, so the
                // spy and the carried anchor have nothing to say about it. A
                // freshly stamped skeleton is exactly such a page.
@@ -506,6 +527,7 @@ for (const file of files) {
 
     if (!seen) continue;
     const where = ' (окно ' + viewport.height + 'px)';
+    if (seen.badCurrent && viewport === desktops[0][0]) bad.push([file, seen.badCurrent]);
     if (seen.hidden) bad.push([file, 'на дне страницы панель спрятана над окном на ' + seen.hidden + 'px' + where]);
     if (seen.scrollable && !seen.spyOk) bad.push([file, 'на дне страницы последний раздел не подсвечен в навигаторе' + where]);
     if (seen.scrollable && !seen.carried) bad.push([file, 'переключатель языков не уносит текущий раздел' + where]);

@@ -315,6 +315,8 @@ def audit(sizes):
             # странице без вопросов.
             if not (found and found.group(1)) and 'stub-card' not in text:
                 trouble.append('%s: описание пустое' % page)
+            if '<footer' not in text and 'stub-card' not in text:
+                trouble.append('%s: подвала (<footer>) нет' % page)
     return trouble
 
 

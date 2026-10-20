@@ -172,9 +172,30 @@ def number_nav(text, counts):
     return NAV_ITEM.sub(fix_nav, text)
 
 
-def rewrite(text, lang, migrate=False):
+def current_nav(text, page_name, counts):
+    """Активная ссылка текущей страницы в навигаторе несёт aria-current="page".
+
+    Движок swa.js опирается на этот атрибут для размещения вложенного оглавления
+    #pageToc. На посадочной странице активного пункта в навигаторе нет.
+    """
+    def fix_nav(nav_match):
+        nav_block = nav_match.group(1)
+        cleaned = re.sub(r'\s+aria-current="page"', '', nav_block)
+
+        if page_name and page_name != 'index.html':
+            pattern = re.compile(r'(<a\b[^>]*\bhref="%s"[^>]*)>' % re.escape(page_name))
+            cleaned = pattern.sub(r'\1 aria-current="page">', cleaned, count=1)
+
+        if cleaned != nav_block:
+            counts['nav_current'] = counts.get('nav_current', 0) + 1
+        return cleaned
+
+    return NAV_ITEM.sub(fix_nav, text)
+
+
+def rewrite(text, lang, migrate=False, page_name=''):
     counts = {'assets': 0, 'pages': 0, 'lessons': 0, 'icons': 0, 'access': 0, 'version': 0,
-              'site': 0, 'nav_num': 0}
+              'site': 0, 'nav_num': 0, 'nav_current': 0}
 
     def house(found):
         tag = '<html lang="%s" data-site="%s">' % (found.group(1), CONF['key'])
@@ -248,6 +269,8 @@ def rewrite(text, lang, migrate=False):
 
     text = number_nav(text, counts)
 
+    text = current_nav(text, page_name, counts)
+
     text = version(text, counts)
     return text, counts
 
@@ -302,7 +325,7 @@ def main(argv):
         return 2
 
     total = {'files': 0, 'touched': 0, 'assets': 0, 'pages': 0, 'lessons': 0, 'icons': 0,
-             'access': 0, 'version': 0, 'site': 0, 'nav_num': 0}
+             'access': 0, 'version': 0, 'site': 0, 'nav_num': 0, 'nav_current': 0}
     for lang in roots:
         for name in sorted(os.listdir(lang)):
             if not name.endswith('.html'):
@@ -310,7 +333,7 @@ def main(argv):
             path = os.path.join(lang, name)
             with open(path, encoding='utf-8') as handle:
                 before = handle.read()
-            after, counts = rewrite(before, lang, migrate)
+            after, counts = rewrite(before, lang, migrate, name)
             if relink and lang != 'ru':
                 after, moved = cross_links(after, lang)
                 counts['pages'] += moved
@@ -350,6 +373,8 @@ def main(argv):
             print('  страниц устарело:      %d' % total['touched'])
             if total['nav_num'] > 0:
                 print('  номеров разделов:      %d' % total['nav_num'])
+            if total['nav_current'] > 0:
+                print('  активных пунктов:      %d' % total['nav_current'])
             print('  ' + '-' * 46)
             print('  \033[31mКРАСНОЕ\033[0m  - запустите python3 tools/build-nav.py')
             print()
@@ -365,6 +390,7 @@ def main(argv):
     print('  страниц просмотрено:   %d' % total['files'])
     print('  страниц изменено:      %d' % total['touched'])
     print('  номеров разделов:      %d' % total['nav_num'])
+    print('  активных пунктов:      %d' % total['nav_current'])
     print('  путей к оснастке:      %d' % total['assets'])
     print('  ссылок между страницами: %d' % total['pages'])
     print('  ссылок на занятия:     %d' % total['lessons'])
