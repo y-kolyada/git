@@ -1,7 +1,6 @@
 # Запись 1 · devops-git · смена 2026-10-20
 
-Автономная смена, разрешение Conductor'а на план разделов, названия, контент и коммиты.
-Пилоты: Claude Code (Opus 5) и Antigravity (Gemini). Колонку приёмки заполняет Conductor.
+Автономная смена, разрешение Conductor'а на план разделов, названия, контент и коммиты. Пилоты: Claude Code (Opus 5) и Antigravity (Gemini). Колонку приёмки заполняет Conductor.
 
 ## Что сдано
 
@@ -167,3 +166,4 @@ e646a5e name the fifteen sections and repair two defects of the stamp
 | Кто | Вердикт |
 | :-- | :-- |
 | Conductor | |
+
