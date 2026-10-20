@@ -230,4 +230,4 @@ c81f4ab fix(nav): align aria-current on topics 14 and 15 and harmonize nav layou
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
+| Архитектор (`ik`) | Принято |
