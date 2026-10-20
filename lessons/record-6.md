@@ -214,10 +214,11 @@
 
 ```
 d7f2e8c feat(content): explain three-way conflict model, index stages, and rerere in topic 06
+696d1c7 docs(record): record step 6 delivery for topic 06
 ```
 
 ## Приёмка
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (беглый просмотр, движение дальше) |
