@@ -39,10 +39,10 @@ Every scenario MUST be structured using the 3-part triad:
 - Each claim must be backed by a deterministic CLI command that executes and exits with code 0 in `./tools/check-claims.sh`.
 - Run `./tools/check-claims.sh` to ensure all claims evaluate to `[ ДА ]`.
 
-## 6. Landing Page Integration (index.html)
+## 6. Landing Page Harmonization (index.html)
 
-- The site landing page (`ru/index.html`) introduces the 18-21 practical scenarios under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>`.
-- Ensure that the descriptions for chapters 10, 11, and 12 on `index.html` accurately summarize the battle-tested scenarios delivered in those chapters and reflect the progression from Noob (basic hygiene) to Pro (team workflows) and IGL (platform architecture).
+- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized with the delivered practical scenarios under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>`.
+- Update the corresponding chapter summaries on `index.html` so they accurately reflect the real battle-tested scenarios delivered in topics 10, 11, and 12, capturing the progression from Noob (basic hygiene) to Pro (team workflows) and IGL (platform architecture).
 
 ## 7. Delivery Workflow
 

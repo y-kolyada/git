@@ -46,11 +46,11 @@ Each question within a group follows a clear, readable structure:
 - Zero em dashes (`—`, U+2014) anywhere; use spaced hyphen ` - ` or plain hyphen in ranges `(1-10)`.
 - No hard line breaks in Markdown documentation.
 
-## 5. Landing Page Integration (index.html)
+## 5. Landing Page Harmonization (index.html)
 
-- The landing page (`ru/index.html`) introduces the 150-question qualification bank under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` and the three maturity levels under `<h2 id="levels">`.
-- Ensure that the descriptions of topics 13, 14, and 15 on `index.html` accurately reflect the 5x3 architecture matrix (the 5 logical blocks per level).
-- Verify the illustrative cross-tier comparison box on the landing page (`<div class="box"><h3>Практический пример: как меняется ответ с ростом уровня</h3>`), which demonstrates how a single technical question is approached differently by a Noob (mechanics), Pro (reliability and cleanliness), and IGL (systems architecture and security).
+- The landing page (`ru/index.html`) is the showroom of the course and must be harmonized with the 150-question qualification matrix under `<h3>Практические сценарии и банки вопросов (главы 10-15)</h3>` and `<h2 id="levels">`.
+- Update the overview descriptions of topics 13, 14, and 15 on `index.html` to accurately reflect the agreed 5x3 architecture matrix (the 5 logical blocks per level).
+- Update the illustrative cross-tier comparison box on the landing page (`<div class="box"><h3>Практический пример: как меняется ответ с ростом уровня</h3>`) to showcase how a single technical question is approached differently by a Noob (mechanics), Pro (reliability and cleanliness), and IGL (systems architecture and security).
 
 ## 6. Delivery Workflow
 
