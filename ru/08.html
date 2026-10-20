@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Удалённый репозиторий: fetch, pull, push · devops-git · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Сетевая топология Git: устройство remote-tracking ссылок, спецификация refspec, безопасный fetch, режимы pull, правила push и защита ветки.">
 <link rel="canonical" href="https://y-kolyada.github.io/git/ru/08.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/git/ru/08.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/git/en/08.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-git">
 <meta property="og:title" content="Удалённый репозиторий: fetch, pull, push">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Сетевая топология Git: устройство remote-tracking ссылок, спецификация refspec, безопасный fetch, режимы pull, правила push и защита ветки.">
 <meta property="og:url" content="https://y-kolyada.github.io/git/ru/08.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Удалённый репозиторий: fetch, pull, push","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/git/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Удалённый репозиторий: fetch, pull, push","description":"Сетевая топология Git: устройство remote-tracking ссылок, спецификация refspec, безопасный fetch, режимы pull, правила push и защита ветки.","url":"https://y-kolyada.github.io/git/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,14 +67,14 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что лежит в .git: объект, дерево, коммит, ссылка</a></li>
       <li><a href="02.html"><span class="num">2</span>Индекс: как изменение попадает в коммит</a></li>
       <li><a href="03.html"><span class="num">3</span>Ветка, HEAD и переключение</a></li>
       <li><a href="04.html"><span class="num">4</span>Слияние: merge и fast-forward</a></li>
       <li><a href="05.html"><span class="num">5</span>Rebase: переписанная история и её цена</a></li>
       <li><a href="06.html"><span class="num">6</span>Конфликт: откуда он берётся и как его закрыть</a></li>
       <li><a href="07.html"><span class="num">7</span>Отмена: restore, reset, revert, reflog</a></li>
-      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий: fetch, pull, push</a></li>
+      <li><a href="08.html" aria-current="page"><span class="num">8</span>Удалённый репозиторий: fetch, pull, push</a></li>
       <li><a href="09.html"><span class="num">9</span>Хирургия: cherry-pick, stash, bisect, worktree</a></li>
       <li><a href="10.html"><span class="num">10</span>Примеры: ежедневный цикл</a></li>
       <li><a href="11.html"><span class="num">11</span>Примеры: разбор истории</a></li>
@@ -93,20 +93,134 @@
 
   <main id="main">
     <h1>Удалённый репозиторий: fetch, pull, push</h1>
-    <p class="page-size" data-words="51">Слов: 51</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1779">Слов: 1779</p>
+    <p class="lead">Сетевая топология Git: устройство remote-tracking ссылок, спецификация refspec, безопасный fetch, режимы pull, правила push и защита ветки.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Git спроектирован как полностью распределённая одноранговая (peer-to-peer) система, в которой не существует выделенного «сервера» на уровне протокола: удалённый репозиторий GitHub или корпоративного GitLab - это точно такой же экземпляр базы объектов Git, как и на вашем ноутбуке. Всё сетевое взаимодействие сводится к передаче неизменяемых пак-файлов с объектами и согласованию позиций ссылок. Ключевой рубеж понимания - разделение между локальными ветками (<code>refs/heads/*</code>), которыми безраздельно владеет разработчик, и ветками удалённого отслеживания (remote-tracking branches в <code>refs/remotes/origin/*</code>), которые служат локальными неизменяемыми закладками чужого состояния на момент последнего сетевого сеанса. Команда <code>git fetch</code> абсолютно безопасна и только обновляет закладки; <code>git pull</code> соединяет скачивание с интеграцией (<code>merge</code>, <code>rebase</code> или <code>ff-only</code>); а <code>git push</code> публикует коммиты в общий доступ, требуя соблюдения правил fast-forward или применения безопасного флага <code>--force-with-lease</code>.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="distributed-topology">1 · Архитектура удалённых ссылок: remote-tracking branches <a class="anchor-link" href="#distributed-topology">#</a></h2>
+    <p>Начинающие разработчики часто путают локальную ветку <code>main</code> и удаленную <code>origin/main</code>, считая их единым целым. В действительности в структуре каталога <code>.git/refs/</code> существует четкое разделение полномочий:</p>
+    <ul>
+      <li><strong>Локальные ветки (<code>.git/refs/heads/</code>):</strong> ваши персональные указатели (например, <code>refs/heads/main</code>). Они смещаются вперед, когда вы выполняете <code>git commit</code>, перебазируются через <code>git rebase</code> или сбрасываются через <code>git reset</code>. Удаленный сервер не имеет к ним прямого доступа.</li>
+      <li><strong>Ветки удаленного отслеживания (<code>.git/refs/remotes/&lt;remote&gt;/</code>):</strong> локальные закладки (например, <code>refs/remotes/origin/main</code>). Они отражают состояние веток на сервере в момент вашей последней сетевой операции. Сделать коммит напрямую в <code>origin/main</code> невозможно - это ссылка только для чтения. Она перемещается исключительно командами <code>git fetch</code>, <code>git pull</code> или при успешном <code>git push</code>.</li>
+    </ul>
+    <p>Когда вы выполняете <code>git status</code>, Git сравнивает текущее положение <code>HEAD</code> с соответствующей ссылкой удаленного отслеживания с помощью математики графов:</p>
+<pre><code>$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.</code></pre>
+    <p>Состояние вычисляется через симметричную разность коммитов <code>main...origin/main</code>:</p>
+    <ul>
+      <li><strong>Ahead N (впереди):</strong> в локальной ветке создано N коммитов, которых еще нет на сервере.</li>
+      <li><strong>Behind N (позади):</strong> на сервере появилось N коммитов, которых еще нет в вашей локальной ветке.</li>
+      <li><strong>Diverged (разошлись):</strong> и у вас есть новые локальные коммиты, и на сервере появились чужие коммиты после общего предка (например, <code>ahead 1, behind 2</code>). Прямой пуш в этом состоянии невозможен.</li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что такое remote-tracking branch в Git и можно ли переключиться на нее для создания новых коммитов?» (Ответ: это локальная read-only ссылка в refs/remotes/origin/*, отражающая состояние ветки на сервере на момент последнего сетевого сеанса. Переключиться на нее можно только в состоянии detached HEAD; новые коммиты создаются только в локальных ветках).</div>
+
+    <h2 id="refspec-mechanics">2 · Конфигурация remote и анатомия спецификации refspec <a class="anchor-link" href="#refspec-mechanics">#</a></h2>
+    <p>Слово <code>origin</code> - это не встроенное ключевое слово Git, а просто общепринятое имя удаленного подключения по умолчанию. Когда вы клонируете проект или выполняете команду <code>git remote add origin &lt;url&gt;</code>, Git добавляет в локальный конфигурационный файл <code>.git/config</code> специальную секцию:</p>
+<pre><code>[remote "origin"]
+    url = git@github.com:company/project.git
+    fetch = +refs/heads/*:refs/remotes/origin/*</code></pre>
+    <p>Строка <code>fetch = ...</code> называется спецификацией ссылок (refspec). Ее формат строго регламентирован: <code>[+]&lt;источник_на_сервере&gt;:&lt;приемник_локально&gt;</code>:</p>
+    <ul>
+      <li><strong>Префикс плюс (+):</strong> разрешает не fast-forward обновление. Если кто-то на сервере переписал ветку (сделал rebase или force-push), Git без ошибок перезапишет локальную закладку <code>refs/remotes/origin/*</code>, отразив реальное положение дел. Без плюса <code>fetch</code> завершился бы с ошибкой.</li>
+      <li><strong>Левая часть (<code>refs/heads/*</code>):</strong> шаблон ссылок на удаленном сервере, которые мы запрашиваем. Звездочка означает «все ветки».</li>
+      <li><strong>Правая часть (<code>refs/remotes/origin/*</code>):</strong> куда именно в нашей локальной структуре каталогов сохранить скачанные ссылки.</li>
+    </ul>
+    <p>В реальной командной разработке (особенно в Open Source) широко применяется топология с несколькими remote: <code>origin</code> указывает на ваш персональный форк репозитория, а <code>upstream</code> - на центральный канонический репозиторий проекта:</p>
+<pre><code>$ git remote add upstream https://github.com/framework/core.git
+$ git fetch upstream</code></pre>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что означает знак плюса (+) в строке refspec: fetch = +refs/heads/*:refs/remotes/origin/*?» (Ответ: плюс указывает Git разрешить принудительное обновление локальной ссылки удаленного отслеживания, даже если на сервере ветка была обновлена не fast-forward способом, например после force-push).</div>
+
+    <h2 id="git-fetch">3 · Безопасное скачивание: механика git fetch и чистка --prune <a class="anchor-link" href="#git-fetch">#</a></h2>
+    <p>Команда <code>git fetch</code> - это фундаментальная и самая безопасная сетевая операция в Git. Она подчиняется железному правилу: <strong>git fetch никогда не модифицирует рабочую копию, не меняет индекс и не сдвигает ваши локальные ветки</strong>.</p>
+    <p>Что в точности происходит при вызове <code>git fetch origin</code>:</p>
+    <ol>
+      <li>Git открывает соединение с сервером по протоколу SSH или HTTPS.</li>
+      <li>Сервер сообщает список актуальных хешей всех своих веток (advertised references).</li>
+      <li>Git сравнивает этот список с локальной базой и определяет, каких коммитов, деревьев и блобов не хватает.</li>
+      <li>Недостающие объекты скачиваются в базу <code>.git/objects/</code> в виде сжатого пак-файла (packfile).</li>
+      <li>Git обновляет файлы ссылок в <code>.git/refs/remotes/origin/</code>, устанавливая их на скачанные коммиты.</li>
+    </ol>
+    <p>После завершения <code>fetch</code> все новые коммиты уже физически находятся на вашем диске, но ваш код в редакторе остается в точности таким, каким был секунду назад. Вы можете спокойно исследовать чужие изменения до того, как решите влить их в свою работу:</p>
+<pre><code>$ git fetch origin
+$ git log HEAD..origin/main --oneline
+$ git diff HEAD...origin/main</code></pre>
+    <p><strong>Удаление фантомных ссылок через --prune:</strong> если коллега на сервере удалил ветку <code>feature-cart</code> после слияния, ваша локальная ссылка <code>origin/feature-cart</code> сама по себе не исчезнет. Со временем в репозитории скапливаются десятки мертвых веток. Чтобы очистить их, используется флаг <code>--prune</code> (или <code>-p</code>):</p>
+<pre><code>$ git fetch --prune
+From github.com:company/project
+ - [deleted]         (none)     -&gt; origin/feature-cart</code></pre>
+    <p>Рекомендуется включить автоматическую чистку в глобальной конфигурации: <code>git config --global fetch.prune true</code>.</p>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Может ли команда git fetch привести к возникновению конфликта слияния в рабочей копии?» (Ответ: нет, никогда. git fetch только скачивает новые объекты в базу и обновляет ссылки удаленного отслеживания origin/*, не затрагивая рабочую копию и локальные ветки).</div>
+
+    <h2 id="git-pull">4 · Интеграция изменений: git pull и выбор между merge, rebase и ff-only <a class="anchor-link" href="#git-pull">#</a></h2>
+    <p>Многие инженеры привыкли запускать <code>git pull</code> автоматически, не задумываясь о его природе. На самом деле <code>git pull</code> - это составной макрос, выполняющий два последовательных действия:</p>
+<pre><code>git pull = git fetch + интеграция скачанных коммитов</code></pre>
+    <p>Если ваша локальная ветка не расходилась с сервером (вы не делали локальных коммитов), интеграция тривиальна: происходит быстрое прямолинейное перемещение указателя (fast-forward). Но если у вас есть локальные коммиты, а на сервере появились чужие, поведение зависит от выбранной политики интеграции:</p>
+    <ul>
+      <li><strong>1. Merge (классическое поведение):</strong> Git вызывает <code>git merge FETCH_HEAD</code>. В результате в репозитории рождается коммит слияния с сообщением вида «Merge branch 'main' of github.com...». Если в команде 10 человек делают <code>git pull</code> каждое утро, история превращается в нечитаемую сетку из сотен мусорных мерж-коммитов.</li>
+      <li><strong>2. Rebase (<code>git pull --rebase</code>):</strong> Git берет ваши локальные коммиты и воспроизводит их поверх свежескачанной верхушки <code>origin/main</code>. Все локальные правки аккуратно переезжают наверх, а история ветки остается кристально чистой и прямолинейной:
+<pre><code>$ git config --global pull.rebase true</code></pre>
+      </li>
+      <li><strong>3. Fast-Forward Only (<code>git pull --ff-only</code>):</strong> самая безопасная инженерная политика. Git обновляет ветку только в том случае, если это возможно сделать без создания коммитов слияния и без перебазирования. Если обнаружено расхождение, Git прерывает операцию с ошибкой <code>fatal: Not possible to fast-forward, aborting</code>:
+<pre><code>$ git config --global pull.ff only</code></pre>
+        В этом случае разработчик сам принимает осознанное решение: перебазировать свои правки через <code>git rebase origin/main</code> или явно выполнить слияние.
+      </li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему во многих профессиональных командах стандартным правилом является git config --global pull.rebase true или pull.ff only?» (Ответ: стандартный pull через merge засоряет историю бессмысленными коммитами слияния при каждом получении обновлений. Использование rebase или ff-only сохраняет линейность и чистоту графа коммитов).</div>
+
+    <h2 id="git-push">5 · Публикация в сеть: git push, upstream-трекинг и force-with-lease <a class="anchor-link" href="#git-push">#</a></h2>
+    <p>Команда <code>git push</code> отвечает за передачу объектов из локальной базы в удаленный репозиторий и перемещение ссылок на стороне сервера. Полный синтаксис команды выглядит так: <code>git push &lt;remote&gt; &lt;локальная_ветка&gt;:&lt;удаленная_ветка&gt;</code>.</p>
+    <p>При первой отправке новой ветки в репозиторий используется флаг привязки <code>-u</code> (или <code>--set-upstream</code>):</p>
+<pre><code>$ git switch -c feature-billing
+$ git commit -m "Добавить логику платежей"
+$ git push -u origin feature-billing</code></pre>
+    <p>Флаг <code>-u</code> сохраняет в файле <code>.git/config</code> долговременную связь между вашей веткой и сервером:</p>
+<pre><code>[branch "feature-billing"]
+    remote = origin
+    merge = refs/heads/feature-billing</code></pre>
+    <p>После этой разовой настройки вам больше никогда не потребуется указывать имена: достаточно вводить лаконичные команды <code>git push</code> и <code>git pull</code>.</p>
+    <p><strong>Отказ сервера при попытке отправки (Non-fast-forward rejection):</strong> сервер отклоняет push, если верхушка удаленной ветки не является прямым предком вашего нового коммита. Если коллега успел отправить свой коммит раньше вас, сервер защищает его работу:</p>
+<pre><code>To github.com:company/project.git
+ ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to 'github.com:company/project.git'
+hint: Updates were rejected because the tip of your current branch is behind</code></pre>
+    <p><strong>Почему запрещен слепой --force и когда нужен --force-with-lease:</strong> если вы перебазировали свою локальную ветку PR и вам необходимо обновить ее на сервере, флаг <code>--force</code> (или <code>-f</code>) перезапишет удаленную ветку вслепую. Если за время вашего rebase коллега успел оставить коммит в этой ветке, <code>--force</code> сотрет его навсегда.</p>
+    <p>Профессиональный стандарт безопасности - флаг <code>--force-with-lease</code>:</p>
+<pre><code>$ git push --force-with-lease origin feature-billing</code></pre>
+    <p>Git проверяет: совпадает ли хеш ветки на сервере с вашей локальной закладкой <code>origin/feature-billing</code>? Если совпадает - пуш разрешается. Если на сервере появился чужой коммит, о котором вы не знаете - операция отклоняется, спасая код коллеги от удаления.</p>
+    <p>Удаление ненужной ветки на сервере выполняется специальной командой:</p>
+<pre><code>$ git push origin --delete feature-billing</code></pre>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что проверяет команда git push --force-with-lease перед отправкой коммитов на сервер?» (Ответ: проверяет, чтобы текущее состояние удаленной ветки на сервере в точности соответствовало локальной ссылке удаленного отслеживания refs/remotes/origin/*, гарантируя, что мы не затрем коммиты коллег, отправленные после нашего последнего fetch).</div>
+
+    <h2 id="scale-philosophy">6 · Матрица зрелости Noob / Pro / IGL: распределенная координация <a class="anchor-link" href="#scale-philosophy">#</a></h2>
+    <p>Культура сетевого взаимодействия в Git отражает зрелость инженера в распределенной командной игре:</p>
+    <ul>
+      <li><strong>Noob (новичок):</strong> представляет Git как централизованный диск. Вызывает <code>git pull</code> наугад, плодя бессмысленные мерж-коммиты на каждое движение. При получении ошибки <code>non-fast-forward</code> впадает в панику или не глядя вбивает <code>git push -f</code>, затирая работу коллег в общих ветках. Путает локальную ветку <code>main</code> с удаленной <code>origin/main</code>.</li>
+      <li><strong>Pro (профессионал):</strong> мыслит графами и сетевыми закладками. Настраивает в рабочей среде <code>pull.ff = only</code> (или <code>pull.rebase = true</code>) и <code>fetch.prune = true</code>. Перед синхронизацией использует <code>git fetch</code>, чтобы оценить изменения через <code>git log HEAD..origin/main</code>. Для обновления веток в процессе ревью использует исключительно <code>git push --force-with-lease</code>. Всегда связывает ветки через <code>git push -u</code>.</li>
+      <li><strong>IGL (In-Game Leader, внутриигровой лидер):</strong> задает командные правила сетевой игры и выстраивает архитектурные границы безопасности:
+        <ul>
+          <li><strong>Политика защиты репозитория (Branch Protection Rules):</strong> на уровне GitHub/GitLab жестко блокирует возможность прямых пушей и любых force-push в защищенные ветки <code>main</code> и <code>release/*</code>. Вливание разрешено только через Pull Request при успешных проверках в CI и аппруве Code Owners.</li>
+          <li><strong>Модель сетевого взаимодействия:</strong> внедряет Trunk-Based Development с быстрой интеграцией небольших фич, сводя к минимуму время жизни веток и устраняя сетевые конфликты на корню.</li>
+          <li><strong>Безопасность доступов (Least Privilege):</strong> разграничивает права Deploy Keys, токенов CI/CD и персональных SSH-ключей, исключая возможность компрометации репозитория и несанкционированного изменения истории.</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Какая конфигурация Git предотвращает случайное загрязнение истории мусорными коммитами слияния при выполнении git pull?» (Ответ: git config --global pull.ff only для запрета непрямолинейных слияний либо git config --global pull.rebase true для автоматического перебазирования локальных коммитов).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения темы вы владеете полной ментальной и прикладной картой сетевого взаимодействия в Git:</p>
+      <ul>
+        <li><strong>Сетевая модель:</strong> ясное понимание природы <code>remote-tracking</code> ссылок в <code>refs/remotes/origin/*</code> как локальных read-only закладок.</li>
+        <li><strong>Спецификация refspec:</strong> понимание формата <code>+src:dst</code> в <code>.git/config</code> и роли префикса принудительного обновления.</li>
+        <li><strong>Чистое скачивание:</strong> навык безопасного использования <code>git fetch</code> для инспекции входящих коммитов и чистки устаревших ссылок через <code>--prune</code>.</li>
+        <li><strong>Культура pull:</strong> осознанный выбор стратегии интеграции (<code>--rebase</code> или <code>--ff-only</code>) без паразитных мерж-коммитов.</li>
+        <li><strong>Безопасная публикация:</strong> настройка upstream-связей через <code>git push -u</code> и защита от затирания чужого кода через <code>--force-with-lease</code>.</li>
+      </ul>
     </div>
   </main>
 
