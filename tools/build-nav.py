@@ -125,7 +125,10 @@ def accessible(text, lang):
             other = re.search(r'\.\./(\w\w)/', href)
             code = other.group(1) if other else lang
             keep = (one.group(1) + one.group(3)).replace('\n', ' ')
-            keep = re.sub(r'\s*(lang|hreflang|aria-label)="[^"]*"', '', keep).strip()
+            keep = re.sub(r'\s*(lang|hreflang|aria-label|aria-current)="[^"]*"', '', keep)
+            keep = re.sub(r'\s*class="[^"]*"', '', keep).strip()
+            if code == lang:
+                keep = ('class="active" aria-current="page" ' + keep).strip()
             keep = (' ' + keep) if keep else ''
             return ('<a href="%s" lang="%s" hreflang="%s" aria-label="%s"%s>%s</a>'
                     % (href, code, code, LANG_NAME[code], keep, code.upper()))

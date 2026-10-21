@@ -33,13 +33,17 @@ if pathlib.Path('ru/navigator.html').exists():
 
 SAY = {
     'ru': {'size': 'Слов:', 'next': 'Следующая тема:', 'prev': 'Предыдущая тема:',
-           'nav': 'Соседние темы', 'home': 'Посадочная страница'},
+           'nav': 'Соседние темы', 'home': 'Посадочная страница',
+           'footer': 'Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.'},
     'en': {'size': 'Words:', 'next': 'Next topic:', 'prev': 'Previous topic:',
-           'nav': 'Neighbouring topics', 'home': 'Landing page'},
+           'nav': 'Neighbouring topics', 'home': 'Landing page',
+           'footer': 'An AI Factory series site. Built with the same harness: plain HTML and CSS, checked with bash, published via GitHub Pages.'},
     'uk': {'size': 'Слів:', 'next': 'Наступна тема:', 'prev': 'Попередня тема:',
-           'nav': 'Сусідні теми', 'home': 'Посадкова сторінка'},
+           'nav': 'Сусідні теми', 'home': 'Посадкова сторінка',
+           'footer': 'Сайт серії AI Factory. Зроблений тим самим оснащенням: звичайний HTML і CSS, перевірка на bash, публікація через GitHub Pages.'},
     'de': {'size': 'Wörter:', 'next': 'Nächstes Thema:', 'prev': 'Vorheriges Thema:',
-           'nav': 'Benachbarte Themen', 'home': 'Landingpage'},
+           'nav': 'Benachbarte Themen', 'home': 'Landingpage',
+           'footer': 'Eine Website der AI Factory-Serie. Mit denselben Werkzeugen erstellt: einfaches HTML und CSS, Bash-Prüfung, Veröffentlichung über GitHub Pages.'},
 }
 
 # Живой адрес сайта - одной константой. Канонический адрес, который не
@@ -66,6 +70,7 @@ TERM_LEAD = re.compile(r'<p class="glossary-lead">(.*?)</p>', re.S)
 H1 = re.compile(r'<h1[^>]*>(.*?)</h1>', re.S)
 SIZE_BLOCK = re.compile(r'\n?[ \t]*<p class="page-size".*?</p>', re.S)
 PAGER_BLOCK = re.compile(r'\n?[ \t]*<nav class="pager".*?</nav>', re.S)
+FOOTER_BLOCK = re.compile(r'\s*<footer\b[^>]*>.*?</footer>', re.S)
 ANCHOR = re.compile(r'<a class="anchor-link".*?</a>', re.S)
 TAG = re.compile(r'<[^>]+>')
 WORD = re.compile(r'[^\W_]', re.UNICODE)
@@ -87,6 +92,7 @@ def count_words(text):
         return 0
     inner = SIZE_BLOCK.sub('', body.group(0))
     inner = PAGER_BLOCK.sub('', inner)
+    inner = FOOTER_BLOCK.sub('', inner)
     inner = ANCHOR.sub(' ', inner)
     return sum(1 for w in re.split(r'\s+', plain(inner)) if WORD.search(w))
 
@@ -232,23 +238,22 @@ def rebuild(lang, name, titles):
 
     text = SIZE_BLOCK.sub('', text)
     text = PAGER_BLOCK.sub('', text)
+    text = FOOTER_BLOCK.sub('', text)
     text = HEAD_BLOCK.sub('', text)
 
     spot = CHAIN.index(name)
     prev_page = CHAIN[spot - 1] if spot > 0 else None
     next_page = CHAIN[spot + 1] if spot + 1 < len(CHAIN) else None
     pager = pager_block(lang, prev_page, next_page, titles)
-    if pager:
-        if '<footer>' in text:
-            text = text.replace('<footer>', '<footer>' + pager, 1)
-        elif '</main>' in text and '<div class="stub-card">' not in text:
-            default_footer = ('\n    <footer>\n' + pager + '\n'
-                              '      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,\n'
-                              '      проверка на bash, публикация через GitHub Pages.\n    </footer>\n  </main>')
-            text = text.replace('</main>', default_footer, 1)
 
     words = count_words(text)
     text = re.sub(r'(</h1>)', lambda m: m.group(1) + size_line(lang, words), text, count=1)
+
+    if pager and '<div class="stub-card">' not in text:
+        footer_text = CONF.get('footer') if (CONF.get('footer') and lang == 'ru') else SAY[lang]['footer']
+        footer_html = ('\n\n    <footer>' + pager + '\n'
+                       '      <p class="footer-note">' + footer_text + '</p>\n    </footer>')
+        text = text.replace('</main>', footer_html + '\n  </main>', 1)
 
     # Голова страницы собирается последней: описание берётся из лида, а схема
     # FAQPage - из вопросов, то есть из уже готового тела.
