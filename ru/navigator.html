@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru" data-site="git">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Навигатор инженера · devops-git · ai|</title>
+<!-- meta: built by tools/build-meta.py - do not edit by hand -->
+<meta name="description" content="Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<link rel="canonical" href="https://y-kolyada.github.io/git/ru/navigator.html">
+<link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/git/ru/navigator.html">
+<link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/git/en/navigator.html">
+<link rel="alternate" hreflang="uk" href="https://y-kolyada.github.io/git/uk/navigator.html">
+<link rel="alternate" hreflang="de" href="https://y-kolyada.github.io/git/de/navigator.html">
+<link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/git/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="devops-git">
+<meta property="og:title" content="Навигатор инженера">
+<meta property="og:description" content="Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<meta property="og:url" content="https://y-kolyada.github.io/git/ru/navigator.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Навигатор инженера","description":"Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.","url":"https://y-kolyada.github.io/git/ru/navigator.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-git","url":"https://y-kolyada.github.io/git/"}}</script>
+<!-- /meta -->
+<link rel="stylesheet" href="../assets/style.css?v=1">
+<script>
+  (function() {
+    var s = document.documentElement.dataset.site || 'swa';
+    var t = localStorage.getItem('swa-' + s + '-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var f = localStorage.getItem('swa-' + s + '-font');
+    if (f) document.documentElement.setAttribute('data-font', f);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand-group">
+    <a class="home" href="index.html">
+      <span class="badge-ai">ai|</span>
+      <span class="sub-brand">devops-git</span>
+    </a>
+    <div class="three" aria-hidden="true">инструменты · <span class="topic">Git</span> · практика · 150 вопросов</div>
+  </div>
+  <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
+    <nav class="lang-switcher" aria-label="Язык страницы">
+      <a href="../en/navigator.html" lang="en" hreflang="en" aria-label="English">EN</a>
+      <a href="navigator.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
+      <a href="../uk/navigator.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
+      <a href="../de/navigator.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
+    </nav>
+    <div class="font-scaler" role="group" aria-label="Размер шрифта">
+      <button type="button" class="font-btn font-s" data-size="s" title="Мелкий шрифт" aria-label="Мелкий шрифт">A</button>
+      <button type="button" class="font-btn font-m active" data-size="m" title="Стандартный шрифт" aria-label="Стандартный шрифт">A</button>
+      <button type="button" class="font-btn font-l" data-size="l" title="Крупный шрифт" aria-label="Крупный шрифт">A</button>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" title="Сменить тему (День/Ночь)" aria-label="Сменить тему день/ночь">
+      <span class="theme-icon" aria-hidden="true"><svg class="icon" data-icon="sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.8"/><path d="M10 1.2v2.2M10 16.6v2.2M1.2 10h2.2M16.6 10h2.2M3.7 3.7l1.6 1.6M14.7 14.7l1.6 1.6M16.3 3.7l-1.6 1.6M5.3 14.7l-1.6 1.6"/></svg></span>
+    </button>
+  </div>
+</header>
+
+<div class="cols">
+
+  <nav class="contents" aria-label="Разделы сайта">
+    <ol>
+      <li><a href="01.html"><span class="num">1</span>Хранилище .git</a></li>
+      <li><a href="02.html"><span class="num">2</span>Индекс и коммит</a></li>
+      <li><a href="03.html"><span class="num">3</span>Ветка и HEAD</a></li>
+      <li><a href="04.html"><span class="num">4</span>Слияние и fast-forward</a></li>
+      <li><a href="05.html"><span class="num">5</span>Rebase и история</a></li>
+      <li><a href="06.html"><span class="num">6</span>Конфликты слияния</a></li>
+      <li><a href="07.html"><span class="num">7</span>Отмена и reflog</a></li>
+      <li><a href="08.html"><span class="num">8</span>Удалённый репозиторий</a></li>
+      <li><a href="09.html"><span class="num">9</span>Хирургия Git</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
+    </ol>
+    <div class="nav-extra">
+      <div><a href="navigator.html" aria-current="page"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
+      <div><a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a></div>
+    </div>
+    <div class="page-toc" id="pageToc" aria-label="Разделы этой страницы" hidden>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <h1>Навигатор инженера</h1>
+    <p class="page-size" data-words="1546">Слов: 1546</p>
+    <p class="lead">Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.</p>
+
+    <div class="box key" id="key-idea">
+      <h2>Главная мысль навигатора <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
+      <p>Навигатор инженера систематизирует фундаментальные знания о системе управления версиями Git через девять профессиональных инженерных линз. Каждая линза рассматривает Git под отдельным аналитическим углом: от низкоуровневой структуры объектов Merkle DAG и бинарного индекса до архитектурных компромиссов монорепозиториев, надежных облачных пайплайнов, безопасной работы с ИИ-агентами и ликвидации критических аварий в продакшне.</p>
+    </div>
+
+    <h2 id="lens-components">1 · Компоненты (Components) <a class="anchor-link" href="#lens-components">#</a></h2>
+    <p>Архитектура Git базируется на направленном ациклическом графе (Merkle DAG) с контентной адресацией на основе криптографических хешей SHA-1 и SHA-256. В каталоге <code>.git/objects/</code> хранятся четыре базовых типа неизменяемых объектов: <code>blob</code> содержит чистое тело файла без метаданных и прав, <code>tree</code> задает структуру каталога и сопоставляет имена файлов с хешами блобов и правами доступа, <code>commit</code> фиксирует снимок корневого дерева, автора, коммитера, таймстемп и ссылки на родительские коммиты, а <code>annotated tag</code> служит постоянной подписанной меткой релиза. Бинарный индекс <code>.git/index</code> (сигнатура DIRC) выступает промежуточным стейджинг-кэшем между рабочей директорией и базой объектов.</p>
+    <p>Пространство ссылок <code>.git/refs/</code> формирует управляемый фасад над неизменяемым графом объектов. Локальные ветки <code>refs/heads/*</code> представляют собой простые 41-байтовые текстовые файлы с хешем текущего коммита, перемещаемые при фиксации изменений. Указатель <code>HEAD</code> определяет текущий контекст: он либо символически ссылается на активную ветку, либо указывает напрямую на хеш коммита в состоянии detached HEAD. Для долговременного хранения и сетевой передачи рыхлые объекты упаковываются в компактные pack-файлы с дельта-компрессией и быстрыми индексами <code>.idx</code>.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">01 · Что лежит в .git</a>, <a href="02.html">02 · Индекс и рабочая копия</a>, <a href="03.html">03 · Ветки: refs, HEAD и switch</a>, <a href="10.html">10 · Примеры Noob</a>, <a href="13.html">13 · Вопросы Noob</a>, <a href="glossary.html#blob">Словарь · Объект blob</a>, <a href="glossary.html#tree">Словарь · Объект tree</a>, <a href="glossary.html#commit-object">Словарь · Объект commit</a>, <a href="glossary.html#merkle-dag">Словарь · Merkle DAG</a>, <a href="glossary.html#index-staging">Словарь · Индекс</a>, <a href="glossary.html#head-pointer">Словарь · Указатель HEAD</a>, <a href="glossary.html#packfile-idx">Словарь · Pack-файлы</a>.</p>
+
+    <h2 id="lens-code">2 · Код и скрипты (Code / Scripts) <a class="anchor-link" href="#lens-code">#</a></h2>
+    <p>Командный интерфейс Git строго разделен на два уровня абстракции: высокоуровневый пользовательский фарфор (porcelain) и низкоуровневую сантехнику (plumbing). Пользовательские команды (status, add, commit, checkout) созданы для интерактивной работы человека: их вывод оптимизирован для восприятия и может меняться между релизами. Для надежной автоматизации в скриптах и CI/CD-пайплайнах обязано использоваться семейство plumbing-команд (<code>git hash-object</code>, <code>git cat-file</code>, <code>git write-tree</code>, <code>git commit-tree</code>, <code>git update-ref</code>) либо фарфор со стабильным машинным форматом (<code>git status --porcelain=v2</code>, <code>git log --pretty=format:</code>).</p>
+    <p>Программная расширяемость и контроль качества кода опираются на клиентские и серверные хуки в директории <code>.git/hooks/</code>. Клиентский жизненный цикл коммита управляется строгой цепочкой скриптов: <code>pre-commit</code> запускает линтеры и проверки форматирования до создания коммита, <code>prepare-commit-msg</code> подготавливает шаблон, а <code>commit-msg</code> валидирует структуру заголовка по стандарту Conventional Commits. Автоматизация развертывания хуков в команде через конфигурации репозитория предотвращает попадание невалидного или незашифрованного кода в общую ветку.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="02.html">02 · Индекс и рабочая копия</a>, <a href="03.html">03 · Ветки: refs, HEAD и switch</a>, <a href="08.html">08 · Удаленный репозиторий</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>, <a href="glossary.html#git-hooks">Словарь · Хуки Git</a>, <a href="glossary.html#index-staging">Словарь · Индекс staging</a>.</p>
+
+    <h2 id="lens-strength">3 · Сила и преимущества (Strength) <a class="anchor-link" href="#lens-strength">#</a></h2>
+    <p>Фундаментальная сила Git заключается в криптографической целостности истории благодаря архитектуре Merkle DAG. Каждый объект адресуется SHA-хешем своего заголовка и содержимого: модификация хотя бы одного байта в файле неизбежно меняет хеш его блоба, хеш дерева каталога и хеши всех последующих коммитов графа. Это делает историю изменений защищенной от незаметных искажений и обеспечивает прозрачную криптографическую цепочку аудита от первого коммита до релизного тега.</p>
+    <p>Вторым ключевым преимуществом является распределенная архитектура и феноменальная скорость локальных операций. Каждый клон содержит полноценную реплику всей истории проекта: создание веток, переключение контекста, просмотр логов и формирование коммитов происходят за миллисекунды без сетевых запросов. Алгоритм трехстороннего слияния (3-way merge) с автоматическим вычислением наилучшего общего предка (merge-base) обеспечивает надежное объединение независимых веток с минимальным вмешательством человека.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">01 · Что лежит в .git</a>, <a href="04.html">04 · Слияние: merge и fast-forward</a>, <a href="05.html">05 · Rebase: переписанная история</a>, <a href="10.html">10 · Примеры Noob</a>, <a href="13.html">13 · Вопросы Noob</a>, <a href="glossary.html#merkle-dag">Словарь · Merkle DAG</a>, <a href="glossary.html#fast-forward">Словарь · Fast-forward</a>, <a href="glossary.html#three-way-merge">Словарь · Трехстороннее слияние</a>.</p>
+
+    <h2 id="lens-weaknesses">4 · Слабости и лимиты (Weaknesses and Limits) <a class="anchor-link" href="#lens-weaknesses">#</a></h2>
+    <p>Главная архитектурная слабость Git проявляется при версионировании больших бинарных файлов (видео, веса нейросетей, скомпилированные артефакты, базы данных). Механизм дельта-компрессии неэффективен для сжатых или зашифрованных бинарных блобов: каждая новая версия файла сохраняется целиком, вызывая катастрофическое раздувание каталога <code>.git</code> и замедление сетевых операций clone и fetch. Для компенсации этого ограничения требуется интеграция внешних расширений типа Git LFS (Large File Storage), где в репозитории хранятся только легковесные текстовые указатели.</p>
+    <p>Второй системный лимит связан с масштабированием на сверхкрупные монорепозитории с миллионами файлов и коммитов. Сканирование рабочей директории и вычисление статуса создают чрезмерную нагрузку на файловую систему ОС. Для сохранения отзывчивости требуются специализированные решения: разреженное клонирование (<code>git sparse-checkout</code>), частичное клонирование (<code>git clone --filter</code>), фоновый мониторинг файлов через fsmonitor и оркестраторы монорепозиториев. Кроме того, механизм вложенных сабмодулей (<code>git submodule</code>) сложен в синхронизации и часто приводит к ошибкам указателей в распределенных командах.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="04.html">04 · Слияние: merge и fast-forward</a>, <a href="06.html">06 · Конфликты</a>, <a href="09.html">09 · Хирургия</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>, <a href="glossary.html#sparse-checkout">Словарь · Sparse-checkout</a>, <a href="glossary.html#packfile-idx">Словарь · Pack-файлы</a>.</p>
+
+    <h2 id="lens-ecosystem">5 · Взаимосвязи экосистемы (Ecosystem Interconnections) <a class="anchor-link" href="#lens-ecosystem">#</a></h2>
+    <p>Git является центральным нервным узлом всей индустрии разработки ПО: вокруг него построены платформы совместной разработки (GitHub, GitLab, Bitbucket), системы непрерывной интеграции (CI/CD) и среды разработки. В парадигме GitOps (ArgoCD, Flux) репозиторий Git выполняет роль единого источника правды (Single Source of Truth) для инфраструктуры Kubernetes: любые изменения конфигураций в боевом кластере происходят исключительно через синхронизацию с коммитами в целевой ветке.</p>
+    <p>Связи в экосистеме реализуются через событийно-ориентированную модель вебхуков (webhooks) и стандартизацию метаданных. Создание Pull Request, пуш новых тегов или открытие ветки запускают конвейеры автоматического тестирования, сборки контейнерных образов, сканирования уязвимостей и развертывания динамических превью-окружений. Семантическое связывание коммитов с тикет-системами (Jira, GitHub Issues) обеспечивает полную сквозную прослеживаемость от бизнес-требования до продакшн-релиза.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="05.html">05 · Rebase: переписанная история</a>, <a href="08.html">08 · Удаленный репозиторий</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>, <a href="glossary.html#remote-tracking">Словарь · Remote-tracking ветки</a>, <a href="glossary.html#refspec">Словарь · Refspec</a>.</p>
+
+    <h2 id="lens-ai">6 · В контексте AI (In AI Context) <a class="anchor-link" href="#lens-ai">#</a></h2>
+    <p>Внедрение больших языковых моделей и автономных AI-агентов кодогенерации меняет повседневную практику работы с системой контроля версий. ИИ эффективно автоматизирует рутинную гигиену: генерацию осмысленных сообщений коммитов на основе diff, первичное ревью входящих Pull Request, выявление антипаттернов и автоматическую локализацию дефектов. При этом Git служит идеальным внешним хранилищем контекста для рассуждений LLM, фиксируя эволюцию кода во времени.</p>
+    <p>Однако передача управления Git в руки автономных агентов несет серьезные риски разрушения истории. ИИ-агенты склонны применять деструктивные команды перезаписи (<code>git reset --hard</code>, <code>git push --force</code>, интерактивный rebase) при возникновении конфликтов, что грозит безвозвратной потерей незафиксированных данных. Для безопасной интеграции с AI требуются жесткие защитные рамки: работа агентов в изолированных рабочих деревьях (<code>git worktree</code>), запрет на форс-пуш без флага <code>--force-with-lease</code> и обязательная верификация диффов инженером перед слиянием.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="02.html">02 · Индекс и рабочая копия</a>, <a href="06.html">06 · Конфликты</a>, <a href="07.html">07 · Отмена: restore, reset, revert, reflog</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>, <a href="glossary.html#worktree">Словарь · Worktree</a>, <a href="glossary.html#reflog">Словарь · Журнал reflog</a>, <a href="glossary.html#dangling-objects">Словарь · Висячие объекты</a>.</p>
+
+    <h2 id="lens-cloud">7 · В контексте Cloud (In Cloud Context) <a class="anchor-link" href="#lens-cloud">#</a></h2>
+    <p>В облачной инфраструктуре распределенный репозиторий защищается комплексной моделью аутентификации и криптографического контроля. Аутентификация разработчиков строится на аппаратных ключах SSH (FIDO2) либо временных токенах, а криптографическая подпись коммитов и тегов через GPG или SSH-ключи гарантирует подлинность авторства кода. Взаимодействие облачных CI/CD-раннеров с репозиториями организуется через федерацию удостоверений OIDC (OpenID Connect), исключая хранение постоянных секретов в переменных окружения.</p>
+    <p>Корпоративные политики защиты веток (Branch Protection Rules) в облачных хостингах защищают базовые ветки от случайных или несанкционированных изменений. Прямые пуши в ветку main блокируются: слияние допускается только через Pull Request при наличии одобрений от ответственных инженеров (Code Owners), успешного завершения обязательных CI-пайплайнов и чистого отчета встроенных сканеров уязвимостей и утекших секретов (Secret Scanning).</p>
+    <p><strong>Связанные главы курса:</strong> <a href="03.html">03 · Ветки: refs, HEAD и switch</a>, <a href="08.html">08 · Удаленный репозиторий</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>, <a href="glossary.html#remote-tracking">Словарь · Remote-tracking ветки</a>, <a href="glossary.html#annotated-tag">Словарь · Аннотированный тег</a>.</p>
+
+    <h2 id="lens-devops">8 · Практики DevOps (DevOps Practices) <a class="anchor-link" href="#lens-devops">#</a></h2>
+    <p>В методологии DevOps выбор стратегии ветвления напрямую определяет скорость поставки изменений (Lead Time for Changes) и устойчивость релизов. Модель Trunk-Based Development с ультракороткими ветками (живущими не более одного дня) и фиче-флагами (Feature Flags) признана отраслевым стандартом DORA, минимизируя время интеграции и исключая разрушительный ад слияний (merge hell), характерный для долгоживущих веток в устаревшем GitFlow.</p>
+    <p>Инженерная гигиена DevOps опирается на принцип атомарных коммитов: каждая фиксация должна представлять собой минимальное, логически целостное и работоспособное изменение с зелеными тестами. Интерактивное перебазирование (<code>git rebase -i</code>) используется для структурирования и очистки локальной ветки перед созданием Pull Request, а автоматическая публикация релизов привязывается к аннотированным тегам с семантическим версионированием (SemVer).</p>
+    <p><strong>Связанные главы курса:</strong> <a href="04.html">04 · Слияние: merge и fast-forward</a>, <a href="05.html">05 · Rebase: переписанная история</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="14.html">14 · Вопросы Pro</a>, <a href="15.html">15 · Вопросы IGL</a>, <a href="glossary.html#rebase">Словарь · Rebase</a>, <a href="glossary.html#fast-forward">Словарь · Fast-forward</a>, <a href="glossary.html#annotated-tag">Словарь · Аннотированный тег</a>.</p>
+
+    <h2 id="lens-sre">9 · Практики SRE (SRE Practices) <a class="anchor-link" href="#lens-sre">#</a></h2>
+    <p>В практике Site Reliability Engineering система контроля версий выступает незаменимым инструментом ликвидации аварий в продакшне и расследования причин сбоев (Post-Mortem). При возникновении скрытой регрессии утилита автоматизированного бинарного поиска <code>git bisect run &lt;test-script&gt;</code> позволяет за логарифмическое число шагов среди тысяч коммитов безошибочно выявить конкретную фиксацию, нарушившую функциональность сервиса, полностью исключая ручной перебор версий.</p>
+    <p>Для экстренного восстановления сервиса SRE использует хирургический откат через <code>git revert</code>, создающий компенсирующий коммит без опасной перезаписи истории. В случаях ошибочного удаления релизных веток или разрушительного выполнения <code>git reset --hard</code> спасением служит локальный журнал перемещения ссылок <code>git reflog</code> и утилита низкоуровневого аудита <code>git fsck --lost-found</code>, позволяющие восстановить любые потерянные коммиты до запуска периодической сборки мусора (git gc).</p>
+    <p><strong>Связанные главы курса:</strong> <a href="07.html">07 · Отмена: restore, reset, revert, reflog</a>, <a href="09.html">09 · Хирургия</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>, <a href="glossary.html#reflog">Словарь · Журнал reflog</a>, <a href="glossary.html#bisect">Словарь · Бинарный поиск bisect</a>, <a href="glossary.html#cherry-pick">Словарь · Cherry-pick</a>, <a href="glossary.html#dangling-objects">Словарь · Висячие объекты</a>.</p>
+
+    <div class="box key" id="artifacts">
+      <h2>Артефакты: что у вас есть после навигатора <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p class="artifacts-slogan">Девять инженерных линз связывают отдельные команды Git в целостную ментальную модель архитектуры, безопасности и командной эксплуатации.</p>
+      <ul>
+        <li><b>Многомерное понимание Git:</b> видение неразрывной связи между объектами Merkle DAG, бинарным индексом, ссылками refs и алгоритмами слияния.</li>
+        <li><b>Архитектурная зрелость:</b> осознанный выбор стратегий ветвления (Trunk-Based против GitFlow), паттернов GitOps и масштабирования крупных репозиториев без потери скорости.</li>
+        <li><b>Операционная неуязвимость:</b> уверенное владение хирургическими инструментами локализации регрессий (bisect), экстренного отката (revert) и спасения потерянных данных через reflog при любых авариях.</li>
+      </ul>
+    </div>
+  
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-prev">Предыдущая тема: <a href="glossary.html">Словарь понятий</a></p>
+      </nav>
+      <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
+    </footer>
+  </main>
+
+</div>
+</div>
+<script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
+</body>
+</html>
