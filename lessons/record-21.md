@@ -222,6 +222,12 @@
 ## Список коммитов смены
 
 ```
+19781c3 chore(engine): sync from seed/swa
+fb697d1 docs(record): document target scroll margin resolution in notes-1
+6ee4557 chore(engine): sync from seed/swa
+42a289e docs(record): document scroll spy threshold resolution in notes-1
+24ff00d chore(engine): sync from seed/swa
+8e4e8cf docs(record): deliver step 21 on devops-git
 10a11ea feat(content): add canonical engineering navigator and active tool promotion
 c328ca4 chore(engine): sync from seed/swa
 ```
@@ -232,5 +238,5 @@ c328ca4 chore(engine): sync from seed/swa
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Архитектор (`ik`) | |
-| Пилот (Antigravity) | Сдано с подтверждением предикатов и 100% зелёным прогоном `./check.sh` |
+| Архитектор (`ik`) | Принято («О! Идеально! Так и оставим! Позаботься чтобы это было на всех сайтах нашей серии. Работу принимаю.») |
+| Пилот (Antigravity) | Сдано с подтверждением предикатов, калибровкой `scroll-margin-top` до 23px и 100% зелёным прогоном `./check.sh` |
