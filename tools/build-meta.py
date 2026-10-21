@@ -28,6 +28,8 @@ import siteconf
 
 LANGS = ('ru', 'en', 'uk', 'de')
 CHAIN = ['index'] + ['%02d' % n for n in range(1, 16)] + ['glossary']
+if pathlib.Path('ru/navigator.html').exists():
+    CHAIN.append('navigator')
 
 SAY = {
     'ru': {'size': 'Слов:', 'next': 'Следующая тема:', 'prev': 'Предыдущая тема:',
@@ -237,7 +239,13 @@ def rebuild(lang, name, titles):
     next_page = CHAIN[spot + 1] if spot + 1 < len(CHAIN) else None
     pager = pager_block(lang, prev_page, next_page, titles)
     if pager:
-        text = text.replace('<footer>', '<footer>' + pager, 1)
+        if '<footer>' in text:
+            text = text.replace('<footer>', '<footer>' + pager, 1)
+        elif '</main>' in text and '<div class="stub-card">' not in text:
+            default_footer = ('\n    <footer>\n' + pager + '\n'
+                              '      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,\n'
+                              '      проверка на bash, публикация через GitHub Pages.\n    </footer>\n  </main>')
+            text = text.replace('</main>', default_footer, 1)
 
     words = count_words(text)
     text = re.sub(r'(</h1>)', lambda m: m.group(1) + size_line(lang, words), text, count=1)

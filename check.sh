@@ -25,6 +25,11 @@
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 
+if [ "${1:-}" = "--fast" ]; then
+  shift
+  exec ./tools/check-fast.sh "$@"
+fi
+
 FAIL=0
 NAMES=()
 CODES=()

@@ -44,7 +44,7 @@ LANG_GROUP = {'ru': 'Язык страницы', 'en': 'Page language',
               'uk': 'Мова сторінки', 'de': 'Seitensprache'}
 SKIP_LINK = re.compile(r'\s*<a class="skip"[^>]*>.*?</a>', re.S)
 SWITCHER = re.compile(r'<(div|nav) class="lang-switcher"[^>]*>(.*?)</\1>', re.S)
-SWITCH_LINK = re.compile(r'<a ([^>]*?)href="([^"]+)"([^>]*)>([A-Z]{2})</a>')
+SWITCH_LINK = re.compile(r'<a ([^>]*?)href="([^"]+)"([^>]*)>(.*?)</a>', re.S)
 ASSETS = ('style.css', 'swa.js', 'terms.js', 'cp.js')
 NAV_ITEM = re.compile(r'(<nav class="contents"[^>]*>.*?</nav>)', re.S | re.I)
 NAV_LINK = re.compile(r'(<a\b[^>]*href="(?:\.\./\w\w/)?(\d\d)\.html"[^>]*>)(.*?)(</a>)', re.S | re.I)
@@ -62,7 +62,7 @@ VERSION = int(CONF['version'])
 HTML_TAG = re.compile(r'<html lang="(\w+)"[^>]*>')
 ASSET_LINK = re.compile(r'((?:href|src)="(?:\.\./)?assets/(?:%s))(?:\?v=[0-9]+)?"'
                         % '|'.join(a.replace('.', r'\.') for a in ASSETS))
-PAGE = re.compile(r'(?P<attr>href=")(?P<name>index|glossary|[0-9]{2})(?:-(?P<lang>en|uk|de))?\.html')
+PAGE = re.compile(r'(?P<attr>href=")(?P<name>index|glossary|navigator|[0-9]{2})(?:-(?P<lang>en|uk|de))?\.html')
 LESSON = re.compile(r'(href=")((?:step|record|notes)-[0-9]+\.md|backlog\.md)"')
 
 # Icons live here, not in the pages: each one carries data-icon, so the shape
@@ -128,7 +128,7 @@ def accessible(text, lang):
             keep = re.sub(r'\s*(lang|hreflang|aria-label)="[^"]*"', '', keep).strip()
             keep = (' ' + keep) if keep else ''
             return ('<a href="%s" lang="%s" hreflang="%s" aria-label="%s"%s>%s</a>'
-                    % (href, code, code, LANG_NAME[code], keep, one.group(4)))
+                    % (href, code, code, LANG_NAME[code], keep, code.upper()))
 
         return ('<nav class="lang-switcher" aria-label="%s">%s</nav>'
                 % (LANG_GROUP[lang], SWITCH_LINK.sub(link, inner)))
@@ -275,7 +275,7 @@ def rewrite(text, lang, migrate=False, page_name=''):
     return text, counts
 
 
-ANCHOR_LINK = re.compile(r'href="(?:\.\./ru/)?(index|glossary|[0-9]{2})\.html#([A-Za-z0-9_-]+)"')
+ANCHOR_LINK = re.compile(r'href="(?:\.\./ru/)?(index|glossary|navigator|[0-9]{2})\.html#([A-Za-z0-9_-]+)"')
 
 
 def anchors_of(path):

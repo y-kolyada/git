@@ -68,3 +68,11 @@ Practical chapters cover 6-7 battle-tested scenarios per chapter (18-21 per cour
 ## 12. Question banks (13-15)
 
 Question banks contain strictly 50 questions per chapter (150 per course). Subsections group questions by tens: `1 · Вопросы (1-10)` .. `5 · Вопросы (41-50)`. Each question provides a clear title, complete answer, and cross-links to glossary terms.
+
+## 13. Batched course delivery (4-5 steps per track)
+
+Instead of 19 single-page micro-shifts, a track is delivered in 4-5 coherent batches: Batch 1 (Setup, Landing, Topics 01-05); Batch 2 (Topics 06-09); Batch 3 (Examples 10-12); Batch 4 (Questions 13-15, Glossary, Navigator); Batch 5 (Polish & Release). Fast checks during drafting use `./tools/check-fast.sh` (or `./check.sh --fast`), reserving full `./check.sh` runs for batch deliveries.
+
+## 14. Prompting /compact on clean git trees
+
+At the end of every delivery record or when a batch is committed and the working tree is clean, the pilot must explicitly remind the Conductor in the next-step fork that the tree is clean and recommend executing `/compact` to reset context and prevent token budget exhaustion.

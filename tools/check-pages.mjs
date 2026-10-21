@@ -237,6 +237,16 @@ for (const file of files) {
     }
     const named = switcher.querySelectorAll('a[lang][hreflang][aria-label]').length;
     if (named !== 4) out.push('у ссылок языков нет языка и имени: таких ' + named + ' из 4');
+
+    const isStub = !!document.querySelector('.stub-card');
+    if (!isStub) {
+      const footer = document.querySelector('footer');
+      if (!footer) out.push('на содержательной странице нет footer');
+      else {
+        const pager = footer.querySelector('nav.pager');
+        if (!pager) out.push('в footer нет навигации по соседним темам (nav.pager)');
+      }
+    }
     if (!deep) return out;
 
     // Невидима мышью и появляется при получении фокуса.
